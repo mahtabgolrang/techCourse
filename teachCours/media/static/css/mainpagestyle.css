@@ -1,0 +1,328 @@
+.mediaViewInfo {
+    --web-view-name: Main Artboard;
+    --web-view-id: Main_Artboard;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+}
+:root {
+    --web-view-ids: Main_Artboard;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+#Main_Artboard {
+    position: absolute;
+    width: 1920px;
+    height: 3178px;
+    background-color: rgba(255,255,255,1);
+    overflow: hidden;
+    --web-view-name: Main Artboard;
+    --web-view-id: Main_Artboard;
+    --web-scale-on-resize: true;
+    --web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+
+}
+#Path_11_m {
+    fill: url(#Path_11_m);
+    stroke: rgba(112,112,112,1);
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.Path_11_m {
+    overflow: visible;
+    position: absolute;
+    width: 1379.617px;
+    height: 760.459px;
+    left: -1.429px;
+    top: 115.041px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_10 {
+    fill: rgba(240,214,170,0.161);
+}
+.Path_10 {
+    overflow: visible;
+    position: absolute;
+    width: 539.391px;
+    height: 109.397px;
+    left: 1380.609px;
+    top: 0px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Line_4 {
+    fill: transparent;
+    stroke: rgba(115,9,1,1);
+    stroke-width: 10px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.Line_4 {
+    overflow: visible;
+    position: absolute;
+    width: 832.295px;
+    height: 886.839px;
+    left: 663.5px;
+    top: -5.5px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_7_q {
+    fill: url(#Path_7_q);
+}
+.Path_7_q {
+    overflow: visible;
+    position: absolute;
+    width: 873.284px;
+    height: 12px;
+    left: -22.798px;
+    top: 869.745px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Path_12 {
+    filter: blur(27px);
+    fill: rgba(0,0,0,0);
+    stroke: rgba(255,199,39,1);
+    stroke-width: 8px;
+    stroke-linejoin: miter;
+    stroke-linecap: round;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.Path_12 {
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    overflow: visible;
+    position: absolute;
+    width: 26px;
+    height: 580.556px;
+    left: 151px;
+    top: 246.444px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Line_1 {
+    filter: blur(27px);
+    fill: transparent;
+    stroke: rgba(171,13,2,1);
+    stroke-width: 8px;
+    stroke-linejoin: miter;
+    stroke-linecap: round;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.Line_1 {
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    overflow: visible;
+    position: absolute;
+    width: 26px;
+    height: 581px;
+    left: 128px;
+    top: 192px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#Mathematics-cuate {
+    filter: drop-shadow(30px 20px 45px rgba(0, 0, 0, 0.161));
+    position: absolute;
+    width: 798px;
+    height: 798px;
+    left: 641px;
+    top: 137px;
+    overflow: visible;
+}
+#Start__Learning_With__techCour {
+    left: 174px;
+    top: 319px;
+    position: absolute;
+    overflow: visible;
+    width: 414px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 75px;
+    color: rgba(255,255,255,1);
+    letter-spacing: 0.3px;
+}
+#Toolbar_Group {
+    position: absolute;
+    width: 1920px;
+    height: 134.5px;
+    left: 0px;
+    top: -5.5px;
+    overflow: visible;
+}
+#Toolbar_white_side {
+    opacity: 0.6;
+    fill: rgba(248,248,248,1);
+}
+.Toolbar_white_side {
+    position: absolute;
+    overflow: visible;
+    width: 1920px;
+    height: 110px;
+    left: 0px;
+    top: 5.5px;
+}
+#register_group {
+    position: absolute;
+    width: 117px;
+    height: 54px;
+    left: 1590px;
+    top: 37.5px;
+    overflow: visible;
+    --web-animation: fadein 0.3s ease-out;
+    --web-action-type: page;
+    --web-action-target: Register_Artboard.html;
+    cursor: pointer;
+}
+#Rectangle_4_z {
+    fill: url(#Rectangle_4_z);
+}
+.Rectangle_4_z {
+    position: absolute;
+    overflow: visible;
+    width: 117px;
+    height: 54px;
+    left: 0px;
+    top: 0px;
+}
+#Register {
+    left: 9px;
+    top: 5px;
+    position: absolute;
+    overflow: visible;
+    width: 101px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 30px;
+    color: rgba(255,255,255,1);
+}
+#Log_in_group {
+    position: absolute;
+    width: 94px;
+    height: 47px;
+    left: 1459px;
+    top: 40.5px;
+    overflow: visible;
+    --web-animation: fadein 0.3s ease-out;
+    --web-action-type: page;
+    --web-action-target: Login_Artboard.html;
+    cursor: pointer;
+}
+#Log_in {
+    left: 8px;
+    top: 0px;
+    position: absolute;
+    overflow: visible;
+    width: 79px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 30px;
+    color: rgba(0,0,0,1);
+}
+#Rectangle_5_ {
+    fill: url(#Rectangle_5_);
+}
+.Rectangle_5_ {
+    position: absolute;
+    overflow: visible;
+    width: 94px;
+    height: 4px;
+    left: 0px;
+    top: 43px;
+}
+#work_with_us_group {
+    position: absolute;
+    width: 190px;
+    height: 44px;
+    left: 1730px;
+    top: 41.5px;
+    overflow: visible;
+}
+#Work_with_us {
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    overflow: visible;
+    width: 163px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 30px;
+    color: rgba(0,0,0,1);
+}
+#Rectangle_9_ {
+    fill: url(#Rectangle_9_);
+}
+.Rectangle_9_ {
+    position: absolute;
+    overflow: visible;
+    width: 170px;
+    height: 4px;
+    left: 20px;
+    top: 40px;
+}
+#logo {
+    position: absolute;
+    width: 136px;
+    height: 73px;
+    left: 27px;
+    top: 24.5px;
+    overflow: visible;
+}
+#Line_Toolbar {
+    fill: transparent;
+    stroke: rgba(115,9,1,1);
+    stroke-width: 10px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.Line_Toolbar {
+    overflow: visible;
+    position: absolute;
+    width: 124.301px;
+    height: 131.833px;
+    left: 1371.5px;
+    top: 0px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#gradient_rectangle_toolbar_bc {
+    fill: url(#gradient_rectangle_toolbar_bc);
+}
+.gradient_rectangle_toolbar_bc {
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    position: absolute;
+    overflow: visible;
+    width: 1938px;
+    height: 37px;
+    left: 0px;
+    top: 115.5px;
+}
+
+
+/* <!--Warnings:1. Background blur support: Background blur not supported on "Path_12"  is not supported2. Background blur support: Background blur not supported on "Line_1"  is not supported--> */
