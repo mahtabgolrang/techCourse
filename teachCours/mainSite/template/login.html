@@ -4,8 +4,442 @@
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register Artboard</title>
-<link rel="stylesheet" type="text/css" href="./css/registerpagestyle.css">
+<title>Login Artboard</title>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="./css/loginpagestyle.css">
+<style id="applicationStylesheet" type="text/css">
+	.mediaViewInfo {
+		--web-view-name: Login Artboard;
+		--web-view-id: Login_Artboard;
+		--web-scale-on-resize: true;
+		--web-enable-deep-linking: true;
+	}
+	:root {
+		--web-view-ids: Login_Artboard;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+	}
+	#Login_Artboard {
+		position: absolute;
+		width: 1920px;
+		height: 1080px;
+		min-height:100%;
+		background-color: rgba(255,255,255,1);
+		overflow: hidden;
+		--web-view-name: Login Artboard;
+		--web-view-id: Login_Artboard;
+		--web-scale-on-resize: true;
+		--web-enable-deep-linking: true;
+	}
+	@keyframes fadein {
+	
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	
+	}
+	#Group_3 {
+		position: absolute;
+		width: 1059.337px;
+		height: 1189.09px;
+		left: -34.668px;
+		top: 64.44px;
+		overflow: visible;
+	}
+	#gradient__n {
+		fill: url(#gradient__n);
+	}
+	.gradient__n {
+		overflow: visible;
+		position: absolute;
+		width: 1026.397px;
+		height: 1151.888px;
+		left: 24.94px;
+		top: 11.56px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#gradient2_p {
+		fill: url(#gradient2_p);
+	}
+	.gradient2_p {
+		overflow: visible;
+		position: absolute;
+		width: 1059.337px;
+		height: 1189.09px;
+		left: 0px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#log_in_group {
+		position: absolute;
+		width: 476px;
+		height: 229.047px;
+		left: 1164.242px;
+		top: 310.953px;
+		overflow: visible;
+	}
+	#fullname_group {
+		position: absolute;
+		width: 461.52px;
+		height: 53px;
+		left: 0.48px;
+		top: 0px;
+		overflow: visible;
+	}
+	#fullname_rectangle {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(112,112,112,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.fullname_rectangle {
+		filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+		position: absolute;
+		overflow: visible;
+		width: 480.52px;
+		height: 72px;
+		left: 0px;
+		top: 0px;
+	}
+	#fullname1{
+		border-style: hidden;
+		outline: none;
+		outline-style: none;
+		outline-color: white;
+	}
+	#Username_or_email {
+		opacity: 0.6;
+		left: 20px;
+		top: 13px;
+		position: absolute;
+		overflow: visible;
+		width: 159px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: lighter;
+		font-size: 20px;
+		color: rgba(112,112,112,1);
+	}
+	#email_group {
+		position: absolute;
+		width: 461.52px;
+		height: 53px;
+		left: 0.48px;
+		top: 89px;
+		overflow: visible;
+	}
+	#email_rectangle {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(112,112,112,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.email_rectangle {
+		filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+		position: absolute;
+		overflow: visible;
+		width: 480.52px;
+		height: 72px;
+		left: 0px;
+		top: 0px;
+	}
+	#Password {
+		opacity: 0.6;
+		left: 20px;
+		top: 13px;
+		position: absolute;
+		overflow: visible;
+		width: 78px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: lighter;
+		font-size: 20px;
+		color: rgba(112,112,112,1);
+	}
+	#password1{
+		border-style: hidden;
+        outline: none;
+        outline-style: none;
+        outline-color: white;
+	}
+	#log_in_button_Group_ {
+		position: absolute;
+		width: 238px;
+		height: 51px;
+		left: 0px;
+		top: 178.047px;
+		overflow: visible;
+	}
+	#log_in_Rectangle {
+		fill: rgba(210,50,40,1);
+	}
+	.log_in_Rectangle {
+		position: absolute;
+		overflow: visible;
+		width: 238px;
+		height: 51px;
+		left: 0px;
+		top: 0px;
+		--web-animation: fadein 0.3s ease-out;
+		--web-action-type: page;
+		--web-action-target: Main_Artboard.html;
+		cursor: pointer;
+	}
+	#log_in {
+		left: 93.117px;
+		top: 11px;
+		position: absolute;
+		overflow: visible;
+		width: 55px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(255,253,254,1);
+	}
+	#sign_in_button_Group_ {
+		position: absolute;
+		width: 238px;
+		height: 51px;
+		left: 238px;
+		top: 178.047px;
+		overflow: visible;
+		--web-animation: fadein 0.3s ease-out;
+		--web-action-type: page;
+		--web-action-target: Forget_Password_Artboard.html;
+		cursor: pointer;
+	}
+	#sign_inRectangle {
+		fill: rgba(255,255,255,1);
+	}
+	.sign_inRectangle {
+		position: absolute;
+		overflow: visible;
+		width: 238px;
+		height: 51px;
+		left: 0px;
+		top: 0px;
+	}
+	#Forget_password {
+		left: 41px;
+		top: 12.5px;
+		position: absolute;
+		overflow: visible;
+		width: 157px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(0,0,0,1);
+	}
+	#techCourse_Text_group {
+		position: absolute;
+		width: 196px;
+		height: 61px;
+		left: 80px;
+		top: 131px;
+		overflow: visible;
+		--web-animation: fadein 0.3s ease-out;
+		--web-action-type: page;
+		--web-action-target: Main_Artboard.html;
+		cursor: pointer;
+	}
+	#tech_Rectangle__ {
+		fill: url(#tech_Rectangle__);
+	}
+	.tech_Rectangle__ {
+		overflow: visible;
+		position: absolute;
+		width: 98px;
+		height: 61px;
+		left: 0px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#techCourse {
+		left: 33px;
+		top: 10px;
+		position: absolute;
+		overflow: visible;
+		width: 164px;
+		height: 41px;
+		text-align: center;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 30px;
+		color: rgba(255,255,255,1);
+	}
+	#title_group {
+		position: absolute;
+		width: 305px;
+		height: 439px;
+		left: 190px;
+		top: 280px;
+		overflow: visible;
+	}
+	#Start__Learning_With_techCours {
+		left: 30px;
+		top: 87.91px;
+		position: absolute;
+		overflow: visible;
+		width: 276px;
+		white-space: nowrap;
+		line-height: 63px;
+		margin-top: -6.5px;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 50px;
+		color: rgba(255,255,255,1);
+		letter-spacing: 0.3px;
+	}
+	#Path_1 {
+		filter: blur(27px);
+		fill: rgba(0,0,0,0);
+		stroke: rgba(171,13,2,1);
+		stroke-width: 4px;
+		stroke-linejoin: miter;
+		stroke-linecap: round;
+		stroke-dasharray: 11;
+		stroke-dashoffset: 0;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Path_1 {
+		filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+		overflow: visible;
+		position: absolute;
+		width: 22px;
+		height: 461px;
+		left: 0px;
+		top: 0px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#gradient_rectangle_upper_bb {
+		fill: url(#gradient_rectangle_upper_bb);
+	}
+	.gradient_rectangle_upper_bb {
+		position: absolute;
+		overflow: visible;
+		width: 1920px;
+		height: 80px;
+		left: 0px;
+		top: 0px;
+	}
+	#reg__log_in__work_with_us_grou {
+		position: absolute;
+		width: 462.681px;
+		height: 38.313px;
+		left: 1165.242px;
+		top: 236px;
+		overflow: visible;
+	}
+	#line_bottm_reg_and_log_in {
+		opacity: 0.45;
+		fill: transparent;
+		stroke: rgba(112,112,112,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.line_bottm_reg_and_log_in {
+		overflow: visible;
+		position: absolute;
+		width: 462.683px;
+		height: 2px;
+		left: 0px;
+		top: 37.313px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#line_bottom_register {
+		fill: rgba(0,0,0,0);
+		stroke: rgba(0,0,0,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.line_bottom_register {
+		overflow: visible;
+		position: absolute;
+		width: 129.45px;
+		height: 2px;
+		left: 148.874px;
+		top: 38.313px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#register_text {
+		left: 25.44px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 85px;
+		white-space: nowrap;
+		--web-animation: fadein 0.3s ease-out;
+		--web-action-type: page;
+		--web-action-target: Register_Artboard.html;
+		cursor: pointer;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: lighter;
+		font-size: 25px;
+		color: rgba(112,112,112,1);
+	}
+	#log_in_text {
+		left: 181.099px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 66px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: lighter;
+		font-size: 25px;
+		color: rgba(1,0,0,1);
+	}
+	#Work_with_us {
+		left: 317.758px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 135px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: lighter;
+		font-size: 25px;
+		color: rgba(112,112,112,1);
+	}
+</style>
 <script id="applicationScript">
 ///////////////////////////////////////
 // INITIALIZATION
@@ -2917,9 +3351,8 @@ var Application = function() {
 window.application = new Application();
 </script>
 </head>
-<body dir="ltr">
-<form>
-<div id="Register_Artboard">
+<body>
+<div id="Login_Artboard">
 	<div id="Group_3">
 		<svg class="gradient__n" viewBox="0 0 1026.397 1151.888">
 			<linearGradient id="gradient__n" spreadMethod="pad" x1="0.55" x2="0.55" y1="0" y2="1">
@@ -2940,115 +3373,57 @@ window.application = new Application();
 			</path>
 		</svg>
 	</div>
-	<svg class="white_rectangle_upper">
-		<rect id="white_rectangle_upper" rx="0" ry="0" x="0" y="0" width="1920" height="62">
-		</rect>
-	</svg>
-	<svg class="gradient_rectangle_upper_s">
-		<linearGradient id="gradient_rectangle_upper_s" spreadMethod="pad" x1="0" x2="1" y1="0.5" y2="0.5">
-			<stop offset="0" stop-color="#ab0d02" stop-opacity="1"></stop>
-			<stop offset="0.2476" stop-color="#d13228" stop-opacity="1"></stop>
-			<stop offset="0.5354" stop-color="#002121" stop-opacity="1"></stop>
-			<stop offset="0.8501" stop-color="#03c7e8" stop-opacity="1"></stop>
-			<stop offset="1" stop-color="#caf3f6" stop-opacity="1"></stop>
-		</linearGradient>
-		<rect id="gradient_rectangle_upper_s" rx="0" ry="0" x="0" y="0" width="1920" height="80">
-		</rect>
-	</svg>
-	<div id="register_group">
-		<div id="fullname_group" class="fullname_group">
+	<div id="log_in_group">
+		<div id="fullname_group">
 			<svg class="fullname_rectangle">
-				<rect id="fullname_rectangle" rx="0" ry="0" x="0" y="0" width="462" height="53">
+				<rect id="fullname_rectangle" rx="0" ry="0" x="0" y="0" width="461.52" height="53">
 				</rect>
 			</svg>
-			<div id="Full_name">
-				<span>Full name</span>
-				<input id="fullname1" name="fullname" required="required" type="name"/> 
+			<div id="Username_or_email">
+				<span>Username or email</span>
+			<input id="fullname1" name="fullname" required="required" type="name"/> 
 			</div>
 		</div>
 		<div id="email_group">
 			<svg class="email_rectangle">
-				<rect id="email_rectangle" rx="0" ry="0" x="0" y="0" width="462" height="53">
-				</rect>
-			</svg>
-			<div id="Email">
-				<span>Email</span>
-				<input id="email1" name="email" required="required" type="email"/> 
-			</div>
-		</div>
-		<div id="public_username_group">
-			<svg class="public_username_rectangle">
-				<rect id="public_username_rectangle" rx="0" ry="0" x="0" y="0" width="462" height="53">
-				</rect>
-			</svg>
-			<div id="Public_Username">
-				<span>Public Username</span>
-				<input id="username1" name="username" required="required" type="name"/>
-			</div>
-		</div>
-
-		<div id="reg__log_in__work_with_us_grou">
-
-			<svg class="line_bottm_reg_and_log_in" viewBox="0 0 462.681 1">
-				<path id="line_bottm_reg_and_log_in" d="M 0 1 L 462.6807861328125 0">
-				</path>
-			</svg>
-			<svg class="line_bottom_register" viewBox="0 1 129.45 2">
-				<path id="line_bottom_register" d="M 0 1 L 129.4503173828125 1">
-				</path>
-			</svg>
-			
-			<div onclick="application.goToTargetView(event)" id="register_text">
-			<input name="Register" type="button" />
-				<span>Register</span>
-			</div>
-
-			<div onclick="application.goToTargetView(event)" id="log_in_text">
-			<input name="login" type="button" /> 
-				<span>Log in</span>
-			</div>
-
-			<div onclick="application.goToTargetView(event)" id="Work_with_us">
-			<input  name="work_with_us" type="button" /> 
-				<span>Work with us</span>
-			</div>
-		</div>
-
-
-
-		<div id="password_Group_">
-			<svg class="password_Rectangle_">
-				<rect id="password_Rectangle_" rx="0" ry="0" x="0" y="0" width="462" height="53">
+				<rect id="email_rectangle" rx="0" ry="0" x="0" y="0" width="461.52" height="53">
 				</rect>
 			</svg>
 			<div id="Password">
 				<span>Password</span>
-			    <input id="password1" name="password" required="required" type="password"/> 
-
+				<input id="password1" name="password" required="required" type="password"/> 
 			</div>
 		</div>
-		<div id="text_that_im_agree_Group_">
-			<input id="Rectangle_1" class="Rectangle_1" name="checkbox" type="checkbox"  />
-			<div id="By_creating_an_account_I_agree">
-				<span>By creating an account, I agree that </span><br/>
+		<div onclick="application.goToTargetView(event)" id="log_in_button_Group_" >
+			<svg class="log_in_Rectangle">
+				<rect  id="log_in_Rectangle" rx="0" ry="0" x="0" y="0" width="238" height="51">
+				</rect>
+			<input class="log_in_Rectangle" id="log_in_button_Group_" name="log_in_button"type="button"/>
+			</svg>
+			<div id="log_in">
+				<span>log in</span>
 			</div>
 		</div>
-		<div id="create_acount_Group_" onclick="application.goToTargetView(event)" >
-		    <input   class="ceate_accountRectangle" id="ceate_accountRectangle" type="button"/>
-			<div id="Create_an_account_">
-				<span>Create an account </span>
+		<div onclick="application.goToTargetView(event)" id="sign_in_button_Group_">
+			<svg class="sign_inRectangle">
+				<rect id="sign_inRectangle" rx="0" ry="0" x="0" y="0" width="238" height="51">
+				</rect>
+			<input class="sign_inRectangle"id="sign_in_button_Group_" name="forget_pass" type="button"/>	
+			</svg>
+			<div id="Forget_password">
+				<span>Forget password</span>
 			</div>
 		</div>
 	</div>
 	<div onclick="application.goToTargetView(event)" id="techCourse_Text_group">
-		<svg class="tech_Rectangle__bk">
-			<linearGradient id="tech_Rectangle__bk" spreadMethod="pad" x1="0.094" x2="0.88" y1="0.5" y2="0.5">
+		<svg class="tech_Rectangle__" viewBox="-1 0 98 61">
+			<linearGradient id="tech_Rectangle__" spreadMethod="pad" x1="0.094" x2="0.88" y1="0.5" y2="0.5">
 				<stop offset="0" stop-color="#ab0d02" stop-opacity="1"></stop>
 				<stop offset="1" stop-color="#560701" stop-opacity="1"></stop>
 			</linearGradient>
-			<rect id="tech_Rectangle__bk" rx="0" ry="0" x="0" y="0" width="98" height="61">
-			</rect>
-			<input name ="button_techCourse"class="tech_Rectangle__bk" id="tech_Rectangle__bk" type="button"/>
+			<path id="tech_Rectangle__" d="M -1 0 L 97 0 L 97 61 L 0 61 L -1 0 Z">
+			</path>
+			<input name ="button_techCourse"class="tech_Rectangle__" id="tech_Rectangle__" type="button"/>
 		</svg>
 		<div id="techCourse">
 			<span>techCourse</span>
@@ -3063,7 +3438,39 @@ window.application = new Application();
 			</path>
 		</svg>
 	</div>
+	<svg class="gradient_rectangle_upper_bb">
+		<linearGradient id="gradient_rectangle_upper_bb" spreadMethod="pad" x1="0" x2="1" y1="0.5" y2="0.5">
+			<stop offset="0" stop-color="#ab0d02" stop-opacity="1"></stop>
+			<stop offset="0.2476" stop-color="#d13228" stop-opacity="1"></stop>
+			<stop offset="0.5354" stop-color="#002121" stop-opacity="1"></stop>
+			<stop offset="0.8501" stop-color="#03c7e8" stop-opacity="1"></stop>
+			<stop offset="1" stop-color="#caf3f6" stop-opacity="1"></stop>
+		</linearGradient>
+		<rect id="gradient_rectangle_upper_bb" rx="0" ry="0" x="0" y="0" width="1920" height="80">
+		</rect>
+	</svg>
+	<div id="reg__log_in__work_with_us_grou">
+		<svg class="line_bottm_reg_and_log_in" viewBox="0 0 462.681 1">
+			<path id="line_bottm_reg_and_log_in" d="M 0 1 L 462.6807861328125 0">
+			</path>
+		</svg>
+		<svg class="line_bottom_register" viewBox="0 1 129.45 2">
+			<path id="line_bottom_register" d="M 0 1 L 129.4503173828125 1">
+			</path>
+		</svg>
+		<div onclick="application.goToTargetView(event)" id="register_text">
+			<input  class="line_bottm_reg_and_log_in" id="line_bottm_reg_and_log_in"type="button" /> 
+			<span>Register</span>
+		</div>
+		<div onclick="application.goToTargetView(event)" id="log_in_text">
+			<input id="reg__log_in__work_with_us_grou" id="log_in_text"  class="line_bottm_reg_and_log_in" id="line_bottm_reg_and_log_in"type="button" /> 
+			<span>Log in</span>
+		</div>
+		<div onclick="application.goToTargetView(event)" id="Work_with_us">
+		<input  class="line_bottm_reg_and_log_in" id="line_bottm_reg_and_log_in"type="button" /> 
+			<span>Work with us</span>
+		</div>
+	</div>
 </div>
-</form>
 </body>
 </html>
