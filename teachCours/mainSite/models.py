@@ -50,10 +50,10 @@ class Document(models.Model):
 
 
 class Customer (models.Model):
-    name = models.CharField(max_length=200, null=True)
-    familyName = models.CharField(max_length=200, null=True)
+    #name = models.CharField(max_length=200, null=True)
+    #familyName = models.CharField(max_length=200, null=True)
     phone = models.CharField(max_length=200, null=True)
-    email = models.CharField(max_length=200, null=True)
+    #email = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     user = models.OneToOneField(User, null=True,on_delete=models.CASCADE)
     profile_pic = models.ImageField(null=True, blank=True)
@@ -64,15 +64,14 @@ class Customer (models.Model):
 
 
 class Teacher (models.Model):
-    name = models.CharField(max_length=200, null=True)
-    familyName = models.CharField(max_length=200, null=True)
+    #name = models.CharField(max_length=200, null=True)
     phone = models.CharField(max_length=200, null=True)
-    email = models.CharField(max_length=200, null=True)
+    #email = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     profile_pic = models.ImageField(null=True, blank=True)
     course = models.ManyToManyField(Course)
-    documents = models.ManyToManyField(Document)
+    documents = models.OneToOneField(Document, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.name

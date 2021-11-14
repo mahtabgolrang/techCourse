@@ -31,9 +31,9 @@ class adminDocument(admin.ModelAdmin):
 
 @admin.register(Customer)
 class adminCustomer(admin.ModelAdmin):
-    list_display = ['name','familyName','user']
+    list_display = ['user']
 
 
 @admin.register(Teacher)
 class adminTeacher(admin.ModelAdmin):
-    list_display = ['name','familyName','user']
+    list_display = ['user']
