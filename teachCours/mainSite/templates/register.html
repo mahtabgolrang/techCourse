@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Register Artboard</title>
 <link rel="stylesheet" type="text/css" href="./css/registerpagestyle.css">
-<script id="applicationScript">
+<!--<script id="applicationScript">
 ///////////////////////////////////////
 // INITIALIZATION
 ///////////////////////////////////////
@@ -2915,12 +2915,11 @@ var Application = function() {
 }
 
 window.application = new Application();
-</script>
+</script>-->
 </head>
 <body dir="ltr">
-<form method="POST" action="">
-	{% csrf_token %}
-	<div id="Register_Artboard">
+<form method="POST">
+<div id="Register_Artboard">
 	<div id="Group_3">
 		<svg class="gradient__n" viewBox="0 0 1026.397 1151.888">
 			<linearGradient id="gradient__n" spreadMethod="pad" x1="0.55" x2="0.55" y1="0" y2="1">
@@ -2964,7 +2963,7 @@ window.application = new Application();
 			</svg>
 			<div id="Full_name">
 				<span>Full name</span>
-				{{form.fullname}} 
+				<input id="fullname1" name="fullname" required="required" type="name"/> 
 			</div>
 		</div>
 		<div id="email_group">
@@ -2974,7 +2973,7 @@ window.application = new Application();
 			</svg>
 			<div id="Email">
 				<span>Email</span>
-				{{form.email}}
+				<input id="email1" name="email" required="required" type="email"/> 
 			</div>
 		</div>
 		<div id="public_username_group">
@@ -2984,7 +2983,7 @@ window.application = new Application();
 			</svg>
 			<div id="Public_Username">
 				<span>Public Username</span>
-				{{form.username}}
+				<input id="username1" name="username" required="required" type="name"/>
 			</div>
 		</div>
 
@@ -3024,7 +3023,8 @@ window.application = new Application();
 			</svg>
 			<div id="Password">
 				<span>Password</span>
-				{{form.password}}
+			    <input id="password1" name="password" required="required" type="password"/> 
+
 			</div>
 		</div>
 		<div id="text_that_im_agree_Group_">
