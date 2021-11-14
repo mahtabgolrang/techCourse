@@ -18,10 +18,7 @@ import logging
 def registerPage(request):
     form = CreateUserForm()
     if request.method == 'POST':
-        messages.info(request,"sdsadsdsadaddadadad")    
         form= CreateUserForm(request.POST)
-        messages.info(request,'Account was created for')   
-
         if form.is_valid():
              messages.info(request,'Account was created for')   
              user=form.save()
@@ -34,24 +31,20 @@ def registerPage(request):
              messages.success(request,'Account was created for' + username)   
         return redirect('login')
     
-    {'form':form}
     return render(request , 'register.html',{'form':form})
+    
 logger = logging.getLogger(__name__)
 
 @unauthenticated_user
 def loginPage(request):
     if request.method == 'POST':
-        messages.info(request,'kos amamt')
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
-        logger.error("\n\n\n\n\n"+str(username)+ "    " +str(password)+"  \n\n\n\n")
-
         if user is not None:
             login(request,user)
         else:
             messages.info(request,'user name or password is incorrect...!')
-            return redirect('register')
     context = {}
     return render(request , 'login.html',context)
 
@@ -68,23 +61,7 @@ def main(request):
 
 
 def test(request):
-    form = CreateUserForm()
-    if request.method == 'POST':
-        messages.info(request,"sdsadsdsadaddadadad")    
-        form= CreateUserForm(request.POST)
-        messages.info(request,'Account was created for')   
-
-        if form.is_valid():
-             messages.info(request,'Account was created for')   
-             user=form.save()
-             customer = Customer()
-             customer.user=user
-             customer.save()
-             username= form.cleaned_data.get('username')
-             group = Group.objects.get(name='customer')
-             user.groups.add(group)
-             messages.success(request,'Account was created for' + username)   
-        return redirect('login')
-    
-    {'form':form}
-    return render(request , 'test.html',{'form':form})
+    context={
+        
+    }
+    return render(request , 'test.html', context)
