@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Register Artboard</title>
-<link rel="stylesheet" type="text/css" href="./css/registerpagestyle.css">
+<link rel="stylesheet" type="text/css" href="{% static '/css/registerpagestyle.css' %}">
 <!--<script id="applicationScript">
 ///////////////////////////////////////
 // INITIALIZATION
@@ -2919,7 +2921,8 @@ window.application = new Application();
 </head>
 <body dir="ltr">
 <form method="POST">
-<div id="Register_Artboard">
+	{% csrf_token %}
+	<div id="Register_Artboard">
 	<div id="Group_3">
 		<svg class="gradient__n" viewBox="0 0 1026.397 1151.888">
 			<linearGradient id="gradient__n" spreadMethod="pad" x1="0.55" x2="0.55" y1="0" y2="1">
@@ -2963,7 +2966,8 @@ window.application = new Application();
 			</svg>
 			<div id="Full_name">
 				<span>Full name</span>
-				<input id="fullname1" name="fullname" required="required" type="name"/> 
+				{{form.first_name}} 
+				{{form.first_name.label_tag}}
 			</div>
 		</div>
 		<div id="email_group">
@@ -2973,7 +2977,8 @@ window.application = new Application();
 			</svg>
 			<div id="Email">
 				<span>Email</span>
-				<input id="email1" name="email" required="required" type="email"/> 
+				{{form.email}}
+				{{form.email.label_tag}}
 			</div>
 		</div>
 		<div id="public_username_group">
@@ -2983,7 +2988,8 @@ window.application = new Application();
 			</svg>
 			<div id="Public_Username">
 				<span>Public Username</span>
-				<input id="username1" name="username" required="required" type="name"/>
+				{{form.username}}
+				{{form.username.label_tag}}
 			</div>
 		</div>
 
@@ -3004,8 +3010,8 @@ window.application = new Application();
 			</div>
 
 			<div onclick="application.goToTargetView(event)" id="log_in_text">
-			<input name="login" type="button" /> 
-				<span>Log in</span>
+			<input name="login" type="button"  /> 
+				<a href="{% url 'login' %}" class="ml-2">Login</a>
 			</div>
 
 			<div onclick="application.goToTargetView(event)" id="Work_with_us">
@@ -3023,23 +3029,44 @@ window.application = new Application();
 			</svg>
 			<div id="Password">
 				<span>Password</span>
-			    <input id="password1" name="password" required="required" type="password"/> 
-
+			    {{form.password1}}
+				{{form.password1.label_tag}}
 			</div>
 		</div>
+
+		
 		<div id="text_that_im_agree_Group_">
 			<input id="Rectangle_1" class="Rectangle_1" name="checkbox" type="checkbox"  />
 			<div id="By_creating_an_account_I_agree">
 				<span>By creating an account, I agree that </span><br/>
 			</div>
 		</div>
-		<div id="create_acount_Group_" onclick="application.goToTargetView(event)" >
-		    <input   class="ceate_accountRectangle" id="ceate_accountRectangle" type="button"/>
-			<div id="Create_an_account_">
-				<span>Create an account </span>
-			</div>
+		<div id="create_acount_Group_">
+			<button type="submit" class="ceate_accountRectangle" id="ceate_accountRectangle">
+				<div id="Create_an_account_">
+					<span>Create an account </span>
+				</div>
+			</button>
+			
 		</div>
 	</div>
+	{% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+
+
+	{% for message in messages %}
+        <p id="messages">{{message}}</p>
+    {% endfor %}
+
+
 	<div onclick="application.goToTargetView(event)" id="techCourse_Text_group">
 		<svg class="tech_Rectangle__bk">
 			<linearGradient id="tech_Rectangle__bk" spreadMethod="pad" x1="0.094" x2="0.88" y1="0.5" y2="0.5">
