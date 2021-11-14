@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Artboard</title>
-<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="./css/loginpagestyle.css">
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/css/loginpagestyle.css' %}">
 <style id="applicationStylesheet" type="text/css">
 	.mediaViewInfo {
 		--web-view-name: Login Artboard;
@@ -3352,6 +3353,7 @@ window.application = new Application();
 </script>-->
 </head>
 <form method="POST">
+{% csrf_token %}
 <body>
 <div id="Login_Artboard">
 	<div id="Group_3">
@@ -3382,7 +3384,8 @@ window.application = new Application();
 			</svg>
 			<div id="Username_or_email">
 				<span>Username or email</span>
-			<input id="fullname1" name="fullname" required="required" type="name"/> 
+				<input type="text" name="username" placeholder="Username..." class="form-control">
+
 			</div>
 		</div>
 		<div id="email_group">
@@ -3392,29 +3395,21 @@ window.application = new Application();
 			</svg>
 			<div id="Password">
 				<span>Password</span>
-				<input id="password1" name="password" required="required" type="password"/> 
+				<input type="password" name="password" placeholder="Password..." class="form-control" >		
 			</div>
 		</div>
 		<div onclick="application.goToTargetView(event)" id="log_in_button_Group_" >
 			<svg class="log_in_Rectangle">
 				<rect  id="log_in_Rectangle" rx="0" ry="0" x="0" y="0" width="238" height="51">
 				</rect>
-			<input class="log_in_Rectangle" id="log_in_button_Group_" name="log_in_button"type="button"/>
 			</svg>
-			<div id="log_in">
-				<span>log in</span>
-			</div>
+			<button type="submit">
+				<div id="log_in">
+					<span>log in</span>
+				</div>
+				</button>
 		</div>
-		<div onclick="application.goToTargetView(event)" id="sign_in_button_Group_">
-			<svg class="sign_inRectangle">
-				<rect id="sign_inRectangle" rx="0" ry="0" x="0" y="0" width="238" height="51">
-				</rect>
-			<input class="sign_inRectangle"id="sign_in_button_Group_" name="forget_pass" type="button"/>	
-			</svg>
-			<div id="Forget_password">
-				<span>Forget password</span>
-			</div>
-		</div>
+		
 	</div>
 	<div onclick="application.goToTargetView(event)" id="techCourse_Text_group">
 		<svg class="tech_Rectangle__" viewBox="-1 0 98 61">
@@ -3461,7 +3456,7 @@ window.application = new Application();
 		</svg>
 		<div onclick="application.goToTargetView(event)" id="register_text">
 			<input  class="line_bottm_reg_and_log_in" id="line_bottm_reg_and_log_in"type="button" /> 
-			<span>Register</span>
+				<a href="{% url 'register' %}" class="ml-2">Register</a>
 		</div>
 		<div onclick="application.goToTargetView(event)" id="log_in_text">
 			<input id="reg__log_in__work_with_us_grou" id="log_in_text"  class="line_bottm_reg_and_log_in" id="line_bottm_reg_and_log_in"type="button" /> 
@@ -3473,6 +3468,9 @@ window.application = new Application();
 		</div>
 	</div>
 </div>
+{% for message in messages %}
+    <spam id="messages">{{message}}</spam>
+{% endfor %}
 </form>
 </body>
 </html>

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Main Artboard</title>
-<link rel="stylesheet" type="text/css" href="./css/mainpagestyle.css">
+<link rel="stylesheet" type="text/css" href="{% static '/css/mainpagestyle.css' %}">
 
 <!--<script id="applicationScript">
 ///////////////////////////////////////
@@ -2954,7 +2955,7 @@ window.application = new Application();
 		<path id="Line_1" d="M 0 0 L 0 555">
 		</path>
 	</svg>
-	<img id="Mathematics-cuate" src="./image/Mathematics.png" srcset="Mathematics.png 1x, Mathematics-cuate@2x.png 2x">
+	<img id="Mathematics-cuate" src="{% static '/image/Mathematics-cuate.png' %}" srcset="Mathematics.png 1x, Mathematics-cuate@2x.png 2x">
 		
 	<div id="Start__Learning_With__techCour">
 		<span>Start </span><br/><span style="color:rgba(171,13,2,1);">Learning</span><br/><span>With </span><br/><span style="color:rgba(171,13,2,1);">tech</span><span style="color:rgba(255,199,39,1);">Course</span>
@@ -3004,7 +3005,7 @@ window.application = new Application();
 				</rect>
 			</svg>
 		</div>
-		<img id="logo" src="./image/techCourse Logo.png" srcset="techCourse Logo 1x, logo@2x.png 2x">
+		<img id="logo" src="{% static '/image/techCourse Logo.png' %}" srcset="techCourse Logo 1x, logo@2x.png 2x">
 		<svg class="Line_Toolbar" viewBox="0 0 117 125">
 			<path id="Line_Toolbar" d="M 117 0 L 0 125">
 			</path>
