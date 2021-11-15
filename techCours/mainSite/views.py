@@ -16,7 +16,7 @@ from techCourse.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
 
 # Create your views here.
-
+@unauthenticated_user
 def registerPage(request):
     form = CreateUserForm()
     if request.method == 'POST':
@@ -39,7 +39,7 @@ def registerPage(request):
     
 logger = logging.getLogger(__name__)
 
-
+@unauthenticated_user
 def loginPage(request):
     if request.method == 'POST':
         username = request.POST.get('username')
