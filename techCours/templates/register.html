@@ -23,13 +23,7 @@
        {% endfor %}
     {% endif %}
 
-	{% if messages %}
-		{% for message in messages %}
-		<div class="alert alert-danger">
-			<strong>{{ message }}</strong>
-	   </div>
-		{% endfor %}
-	{% endif %}
+	
 
 	<div id="Register_Artboard">
 	<div id="Group_3">
@@ -141,7 +135,8 @@
 
 		
 		<div id="text_that_im_agree_Group_">
-			<input id="Rectangle_1" class="Rectangle_1" name="checkbox" type="checkbox"  />
+			<!--<input id="Rectangle_1" class="Rectangle_1" name="checkbox" type="checkbox"  />-->
+			{{form.agree}}
 			<div id="By_creating_an_account_I_agree">
 				<span>By creating an account, I agree that </span><br/>
 			</div>
@@ -181,6 +176,29 @@
 			</path>
 		</svg>
 	</div>
+	<div id="Re-password_Group_">
+		<svg class="Re-password_Rectangle_">
+			<rect id="Re-password_Rectangle_" rx="0" ry="0" x="0" y="0" width="462" height="53">
+			</rect>
+		</svg>
+		<div id="Re-password">
+			<span>Re-password</span>
+			<input type="password">
+		</div>
+	</div>
+	<svg class="error_box">
+		<rect id="error_box" rx="0" ry="0" x="0" y="0" width="371" height="88">
+		<textarea  rows="4">
+				{% if messages %}
+			{% for message in messages %}
+			<div class="alert alert-danger">
+				<strong style="color:red;font:Segoe UI;">{{ message }}</strong>
+	   					</div>
+						{% endfor %}
+						{% endif %}
+		</textarea>
+		</rect>
+	</svg>
 </div>
 </form>
 </body>
