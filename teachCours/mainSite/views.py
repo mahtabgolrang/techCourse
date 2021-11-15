@@ -14,7 +14,7 @@ from .decorators import unauthenticated_user
 import logging
 
 # Create your views here.
-@unauthenticated_user
+
 def registerPage(request):
     form = CreateUserForm()
     if request.method == 'POST':
@@ -22,12 +22,12 @@ def registerPage(request):
         if form.is_valid():
              messages.info(request,'Account was created for')   
              user=form.save()
-             customer = Customer()
-             customer.user=user
-             customer.save()
              username= form.cleaned_data.get('username')
              group = Group.objects.get(name='customer')
              user.groups.add(group)
+             customer = Customer.objects.create(user=user)
+             customer.save()
+             
              messages.success(request,'Account was created for' + username)   
              return redirect('login')
     
@@ -35,7 +35,7 @@ def registerPage(request):
     
 logger = logging.getLogger(__name__)
 
-@unauthenticated_user
+
 def loginPage(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -61,7 +61,7 @@ def main(request):
 
 
 def test(request):
+   
     context={
-        
     }
     return render(request , 'test.html', context)

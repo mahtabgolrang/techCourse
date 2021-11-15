@@ -59,9 +59,7 @@ class Customer (models.Model):
     profile_pic = models.ImageField(null=True, blank=True)
     course = models.ManyToManyField(Course)
 
-    def __str__(self):
-        return self.name
-
+   
 
 class Teacher (models.Model):
     #name = models.CharField(max_length=200, null=True)
@@ -72,6 +70,3 @@ class Teacher (models.Model):
     profile_pic = models.ImageField(null=True, blank=True)
     course = models.ManyToManyField(Course)
     documents = models.OneToOneField(Document, on_delete=models.CASCADE, null=True)
-
-    def __str__(self):
-        return self.name

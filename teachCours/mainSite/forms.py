@@ -9,10 +9,12 @@ from .models import Customer
 
 
 class CreateUserForm (UserCreationForm):
-   email= forms.EmailField(max_length=200 , help_text='use a valid email')
+   email= forms.EmailField(max_length=200 , help_text='use a valid email', required=True)
+   agree = forms.BooleanField(required=True)
+
    class Meta:
       model = User
-      fields = ['first_name', 'email', 'username', 'password1']
+      fields = ['first_name', 'email', 'username', 'password1', 'agree']
 
    def clean_email(self):
       email = self.cleaned_data['email'].lower()
@@ -29,5 +31,3 @@ class CreateUserForm (UserCreationForm):
       except Exception as e:
          return username
       raise forms.ValidationError(f'Username {username}  is already in use' )
-
-

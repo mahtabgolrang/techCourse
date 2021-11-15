@@ -15,6 +15,8 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
+STATIC_DIR=os.path.join(BASE_DIR,'static')
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+LOGIN_REDIRECT_URL='/'
 # Application definition
 
 INSTALLED_APPS = [
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'techCourse.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'mainSite/templates'),
+        'DIRS': [TEMPLATE_DIR,
                         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -124,12 +126,19 @@ USE_TZ = True
 
 # STATIC FILES (OPTIONAL)
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+
+
+MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS=[STATIC_DIR,]
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'static')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
