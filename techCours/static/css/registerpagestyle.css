@@ -13,13 +13,10 @@
     box-sizing: border-box;
     border: none;
 }
-
 #Register_Artboard {
     position: absolute;
     width: 1920px;
     height: 1080px;
-    min-height:100%;
-    display: inline-flex;
     background-color: rgba(255,255,255,1);
     overflow: hidden;
     --web-view-name: Register Artboard;
@@ -100,18 +97,18 @@
 }
 #register_group {
     position: absolute;
-    width: 463.923px;
-    height: 553px;
+    width: 464px;
+    height: 641px;
     left: 1164px;
-    top: 235px;
+    top: 212px;
     overflow: visible;
 }
 #fullname_group {
     position: absolute;
     width: 462px;
     height: 53px;
-    left: 0px;
-    top: 75px;
+    left: 1px;
+    top: 89px;
     overflow: visible;
 }
 #fullname_rectangle {
@@ -134,7 +131,7 @@
 }
 #Full_name {
     opacity: 0.6;
-    left: 20px;
+    left: 23px;
     top: 13px;
     position: absolute;
     overflow: visible;
@@ -147,18 +144,12 @@
     font-size: 20px;
     color: rgba(112,112,112,1);
 }
-#fullname1 {
-    border-style: hidden;
-    outline: none;
-    outline-style: none;
-    outline-color: white;
-}
 #email_group {
     position: absolute;
     width: 462px;
     height: 53px;
-    left: 0px;
-    top: 164px;
+    left: 2px;
+    top: 178px;
     overflow: visible;
 }
 #email_rectangle {
@@ -181,7 +172,7 @@
 }
 #Email {
     opacity: 0.6;
-    left: 20px;
+    left: 31px;
     top: 13px;
     position: absolute;
     overflow: visible;
@@ -194,18 +185,12 @@
     font-size: 20px;
     color: rgba(112,112,112,1);
 }
-#email1 {
-    border-style: hidden;
-    outline: none;
-    outline-style: none;
-    outline-color: white;
-}
 #public_username_group {
-    position:absolute;
+    position: absolute;
     width: 462px;
     height: 53px;
-    left: 0px;
-    top: 253px;
+    left: 1px;
+    top: 267px;
     overflow: visible;
 }
 #public_username_rectangle {
@@ -226,13 +211,13 @@
     left: 0px;
     top: 0px;
 }
-#Public_Username {
+#Public_username {
     opacity: 0.6;
-    left: 20.742px;
-    top: 13px;
+    left: 26.742px;
+    top: 10.183px;
     position: absolute;
     overflow: visible;
-    width: 141px;
+    width: 139px;
     white-space: nowrap;
     text-align: left;
     font-family: Segoe UI;
@@ -241,26 +226,18 @@
     font-size: 20px;
     color: rgba(112,112,112,1);
 }
-#username1 {
-    border-style: hidden;
-    outline: none;
-    outline-style: none;
-    outline-color: white;
-}
 #reg__log_in__work_with_us_grou {
     position: absolute;
     width: 462.681px;
-    height: 38.313px;
+    height: 53.313px;
     left: 1.242px;
     top: 0px;
-    margin-right: 292.1;
     overflow: visible;
 }
 #line_bottm_reg_and_log_in {
-    opacity: 50;
+    opacity: 0.45;
     fill: transparent;
-    stroke: rgb(104, 103, 103);
-    margin-right: 292.1;
+    stroke: rgba(112,112,112,1);
     stroke-width: 1px;
     stroke-linejoin: miter;
     stroke-linecap: butt;
@@ -271,15 +248,32 @@
     overflow: visible;
     position: absolute;
     width: 462.683px;
-    height: 3px;
+    height: 2px;
     left: 0px;
-    top: 37.313px;
-    margin-right: 292.1;
+    top: 52.313px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#line_bottom_register {
+    fill: rgba(0,0,0,0);
+    stroke: rgba(0,0,0,1);
+    stroke-width: 2px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.line_bottom_register {
+    overflow: visible;
+    position: absolute;
+    width: 129.45px;
+    height: 2px;
+    left: 0px;
+    top: 53.178px;
     transform: matrix(1,0,0,1,0,0);
 }
 #register_text {
-    left: 25.44px;
-    top: 0px;
+    left: 21.5px;
+    top: 0.082px;
     position: absolute;
     overflow: visible;
     width: 85px;
@@ -292,8 +286,8 @@
     color: rgba(0,0,0,1);
 }
 #log_in_text {
-    left: 181.099px;
-    top: 0px;
+    left: 190.099px;
+    top: 0.082px;
     position: absolute;
     overflow: visible;
     width: 66px;
@@ -310,7 +304,7 @@
     color: rgba(112,112,112,1);
 }
 #Work_with_us {
-    left: 317.758px;
+    left: 311.758px;
     top: 0px;
     position: absolute;
     overflow: visible;
@@ -327,8 +321,8 @@
     position: absolute;
     width: 462px;
     height: 53px;
-    left: 0px;
-    top: 342px;
+    left: 2px;
+    top: 356px;
     overflow: visible;
 }
 #password_Rectangle_ {
@@ -364,18 +358,12 @@
     font-size: 20px;
     color: rgba(112,112,112,1);
 }
-#password1 {
-    border-style: hidden;
-    outline: none;
-    outline-style: none;
-    outline-color: white;
-}
 #text_that_im_agree_Group_ {
     position: absolute;
-    width: 331px;
+    width: 333px;
     height: 35px;
     left: 0px;
-    top: 431px;
+    top: 529px;
     overflow: visible;
 }
 #Rectangle_1 {
@@ -393,10 +381,10 @@
     width: 25px;
     height: 25px;
     left: 0px;
-    top: 3px;
+    top: 5px;
 }
 #By_creating_an_account_I_agree {
-    left: 31px;
+    left: 33px;
     top: 0px;
     position: absolute;
     overflow: hidden;
@@ -414,7 +402,7 @@
     width: 238px;
     height: 51px;
     left: 0px;
-    top: 502px;
+    top: 590px;
     overflow: visible;
     --web-animation: fadein 0.3s ease-out;
     --web-action-type: page;
@@ -422,7 +410,7 @@
     cursor: pointer;
 }
 #ceate_accountRectangle {
-    background-color:rgba(210,50,40,1) ;
+    fill: rgba(210,50,40,1);
 }
 .ceate_accountRectangle {
     position: absolute;
@@ -431,12 +419,10 @@
     height: 51px;
     left: 0px;
     top: 0px;
-    background-color:rgba(210,50,40,1) ;
-    cursor: pointer;
 }
 #Create_an_account_ {
     left: 32px;
-    top: 10px;
+    top: 12px;
     position: absolute;
     overflow: visible;
     width: 175px;
@@ -447,7 +433,6 @@
     font-weight: bold;
     font-size: 20px;
     color: rgba(255,253,254,1);
-    cursor: pointer;
 }
 #techCourse_Text_group {
     position: absolute;
@@ -456,10 +441,6 @@
     left: 80px;
     top: 131px;
     overflow: visible;
-    --web-animation: fadein 0.3s ease-out;
-    --web-action-type: page;
-    --web-action-target: Main_Artboard.html;
-    cursor: pointer;
 }
 #tech_Rectangle__bk {
     fill: url(#tech_Rectangle__bk);
@@ -467,7 +448,7 @@
 .tech_Rectangle__bk {
     position: absolute;
     overflow: visible;
-    width: 98px;
+    width: 97px;
     height: 61px;
     left: 0px;
     top: 0px;
@@ -488,15 +469,15 @@
 }
 #title_group {
     position: absolute;
-    width: 305px;
+    width: 310px;
     height: 439px;
-    left: 190px;
-    top: 280px;
+    left: 185px;
+    top: 285px;
     overflow: visible;
 }
 #Start__Learning_With_techCours {
-    left: 30px;
-    top: 87.914px;
+    left: 35px;
+    top: 82.914px;
     position: absolute;
     overflow: visible;
     width: 276px;
@@ -533,3 +514,57 @@
     top: 0px;
     transform: matrix(1,0,0,1,0,0);
 }
+#Re-password_Group_ {
+    position: absolute;
+    width: 462px;
+    height: 53px;
+    left: 1166px;
+    top: 659px;
+    overflow: visible;
+}
+#Re-password_Rectangle_ {
+    fill: rgba(255,255,255,1);
+    stroke: rgba(112,112,112,1);
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.Re-password_Rectangle_ {
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+    position: absolute;
+    overflow: visible;
+    width: 481px;
+    height: 72px;
+    left: 0px;
+    top: 0px;
+}
+#Re-password {
+    opacity: 0.6;
+    left: 20px;
+    top: 13px;
+    position: absolute;
+    overflow: visible;
+    width: 109px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 20px;
+    color: rgba(112,112,112,1);
+}
+#error_box {
+    fill: rgba(255,255,255,1);
+}
+.error_box {
+    position: absolute;
+    overflow: visible;
+    width: 371px;
+    height: 88px;
+    left: 1212px;
+    top: 884px;
+}
+
+

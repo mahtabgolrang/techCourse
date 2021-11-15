@@ -17,7 +17,6 @@
     position: absolute;
     width: 1920px;
     height: 3178px;
-    min-height: 100%;
     background-color: rgba(255,255,255,1);
     overflow: hidden;
     --web-view-name: Main Artboard;
@@ -203,6 +202,7 @@
     top: 0px;
 }
 #Register {
+    display: none;
     left: 9px;
     top: 5px;
     position: absolute;
@@ -324,6 +324,3 @@
     left: 0px;
     top: 115.5px;
 }
-
-
-/* <!--Warnings:1. Background blur support: Background blur not supported on "Path_12"  is not supported2. Background blur support: Background blur not supported on "Line_1"  is not supported--> */

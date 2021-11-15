@@ -17,7 +17,6 @@
     position: absolute;
     width: 1920px;
     height: 1080px;
-    min-height:100%;
     background-color: rgba(255,255,255,1);
     overflow: hidden;
     --web-view-name: Login Artboard;
@@ -35,33 +34,44 @@
     }
 
 }
+#gradient_rectangle_upper_m {
+    fill: url(#gradient_rectangle_upper_m);
+}
+.gradient_rectangle_upper_m {
+    position: absolute;
+    overflow: visible;
+    width: 1920px;
+    height: 80px;
+    left: 0px;
+    top: 0px;
+}
 #Group_3 {
     position: absolute;
-    width: 1059.337px;
+    width: 1059.34px;
     height: 1189.09px;
-    left: -34.668px;
-    top: 64.44px;
+    left: -34.342px;
+    top: 61.44px;
     overflow: visible;
 }
-#gradient__n {
-    fill: url(#gradient__n);
+#gradient__p {
+    fill: url(#gradient__p);
 }
-.gradient__n {
+.gradient__p {
     overflow: visible;
     position: absolute;
-    width: 1026.397px;
-    height: 1151.888px;
-    left: 24.94px;
-    top: 11.56px;
+    width: 1031.156px;
+    height: 1152.583px;
+    left: 28.184px;
+    top: 12.56px;
     transform: matrix(1,0,0,1,0,0);
 }
-#gradient2_p {
-    fill: url(#gradient2_p);
+#gradient2_r {
+    fill: url(#gradient2_r);
 }
-.gradient2_p {
+.gradient2_r {
     overflow: visible;
     position: absolute;
-    width: 1059.337px;
+    width: 1059.34px;
     height: 1189.09px;
     left: 0px;
     top: 0px;
@@ -69,18 +79,18 @@
 }
 #log_in_group {
     position: absolute;
-    width: 476px;
-    height: 229.047px;
-    left: 1164.242px;
-    top: 310.953px;
+    width: 478px;
+    height: 418px;
+    left: 1150px;
+    top: 221px;
     overflow: visible;
 }
 #fullname_group {
     position: absolute;
-    width: 461.52px;
+    width: 477px;
     height: 53px;
-    left: 0.48px;
-    top: 0px;
+    left: 0px;
+    top: 118.953px;
     overflow: visible;
 }
 #fullname_rectangle {
@@ -96,15 +106,15 @@
     filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
     position: absolute;
     overflow: visible;
-    width: 480.52px;
+    width: 496px;
     height: 72px;
     left: 0px;
     top: 0px;
 }
 #Username_or_email {
     opacity: 0.6;
-    left: 20px;
-    top: 13px;
+    left: 37px;
+    top: 14.193px;
     position: absolute;
     overflow: visible;
     width: 159px;
@@ -118,10 +128,10 @@
 }
 #email_group {
     position: absolute;
-    width: 461.52px;
+    width: 477px;
     height: 53px;
-    left: 0.48px;
-    top: 89px;
+    left: 1px;
+    top: 242.878px;
     overflow: visible;
 }
 #email_rectangle {
@@ -137,15 +147,15 @@
     filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
     position: absolute;
     overflow: visible;
-    width: 480.52px;
+    width: 496px;
     height: 72px;
     left: 0px;
     top: 0px;
 }
 #Password {
     opacity: 0.6;
-    left: 20px;
-    top: 13px;
+    left: 37px;
+    top: 14.203px;
     position: absolute;
     overflow: visible;
     width: 78px;
@@ -161,8 +171,8 @@
     position: absolute;
     width: 238px;
     height: 51px;
-    left: 0px;
-    top: 178.047px;
+    left: 2px;
+    top: 367px;
     overflow: visible;
 }
 #log_in_Rectangle {
@@ -181,25 +191,25 @@
     cursor: pointer;
 }
 #log_in {
-    left: 93.117px;
-    top: 11px;
+    left: 87.117px;
+    top: 6px;
     position: absolute;
     overflow: visible;
-    width: 55px;
+    width: 67px;
     white-space: nowrap;
     text-align: center;
     font-family: Segoe UI;
     font-style: normal;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
     color: rgba(255,253,254,1);
 }
 #sign_in_button_Group_ {
     position: absolute;
     width: 238px;
     height: 51px;
-    left: 238px;
-    top: 178.047px;
+    left: 239px;
+    top: 367px;
     overflow: visible;
     --web-animation: fadein 0.3s ease-out;
     --web-action-type: page;
@@ -218,45 +228,138 @@
     top: 0px;
 }
 #Forget_password {
-    left: 41px;
-    top: 12.5px;
+    left: 31px;
+    top: 9.857px;
     position: absolute;
     overflow: visible;
-    width: 157px;
+    width: 165px;
     white-space: nowrap;
     text-align: center;
     font-family: Segoe UI;
     font-style: normal;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 21px;
     color: rgba(0,0,0,1);
+}
+#reg__log_in__work_with_us_grou {
+    position: absolute;
+    width: 477.68px;
+    height: 48px;
+    left: 0px;
+    top: 0px;
+    overflow: visible;
+}
+#line_bottm_reg_and_log_in {
+    opacity: 0.45;
+    fill: transparent;
+    stroke: rgba(112,112,112,1);
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.line_bottm_reg_and_log_in {
+    overflow: visible;
+    position: absolute;
+    width: 477.682px;
+    height: 2px;
+    left: 0px;
+    top: 47px;
+    transform: matrix(1,0,0,1,0,0);
+}
+#register_text {
+    left: 34.5px;
+    top: 0px;
+    position: absolute;
+    overflow: visible;
+    width: 85px;
+    white-space: nowrap;
+    --web-animation: fadein 0.3s ease-out;
+    --web-action-type: page;
+    --web-action-target: Register_Artboard.html;
+    cursor: pointer;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 25px;
+    color: rgba(112,112,112,1);
+}
+#log_in_text {
+    left: 208.773px;
+    top: 0px;
+    position: absolute;
+    overflow: visible;
+    width: 66px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 25px;
+    color: rgba(0,0,0,1);
+}
+#Work_with_us {
+    left: 339px;
+    top: 0px;
+    position: absolute;
+    overflow: visible;
+    width: 135px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 25px;
+    color: rgba(112,112,112,1);
+}
+#line_bottom_register {
+    fill: rgba(0,0,0,0);
+    stroke: rgba(0,0,0,1);
+    stroke-width: 2px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.line_bottom_register {
+    overflow: visible;
+    position: absolute;
+    width: 129.45px;
+    height: 2px;
+    left: 173.548px;
+    top: 48px;
+    transform: matrix(1,0,0,1,0,0);
 }
 #techCourse_Text_group {
     position: absolute;
-    width: 196px;
+    width: 195px;
     height: 61px;
-    left: 80px;
+    left: 81px;
     top: 131px;
     overflow: visible;
-    --web-animation: fadein 0.3s ease-out;
-    --web-action-type: page;
-    --web-action-target: Main_Artboard.html;
-    cursor: pointer;
 }
-#tech_Rectangle__ {
-    fill: url(#tech_Rectangle__);
+#tech_Rectangle__bd {
+    fill: url(#tech_Rectangle__bd);
+    stroke: rgba(0,0,0,1);
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
 }
-.tech_Rectangle__ {
+.tech_Rectangle__bd {
     overflow: visible;
     position: absolute;
-    width: 98px;
+    width: 97px;
     height: 61px;
     left: 0px;
     top: 0px;
     transform: matrix(1,0,0,1,0,0);
 }
 #techCourse {
-    left: 33px;
+    left: 32px;
     top: 10px;
     position: absolute;
     overflow: visible;
@@ -271,15 +374,15 @@
 }
 #title_group {
     position: absolute;
-    width: 305px;
+    width: 310px;
     height: 439px;
-    left: 190px;
-    top: 280px;
+    left: 179px;
+    top: 285px;
     overflow: visible;
 }
 #Start__Learning_With_techCours {
-    left: 30px;
-    top: 87.91px;
+    left: 35px;
+    top: 82.914px;
     position: absolute;
     overflow: visible;
     width: 276px;
@@ -316,105 +419,14 @@
     top: 0px;
     transform: matrix(1,0,0,1,0,0);
 }
-#gradient_rectangle_upper_bb {
-    fill: url(#gradient_rectangle_upper_bb);
+#error_box {
+    fill: rgba(255,255,255,1);
 }
-.gradient_rectangle_upper_bb {
+.error_box {
     position: absolute;
     overflow: visible;
-    width: 1920px;
-    height: 80px;
-    left: 0px;
-    top: 0px;
-}
-#reg__log_in__work_with_us_grou {
-    position: absolute;
-    width: 462.681px;
-    height: 38.313px;
-    left: 1165.242px;
-    top: 236px;
-    overflow: visible;
-}
-#line_bottm_reg_and_log_in {
-    opacity: 0.45;
-    fill: transparent;
-    stroke: rgba(112,112,112,1);
-    stroke-width: 1px;
-    stroke-linejoin: miter;
-    stroke-linecap: butt;
-    stroke-miterlimit: 4;
-    shape-rendering: auto;
-}
-.line_bottm_reg_and_log_in {
-    overflow: visible;
-    position: absolute;
-    width: 462.683px;
-    height: 2px;
-    left: 0px;
-    top: 37.313px;
-    transform: matrix(1,0,0,1,0,0);
-}
-#line_bottom_register {
-    fill: rgba(0,0,0,0);
-    stroke: rgba(0,0,0,1);
-    stroke-width: 2px;
-    stroke-linejoin: miter;
-    stroke-linecap: butt;
-    stroke-miterlimit: 4;
-    shape-rendering: auto;
-}
-.line_bottom_register {
-    overflow: visible;
-    position: absolute;
-    width: 129.45px;
-    height: 2px;
-    left: 148.874px;
-    top: 38.313px;
-    transform: matrix(1,0,0,1,0,0);
-}
-#register_text {
-    left: 25.44px;
-    top: 0px;
-    position: absolute;
-    overflow: visible;
-    width: 85px;
-    white-space: nowrap;
-    --web-animation: fadein 0.3s ease-out;
-    --web-action-type: page;
-    --web-action-target: Register_Artboard.html;
-    cursor: pointer;
-    text-align: left;
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: lighter;
-    font-size: 25px;
-    color: rgba(112,112,112,1);
-}
-#log_in_text {
-    left: 181.099px;
-    top: 0px;
-    position: absolute;
-    overflow: visible;
-    width: 66px;
-    white-space: nowrap;
-    text-align: left;
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: lighter;
-    font-size: 25px;
-    color: rgba(1,0,0,1);
-}
-#Work_with_us {
-    left: 317.758px;
-    top: 0px;
-    position: absolute;
-    overflow: visible;
-    width: 135px;
-    white-space: nowrap;
-    text-align: left;
-    font-family: Segoe UI;
-    font-style: normal;
-    font-weight: lighter;
-    font-size: 25px;
-    color: rgba(112,112,112,1);
+    width: 371px;
+    height: 88px;
+    left: 1204px;
+    top: 750px;
 }
