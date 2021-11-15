@@ -22,14 +22,14 @@ def registerPage(request):
         if form.is_valid():
              messages.info(request,'Account was created for')   
              user=form.save()
-             customer = Customer
+             customer = Customer()
              customer.user=user
              customer.save()
              username= form.cleaned_data.get('username')
              group = Group.objects.get(name='customer')
              user.groups.add(group)
              messages.success(request,'Account was created for' + username)   
-        return redirect('login')
+             return redirect('login')
     
     return render(request , 'register.html',{'form':form})
     
