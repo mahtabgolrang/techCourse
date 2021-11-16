@@ -51,8 +51,7 @@
 					</path>
 				</svg>
 				<img id="Mathematics-cuate" src="{% static '/image/Mathematics-cuate.png' %}">
-				<a id="Mathematics-cuate" srcset="Mathematics-cuate.png 1x, Mathematics-cuate@2x.png 2x"
-					href="https://storyset.com/education"></a>
+				
 				<div id="Start__Learning_With__techCour">
 					<span>Start </span><br /><span style="color:rgba(171,13,2,1);">Learning</span><br /><span>With
 					</span><br /><span style="color:rgba(171,13,2,1);">tech</span><span
@@ -68,24 +67,23 @@
 						<p style="color: crimson;">Welcome, {{ user.get_username }}. Thanks for logging in.</p>
 					</div>
 
-					<div onclick="application.goToTargetView(event)" id="Log_in_group">
-						<div id="Log_in">
-							<input id="Log_in_group" id="Log_in" type="button" />
-							<a href="{% url 'logout' %}" style="font:Segoe UI;font-size:x-large;"> <button
-									type="button">
-									logout
-								</button> </a>
-
+					
+					<button>
+						<div onclick="application.goToTargetView(event)" id="Log_in_group">
+							<div id="Log_in">
+								<a href="{% url 'logout' %}"
+									style="font:Segoe UI;font: size 30px;text-decoration: none;color: black;">Logout</a>
+							</div>
+							<svg class="Rectangle_5_">
+								<linearGradient id="Rectangle_5_" spreadMethod="pad" x1="0.5" x2="0.5" y1="0" y2="1">
+									<stop offset="0" stop-color="#ab0d02" stop-opacity="1"></stop>
+									<stop offset="1" stop-color="#560701" stop-opacity="1"></stop>
+								</linearGradient>
+								<rect id="Rectangle_5_" rx="0" ry="0" x="0" y="0" width="94" height="4">
+								</rect>
+							</svg>
 						</div>
-						<svg class="Rectangle_5_">
-							<linearGradient id="Rectangle_5_" spreadMethod="pad" x1="0.5" x2="0.5" y1="0" y2="1">
-								<stop offset="0" stop-color="#ab0d02" stop-opacity="1"></stop>
-								<stop offset="1" stop-color="#560701" stop-opacity="1"></stop>
-							</linearGradient>
-							<rect id="Rectangle_5_" rx="0" ry="0" x="0" y="0" width="94" height="4">
-							</rect>
-						</svg>
-					</div>
+					</button>
 
 					{% else %}
 

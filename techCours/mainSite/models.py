@@ -58,6 +58,8 @@ class Customer (models.Model):
     user = models.OneToOneField(User, null=True,on_delete=models.CASCADE)
     profile_pic = models.ImageField(null=True, blank=True)
     course = models.ManyToManyField(Course)
+    def __str__(self):
+        return self.user.username
 
    
 
@@ -70,3 +72,5 @@ class Teacher (models.Model):
     profile_pic = models.ImageField(null=True, blank=True)
     course = models.ManyToManyField(Course)
     documents = models.OneToOneField(Document, on_delete=models.CASCADE, null=True)
+    def __str__(self):
+        return self.user.username

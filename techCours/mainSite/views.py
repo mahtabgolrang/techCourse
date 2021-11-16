@@ -29,11 +29,15 @@ def registerPage(request):
              user.groups.add(group)
              customer = Customer.objects.create(user=user)
              customer.save()
-             subject = f'Hi {user.first_name}'
-             message = f'tnx for register to techCourse your user name is {username}'
+             subject = 'Welcome to techCourse'
+             message = f'''Hi {user.first_name}
+                    You are successfully registered with the user name {user.username} 
+                    We are so happy that you have chosen us. Here you can learn with us and improve your skills. 
+                    Hope you enjoy studying with us,
+                    The techCourse Team.'''
              send_mail(subject, message, EMAIL_HOST_USER,[user.email], fail_silently = False)
              messages.success(request,'Account was created for' + username)   
-             return redirect('home')
+             return redirect('main')
     
     return render(request , 'register.html',{'form':form})
     
@@ -47,10 +51,6 @@ def loginPage(request):
         user = authenticate(request, username=username, password=password)
         
         if user is not None:
-            subject = f'Hi {user.first_name}'
-            message = 'Hope you are enjoying your Django Tutorials'
-            send_mail(subject, 
-            message, EMAIL_HOST_USER,[user.email], fail_silently = False)
             login(request,user)
         else:
             messages.info(request,'user name or password is incorrect...!')
