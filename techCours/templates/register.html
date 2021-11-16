@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 
 <!DOCTYPE html>
 <html>
@@ -10,21 +11,12 @@
 <link rel="stylesheet" type="text/css" href="{% static '/css/registerpagestyle.css' %}">
 </head>
 <body dir="ltr">
+	
 <form method="POST">
+
 	{% csrf_token %}
 
-	{% if form.errors %}
-       {% for field in form %}
-           {% for error in field.errors %} 
-              <div class="alert alert-danger">
-                   <strong>{{ error|escape }}</strong>
-              </div>
-           {% endfor %}
-       {% endfor %}
-    {% endif %}
-
 	
-
 	<div id="Register_Artboard">
 	<div id="Group_3">
 		<svg class="gradient__n" viewBox="0 0 1026.397 1151.888">
@@ -69,7 +61,8 @@
 			</svg>
 			<div id="Full_name">
 				<span>Full name</span>
-				{{form.first_name}} 
+				{% render_field form.first_name type="name" class="myTextFild" %}
+
 			</div>
 		</div>
 		<div id="email_group">
@@ -79,7 +72,7 @@
 			</svg>
 			<div id="Email">
 				<span>Email</span>
-				{{form.email}}
+				{% render_field form.email type="email" class="myTextFild" %}
 			</div>
 		</div>
 		<div id="public_username_group">
@@ -89,7 +82,8 @@
 			</svg>
 			<div id="Public_Username">
 				<span>Public Username</span>
-				{{form.username}}
+				{% render_field form.username type="name" class="myTextFild" %}
+
 			</div>
 		</div>
 
@@ -129,20 +123,24 @@
 			</svg>
 			<div id="Password">
 				<span>Password</span>
-			    {{form.password1}}
-			</div>
+				{% render_field form.password1 type="password" class="myTextFild" %}
+
+=			</div>
 		</div>
 
 		
 		<div id="text_that_im_agree_Group_">
 			<!--<input id="Rectangle_1" class="Rectangle_1" name="checkbox" type="checkbox"  />-->
-			{{form.agree}}
+			<div class="Rectangle_1" id="Rectangle_1">
+				{% render_field form.agree type="checkbox" class="Rectangle_1" %}
+			</div>
 			<div id="By_creating_an_account_I_agree">
 				<span>By creating an account, I agree that </span><br/>
 			</div>
 		</div>
 		<div id="create_acount_Group_">
-			<button type="submit" class="ceate_accountRectangle" id="ceate_accountRectangle">
+			<button type="submit" class="ceate_accountRectangle" id="ceate_accountRectangle"
+			style="color: rgba(210,50,40,1);">
 				<div id="Create_an_account_">
 					<span>Create an account </span>
 				</div>
@@ -183,22 +181,30 @@
 		</svg>
 		<div id="Re-password">
 			<span>Re-password</span>
-			<input type="password">
+			{% render_field form.password2 type="password" class="myTextFild" %}
+
 		</div>
 	</div>
-	<svg class="error_box">
-		<rect id="error_box" rx="0" ry="0" x="0" y="0" width="371" height="88">
-		<textarea  rows="4">
-				{% if messages %}
+	
+	<div  class="error_box" id="error_box" width="100" height="50" >
+		{% if form.errors %}
+       		{% for field in form %}
+           		{% for error in field.errors %} 
+				   <p id="errorClass">{{error}}</p>
+						
+           {% endfor %}
+       {% endfor %}
+    {% endif %}
+
+	
+		{% if messages %}
 			{% for message in messages %}
-			<div class="alert alert-danger">
-				<strong style="color:red;font:Segoe UI;">{{ message }}</strong>
-	   					</div>
-						{% endfor %}
-						{% endif %}
-		</textarea>
-		</rect>
-	</svg>
+				<div class="alert alert-danger">
+					<strong style="color:red;font:Segoe UI;">{{ message }}</strong>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
 </div>
 </form>
 </body>

@@ -226,6 +226,7 @@
     font-size: 20px;
     color: rgba(112,112,112,1);
 }
+
 #reg__log_in__work_with_us_grou {
     position: absolute;
     width: 462.681px;
@@ -411,6 +412,7 @@
 }
 #ceate_accountRectangle {
     fill: rgba(210,50,40,1);
+    background-color:rgba(210,50,40,1);
 }
 .ceate_accountRectangle {
     position: absolute;
@@ -419,6 +421,7 @@
     height: 51px;
     left: 0px;
     top: 0px;
+    background-color:rgba(210,50,40,1);
 }
 #Create_an_account_ {
     left: 32px;
@@ -566,5 +569,13 @@
     left: 1212px;
     top: 884px;
 }
-
-
+.myTextFild{
+	border-style: hidden;
+    outline: none;
+    outline-style: none;
+    outline-color: white;
+    width: 200px;
+}
+#errorClass{
+    color:red
+}

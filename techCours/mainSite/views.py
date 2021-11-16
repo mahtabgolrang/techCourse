@@ -33,7 +33,7 @@ def registerPage(request):
              message = f'tnx for register to techCourse your user name is {username}'
              send_mail(subject, message, EMAIL_HOST_USER,[user.email], fail_silently = False)
              messages.success(request,'Account was created for' + username)   
-             return redirect('login')
+             return redirect('home')
     
     return render(request , 'register.html',{'form':form})
     
@@ -59,7 +59,6 @@ def loginPage(request):
 
 def logoutUser(request):
     logout(request)
-
     return redirect('login')
 
 def main(request):

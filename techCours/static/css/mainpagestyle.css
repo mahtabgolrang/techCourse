@@ -17,6 +17,7 @@
     position: absolute;
     width: 1920px;
     height: 3178px;
+    min-height: 100%;
     background-color: rgba(255,255,255,1);
     overflow: hidden;
     --web-view-name: Main Artboard;
@@ -178,6 +179,8 @@
     left: 0px;
     top: 5.5px;
 }
+
+
 #register_group {
     position: absolute;
     width: 117px;
@@ -202,7 +205,6 @@
     top: 0px;
 }
 #Register {
-    display: none;
     left: 9px;
     top: 5px;
     position: absolute;
@@ -216,6 +218,7 @@
     font-size: 30px;
     color: rgba(255,255,255,1);
 }
+
 #Log_in_group {
     position: absolute;
     width: 94px;
@@ -323,4 +326,18 @@
     height: 37px;
     left: 0px;
     top: 115.5px;
+}
+
+
+#Rectangle_10 {
+    fill: rgba(255,255,255,1);
+}
+
+.Rectangle_10 {
+    position: absolute;
+    overflow: visible;
+    width: 358px;
+    height: 41px;
+    left: 1562px;
+    top: 65px;
 }

@@ -441,6 +441,23 @@
 		font-size: 25px;
 		color: rgba(112,112,112,1);
 	}
+	
+	
+	#error_box {
+		fill: rgba(255,255,255,1);
+	}
+	.error_box {
+		position: absolute;
+		overflow: visible;
+		width: 371px;
+		height: 88px;
+		left: 1204px;
+		top: 650px;
+	}
+
+	#errorClass{
+    color:red
+}
 </style>
 </head>
 <form method="POST">
@@ -548,7 +565,9 @@
 		</svg>
 		<div onclick="application.goToTargetView(event)" id="register_text">
 			<input  class="line_bottm_reg_and_log_in" id="line_bottm_reg_and_log_in"type="button" /> 
-				<a href="{% url 'register' %}" class="ml-2">Register</a>
+				<a href="{% url 'register' %}" class="ml-2" style="color: rgba(112,112,112,1);text-decoration:none;">
+					Register
+				</a>
 		</div>
 		<div onclick="application.goToTargetView(event)" id="log_in_text">
 			<input id="reg__log_in__work_with_us_grou" id="log_in_text"  class="line_bottm_reg_and_log_in" id="line_bottm_reg_and_log_in"type="button" /> 
@@ -559,21 +578,16 @@
 			<span>Work with us</span>
 		</div>
 	</div>
-	<svg class="error_box">
-		<rect id="error_box" rx="0" ry="0" x="0" y="0" width="371" height="88">
-		  <textarea  rows="3">
+		  <div  class="error_box" width="371" height="88"   >
 	
 		    {% if messages %}
 		        {% for message in messages %}
-		            <div class="alert alert-danger">
-			         <strong style="color:red;font:Segoe UI;">{{ message }}</strong>
-	                </div>
+					<p id="errorClass">{{message}}</p>
 		        {% endfor %}
 	        {% endif %}
 		  
-		  </textarea>
-		</rect>
-	</svg>
+		  </div>
+
 </div>
 
 </form>
