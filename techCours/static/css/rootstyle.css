@@ -1,0 +1,13 @@
+#mine_gradient{
+    position: relative;
+    display: inline-block;
+}
+#mine_gradient::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom:-2px;
+    width: 100%;
+    height: 14px;
+    background-image: linear-gradient(90deg,#AB0D02 0%,#D13228 38%,#002121 76%,#03C7E8 100%,#CAF3F6 100%);
+}
