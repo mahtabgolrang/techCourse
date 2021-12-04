@@ -10,7 +10,7 @@
 {% endblock %}
 
 {%block body%}
- <div class="main">
+ <div class="main" style="background-color:0dcaf0;">
 	<!-- Sign up form -->
 	<section class="sign-in">
 		<div class="container">
@@ -20,7 +20,7 @@
 					<a href="{% url 'register' %}" class="signup-image-link" role="button" style="text-decoration: none;">Create an account</a>
 				</div>
 				<div class="signin-form">
-					<h2 class="form-title">Login</h2>
+					<h2 class="form-title"><strong>Login</strong></h2>
 					<form method="POST" class="register-form" id="login-form">
 						{% csrf_token %}
 						<div class="form-group">
@@ -32,7 +32,7 @@
 							<input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
 						</div>
 						<div class="form-group form-button">
-							<input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+							<input type="submit" name="signin" id="signin" class="form-submit" value="Log in"style="background-color: #0dcaf0;"/>
 						</div>
 					</form>
 				</div>

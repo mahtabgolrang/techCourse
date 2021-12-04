@@ -1,0 +1,85 @@
+{% extends 'basehtml.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/css/loginstyle.css' %}">
+{% endblock %}
+
+{% block title %}
+	work with us
+{% endblock %}
+
+{%block body%}
+	<div class="main" style="background-color:0dcaf0;">
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title"><strong>Work with us</strong></h2>
+                        <form method="POST" class="register-form" id="register-form">
+							                {% csrf_token %}
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi material-icons-name"></i></label>
+                                <input type="text" name="name"  placeholder="Your Name"/>
+                            </div>
+                            <div class="form-group">
+                              <label for="lastname"><i class="zmdi material-icons-name"></i></label>
+                              <input type="text" name="lastname"  placeholder="Your lastname"/>
+                          </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi"></i></label>
+								                <input type="email" name="email" id="email" placeholder="Email"/>
+                            </div>
+                            <div class="form-group">
+                              <label for="phone"><i class="zmdi"></i></label>
+                              <input type="tel" name="phone" id="phone"  pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" placeholder="PhoneNumber"/>
+                             </div>
+                             
+                             <div class="form-group">
+                             <label for="fieldofstudy"><i class="zmdi material-icons-name"></i></label>
+                             <input type="text" name="fieldofstudy"  placeholder="Field Of Study"/>
+                             </div>
+
+                             <div class="form-group">
+                              <label for="university"><i class="zmdi material-icons-name"></i></label>
+                              <input type="text" name="university"  placeholder="University"/>
+                              </div>
+                             <div class="form-group">
+                              <div class="dropdown">
+                                <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;">
+                                  Last Education Level
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                  <li><span class="dropdown-item-text">Just Text</span></li>
+                                  <li><span class="dropdown-item-text">Just Text</span></li>
+                                  <li><span class="dropdown-item-text">Just Text</span></li>
+                                </ul>
+                              </div>
+                             </div>
+                            
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in</label>
+                            </div>
+                            <div class="form-group form-button" >
+                                <input type="submit" name="signup" href="{''}" id="signup" class="form-submit" value="Continue"style="background-color: #0dcaf0;"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="{% static '/image/Mathematics-bro.png' %}" alt="sing up image"></figure>
+                        <!-- <a href="{% url 'login' %}" class="signup-image-link" role="button" style="text-decoration: none;">I am already member</a> -->
+						            {% if form.errors %}
+       							          {% for field in form %}
+           							        {% for error in field.errors %} 
+				   						               <p style="color:red">{{error}}</p>
+           							        {% endfor %}
+       							          {% endfor %}
+    						        {% endif %}
+                    </div>
+                </div>
+			</div>
+		</section>
+	</div>
+{% endblock %}

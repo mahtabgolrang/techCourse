@@ -1,0 +1,315 @@
+{% extends 'basehtml.html' %}
+{% load static %}
+
+{% block style %}
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Xtreme lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Xtreme admin lite design, Xtreme admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="Xtreme Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <!-- Favicon icon -->
+{% endblock %}
+
+
+{% block title %}
+   user dashboard
+{% endblock %}
+
+
+{%block body%}
+  <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li>
+                            <!-- User Profile-->
+                            <div class="user-profile d-flex no-block dropdown m-t-20">
+                                <div class="user-pic"><img src="{% static '/image/1.jpg' %}" alt="users"
+                                        class="rounded-circle" width="40" /></div>
+                                <div class="user-content hide-menu m-l-10">
+                                    <a href="#" class="" id="Userdd" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <h5 class="m-b-0 user-name font-medium">Steave Jobs <i
+                                                class="fa fa-angle-down"></i></h5>
+                                        <span class="op-5 user-email">varun@gmail.com</span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
+                                        <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="javascript:void(0)"><i
+                                                class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- End User Profile-->
+                        </li>
+                        <!-- User Profile-->
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                    class="hide-menu">Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="pages-profile.html" aria-expanded="false"><i
+                                    class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                    <div class="col-5">
+                        <h4 class="page-title">Student Dashboard</h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Sales chart -->
+                <!-- ============================================================== -->
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">All Courses</h4>
+                                <div class="feed-widget">
+                                    <ul class="list-style-none feed-body m-0 p-b-20">
+                                        <li class="feed-item">
+                                            <div class="feed-icon bg-info"> <!--Dayere dor icon-->
+                                                <i class="far fa-bell"></i> <!--khode icon-->
+                                            </div>
+                                             5
+                                         <!--   <span class="ms-auto font-12 ">Just Now</span> -->
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Free Courses</h4>
+                                <div class="feed-widget">
+                                    <ul class="list-style-none feed-body m-0 p-b-20">
+                                        <li class="feed-item">
+                                            <div class="feed-icon bg-success"><i class="ti-server"></i></div>3
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Purchased</h4>
+                                <div class="feed-widget">
+                                    <ul class="list-style-none feed-body m-0 p-b-20">
+                                        <li class="feed-item">
+                                            <div class="feed-icon bg-warning"><i class="ti-shopping-cart"></i></div>2
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- Table -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- title -->
+                                <div class="d-md-flex">
+                                    <div>
+                                        <h4 class="card-title">All Courses</h4>
+                                        <h5 class="card-subtitle">You can see your courses here</h5>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <div class="dl">
+                                            <select class="form-select shadow-none">
+                                                <option value="0" selected>All</option>
+                                                <option value="1">Free</option>
+                                                <option value="2">Purchased</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- title -->
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table v-middle">
+                                    <thead>
+                                        <tr class="bg-light">
+                                            <th class="border-top-0">Course Name</th>
+                                            <th class="border-top-0">Teacher</th>
+                                            <th class="border-top-0">Category</th>
+                                            <th class="border-top-0">Hours</th>
+                                            <th class="border-top-0">Price</th>
+                                            <th class="border-top-0">Date</th>
+                                            <!--The date that the student have taken the course-->
+                                            <th class="border-top-0"></th>
+                                            <!--This empty col is for "view courses like a button or anything !"-->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                  <div class="m-r-10"><a
+                                                    class="btn btn-circle d-flex btn-info text-white">EA</a>
+                                                  </div>
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16">Elite Admin</h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Single Use</td>
+                                            <td>John Doe</td>
+                                            <td>
+                                                hour1
+                                            </td>
+                                            <td>46</td>
+                                            <td>356</td>
+                                            <td>
+                                                <label class="label label-info">View Course</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                  <div class="m-r-10"><a
+                                                    class="btn btn-circle d-flex btn-orange text-white">MA</a>
+                                                  </div>
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16">Monster Admin</h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Single Use</td>
+                                            <td>Venessa Fern</td>
+                                            <td>
+                                                hours2
+                                            </td>
+                                            <td>46</td>
+                                            <td>356</td>
+                                            <td>
+                                                <label class="label label-info">View Course</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                              <div class="d-flex align-items-center">
+                                                <div class="m-r-10"><a
+                                                        class="btn btn-circle d-flex btn-success text-white">MP</a>
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16">Material Pro Admin</h4>
+                                                </div>
+                                            </div>
+                                            </td>
+                                            <td>Single Use</td>
+                                            <td>John Doe</td>
+                                            <td>
+                                                hours3
+                                            </td>
+                                            <td>46</td>
+                                            <td>356</td>
+                                            <td>
+                                                <label class="label label-info">View Course</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                  <div class="d-flex align-items-center">
+                                                    <div class="m-r-10"><a
+                                                            class="btn btn-circle d-flex btn-purple text-white">AA</a>
+                                                    </div>
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16">Ample Admin</h4>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </td>
+                                            <td>Single Use</td>
+                                            <td>John Doe</td>
+                                            <td>
+                                                hours4
+                                            </td>
+                                            <td>46</td>
+                                            <td>356</td>
+                                            <td>
+                                                <label class="label label-info">View Course</label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+  </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
