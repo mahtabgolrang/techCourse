@@ -5,7 +5,7 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Customer
+from .models import Customer ,Teacher
 
 
 class CreateUserForm (UserCreationForm):
@@ -14,7 +14,7 @@ class CreateUserForm (UserCreationForm):
    
    class Meta:
       model = User
-      fields = ['first_name', 'email', 'username', 'password1','password2', 'agree']
+      fields = ['first_name','last_name', 'email', 'username', 'password1','password2', 'agree']
 
    def clean_email(self):
       email = self.cleaned_data['email'].lower()
@@ -31,3 +31,17 @@ class CreateUserForm (UserCreationForm):
       except Exception as e:
          return username
       raise forms.ValidationError(f'Username {username}  is already in use' )
+
+class CreatTeacher(forms.ModelForm):
+   class Meta:
+      model=Teacher
+      fields=['phone','fildOfStudy','university','lastEducation']      
+   def clean_phone(self):
+      phone = self.cleaned_data['phone'].lower()
+      try:
+         user= Teacher.objects.get(phone=phone)
+      except Exception as e:
+         return phone
+      raise forms.ValidationError(f'phone {phone}  is already in use' )
+
+
