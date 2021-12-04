@@ -1,212 +1,70 @@
+{% extends 'basehtml.html' %}
 {% load static %}
 {% load widget_tweaks %}
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register Artboard</title>
-<link rel="stylesheet" type="text/css" href="{% static '/css/registerpagestyle.css' %}">
-</head>
-<body dir="ltr">
-	
-<form method="POST">
+{% block style %} 
+<link rel="stylesheet" type="text/css" href="{% static '/css/loginstyle.css' %}">
+{% endblock %}
 
-	{% csrf_token %}
+{% block title %}
+	Register
+{% endblock %}
 
-	
-	<div id="Register_Artboard">
-	<div id="Group_3">
-		<svg class="gradient__n" viewBox="0 0 1026.397 1151.888">
-			<linearGradient id="gradient__n" spreadMethod="pad" x1="0.55" x2="0.55" y1="0" y2="1">
-				<stop offset="0" stop-color="#0f2027" stop-opacity="1"></stop>
-				<stop offset="0.5021" stop-color="#203a43" stop-opacity="1"></stop>
-				<stop offset="1" stop-color="#2c5364" stop-opacity="1"></stop>
-			</linearGradient>
-			<path id="gradient__n" d="M 0 1151.888061523438 L 0 0 L 1026.396728515625 0 L 0 1151.888061523438 Z">
-			</path>
-		</svg>
-		<svg class="gradient2_p" viewBox="78.788 150.583 1059.337 1189.09">
-			<linearGradient id="gradient2_p" spreadMethod="pad" x1="0.5" x2="0.5" y1="0" y2="1">
-				<stop offset="0" stop-color="#0f2027" stop-opacity="1"></stop>
-				<stop offset="0.5021" stop-color="#203a43" stop-opacity="1"></stop>
-				<stop offset="1" stop-color="#2c5364" stop-opacity="1"></stop>
-			</linearGradient>
-			<path id="gradient2_p" d="M 835.4571533203125 1339.672973632812 L 1138.124755859375 150.5826416015625 L 78.78781127929688 1339.672973632812 L 835.4571533203125 1339.672973632812 Z">
-			</path>
-		</svg>
+{%block body%}
+	<div class="main">
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Register</h2>
+                        <form method="POST" class="register-form" id="register-form">
+							{% csrf_token %}
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi material-icons-name"></i></label>
+                                <input type="text" name="name"  placeholder="Your Name"/>
+                            </div>
+							<div class="form-group">
+                                <label for="username"><i class="zmdi"></i></label>
+                                <input type="name" name="username" id="username" placeholder="Username"/>
+                            </div> 
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi"></i></label>
+								<input type="email" name="email" id="email" placeholder="Email"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi"></i></label>
+                                <input type="password" name="pass" id="pass" placeholder="Password"/> 
+								
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in</label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="{% static '/image/signup-image.jpg' %}" alt="sing up image"></figure>
+                        <a href="{% url 'login' %}" class="signup-image-link" role="button" style="text-decoration: none;">I am already member</a>
+						    {% if form.errors %}
+       							{% for field in form %}
+           							{% for error in field.errors %} 
+				   						<p style="color:red">{{error}}</p>
+           							{% endfor %}
+       							{% endfor %}
+    						{% endif %}
+                    </div>
+                </div>
+			</div>
+		</section>
 	</div>
-	<svg class="white_rectangle_upper">
-		<rect id="white_rectangle_upper" rx="0" ry="0" x="0" y="0" width="1920" height="62">
-		</rect>
-	</svg>
-	<svg class="gradient_rectangle_upper_s">
-		<linearGradient id="gradient_rectangle_upper_s" spreadMethod="pad" x1="0" x2="1" y1="0.5" y2="0.5">
-			<stop offset="0" stop-color="#ab0d02" stop-opacity="1"></stop>
-			<stop offset="0.2476" stop-color="#d13228" stop-opacity="1"></stop>
-			<stop offset="0.5354" stop-color="#002121" stop-opacity="1"></stop>
-			<stop offset="0.8501" stop-color="#03c7e8" stop-opacity="1"></stop>
-			<stop offset="1" stop-color="#caf3f6" stop-opacity="1"></stop>
-		</linearGradient>
-		<rect id="gradient_rectangle_upper_s" rx="0" ry="0" x="0" y="0" width="1920" height="80">
-		</rect>
-	</svg>
-	<div id="register_group">
-		<div id="fullname_group" class="fullname_group">
-			<svg class="fullname_rectangle">
-				<rect id="fullname_rectangle" rx="0" ry="0" x="0" y="0" width="462" height="53">
-				</rect>
-			</svg>
-			<div id="Full_name">
-				<span>Full name</span>
-				{% render_field form.first_name type="name" class="myTextFild" %}
-
-			</div>
-		</div>
-		<div id="email_group">
-			<svg class="email_rectangle">
-				<rect id="email_rectangle" rx="0" ry="0" x="0" y="0" width="462" height="53">
-				</rect>
-			</svg>
-			<div id="Email">
-				<span>Email</span>
-				{% render_field form.email type="email" class="myTextFild" %}
-			</div>
-		</div>
-
-		<div id="public_username_group">
-			<svg class="public_username_rectangle">
-				<rect id="public_username_rectangle" rx="0" ry="0" x="0" y="0" width="462" height="53">
-				</rect>
-			</svg>
-			<div id="Public_username">
-				<span>Public username</span>
-				{% render_field form.username type="name" class="myTextFild" %}
-
-			</div>
-		</div>
-		
-		<div id="reg__log_in__work_with_us_grou">
-
-			<svg class="line_bottm_reg_and_log_in" viewBox="0 0 462.681 1">
-				<path id="line_bottm_reg_and_log_in" d="M 0 1 L 462.6807861328125 0">
-				</path>
-			</svg>
-			<svg class="line_bottom_register" viewBox="0 1 129.45 2">
-				<path id="line_bottom_register" d="M 0 1 L 129.4503173828125 1">
-				</path>
-			</svg>
-			
-			<div onclick="application.goToTargetView(event)" id="register_text">
-			<input name="Register" type="button" />
-				<span>Register</span>
-			</div>
-
-			<div onclick="application.goToTargetView(event)" id="log_in_text">
-			<input name="login" type="button"  /> 
-				<a href="{% url 'login' %}" class="ml-2" style="color:rgba(112,112,112,1);text-decoration: none;">Login</a>
-			</div>
-
-			<div onclick="application.goToTargetView(event)" id="Work_with_us">
-			<input  name="work_with_us" type="button" /> 
-				<span>Work with us</span>
-			</div>
-		</div>
-
-
-
-		<div id="password_Group_">
-			<svg class="password_Rectangle_">
-				<rect id="password_Rectangle_" rx="0" ry="0" x="0" y="0" width="462" height="53">
-				</rect>
-			</svg>
-			<div id="Password">
-				<span>Password</span>
-				{% render_field form.password1 type="password" class="myTextFild" %}
-
-=			</div>
-		</div>
-
-		
-		<div id="text_that_im_agree_Group_">
-			<!--<input id="Rectangle_1" class="Rectangle_1" name="checkbox" type="checkbox"  />-->
-			<div class="Rectangle_1" id="Rectangle_1">
-				{% render_field form.agree type="checkbox" class="Rectangle_1" %}
-			</div>
-			<div id="By_creating_an_account_I_agree">
-				<span>By creating an account, I agree that </span><br/>
-			</div>
-		</div>
-		<div id="create_acount_Group_">
-			<button type="submit" class="ceate_accountRectangle" id="ceate_accountRectangle"
-			style="color: rgba(210,50,40,1);">
-				<div id="Create_an_account_">
-					<span>Create an account </span>
-				</div>
-			</button>
-			
-		</div>
-	</div>
-
-	
-
-	<div onclick="application.goToTargetView(event)" id="techCourse_Text_group">
-		<svg class="tech_Rectangle__bk">
-			<linearGradient id="tech_Rectangle__bk" spreadMethod="pad" x1="0.094" x2="0.88" y1="0.5" y2="0.5">
-				<stop offset="0" stop-color="#ab0d02" stop-opacity="1"></stop>
-				<stop offset="1" stop-color="#560701" stop-opacity="1"></stop>
-			</linearGradient>
-			<rect id="tech_Rectangle__bk" rx="0" ry="0" x="0" y="0" width="98" height="61">
-			</rect>
-			<input name ="button_techCourse"class="tech_Rectangle__bk" id="tech_Rectangle__bk" type="button"/>
-		</svg>
-		<div id="techCourse">
-			<span>techCourse</span>
-		</div>
-	</div>
-	<div id="title_group">
-		<div id="Start__Learning_With_techCours">
-			<span>Start </span><br/><span style="color:rgba(171,13,2,1);">Learning</span><br/><span>With<br/>techCourse</span>
-		</div>
-		<svg class="Path_1" viewBox="0 0 4 439">
-			<path id="Path_1" d="M 0 0 L 0 439">
-			</path>
-		</svg>
-	</div>
-	<div id="Re-password_Group_">
-		<svg class="Re-password_Rectangle_">
-			<rect id="Re-password_Rectangle_" rx="0" ry="0" x="0" y="0" width="462" height="53">
-			</rect>
-		</svg>
-		<div id="Re-password">
-			<span>Re-password</span>
-			{% render_field form.password2 type="password" class="myTextFild" %}
-
-		</div>
-	</div>
-	
-	<div  class="error_box" id="error_box" width="100" height="50" >
-		{% if form.errors %}
-       		{% for field in form %}
-           		{% for error in field.errors %} 
-				   <p id="errorClass">{{error}}</p>
-						
-           {% endfor %}
-       {% endfor %}
-    {% endif %}
-
-	
-		{% if messages %}
-			{% for message in messages %}
-				<div class="alert alert-danger">
-					<strong style="color:red;font:Segoe UI;">{{ message }}</strong>
-				</div>
-			{% endfor %}
-		{% endif %}
-	</div>
-</div>
-</form>
-</body>
-</html>
+{% endblock %}

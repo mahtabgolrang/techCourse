@@ -1,32 +1,30 @@
+{% extends 'basehtml.html' %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/css/bootstrap/bootstrap.css' %}">
-    <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/css/bootstrap/bootstrap-grid.css' %}">
+
+{% block style %}
     <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/css/rootstyle.css' %}">
-    <title>{% block title %}{% endblock %}</title>
-</head>
-<body>
-    <div class="container-fluid my-container">
-        <div class="row">
-            {% include "navbar.html" %}
-        </div>
-        <div class="row" >
-            <div class="col" id="mine_gradient"></div>
-        </div>
-        <div class="row">
-            {% block content %}
-    
-            {% endblock %}
-        </div>
-        <div class="row">
-            {% include "footer.html" %}
-        </div>
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid my-container">
+    <div class="row">
+        {% include "navbar.html" %}
     </div>
-</body>
-    <script type="text/javascript" src="{% static '/js/jquery-3.6.0.min.js'}"></script>
-    <script type="text/javascript" src="{% static '/js/bootstrap.bundle.js'}"></script>
-</html>
+    <div class="row" >
+        <div class="col" id="mine_gradient"></div>
+    </div>
+    <div class="row">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    <div class="row">
+        {% include "footer.html" %}
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
