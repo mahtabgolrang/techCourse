@@ -9,9 +9,9 @@ from .models import Customer
 
 
 class CreateUserForm (UserCreationForm):
-   email= forms.EmailField(max_length=200 , help_text='use a valid email', required=True)
+   email= forms.EmailField(max_length=50 , help_text='use a valid email', required=True)
    agree = forms.BooleanField(required=True)
-
+   
    class Meta:
       model = User
       fields = ['first_name', 'email', 'username', 'password1','password2', 'agree']
