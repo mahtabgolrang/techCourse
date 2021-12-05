@@ -52,13 +52,15 @@ logger = logging.getLogger(__name__)
 @unauthenticated_user
 def loginPage(request):
     if request.method == 'POST':
+        logger.error(f'\n\n\n\n\n inja   -------------------------------------\n\n\n\n\n')
+
         username = request.POST.get('username')
         password = request.POST.get('password')
+        logger.error(f'\n\n\n\n\n {username}  {password}   -------------------------------------\n\n\n\n\n')
         user = authenticate(request, username=username, password=password)
-        user1= authenticate(request, email=username, password=password)
-        if user is not None or user1 is not None:
+        if user is not None:
             login(request,user)
-            return redirect('/')
+            return redirect('main')
         else: messages.info(request,'user name or password is incorrect...!')
     context = {}
     return render(request, 'login.html', context)
@@ -112,9 +114,9 @@ def test(request):
 def userdashboard(request):
     customer = request.user.customer
     allCours = customer.course.all()
-    freeCours =list(filter(lambda course :course.price==0 ,allCours))
-    logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
-    coursePurchased = list(filter(lambda course :course.price>0,customer.course.all()))
+    freeCours =allCours.filter(price = 0)
+    #logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
+    coursePurchased = allCours.filter(price__gt = 0)
     context = {
         "customer": customer,
         'allCours': allCours,
@@ -124,3 +126,14 @@ def userdashboard(request):
         'coursePurchasedSize': len(coursePurchased),
     }
     return render(request, 'userdashboard.html', context)
+
+@login_required
+@allowed_users("customer")
+def userDashboardProfile(request):
+    customer = request.user.customer
+
+    context={
+        "customer": customer,
+
+    }
+    return render(request, 'userdashboard-profile.html', context)

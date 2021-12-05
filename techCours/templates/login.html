@@ -10,6 +10,7 @@
 {% endblock %}
 
 {%block body%}
+
  <div class="main" style="background-color:#0F2027;">
 	<!-- Sign up form -->
 	<section class="sign-in">
@@ -31,20 +32,22 @@
 							<input type="password" name="password" id="your_pass" placeholder="Password"/>
 						</div>
 						<div class="form-group form-button">
-							<input type="button" name="signin" id="signin" class="form-submit" value="Log in"style="background-color: #D23228;"/></br>
-                            <input type="button" name="signin" id="signin" class="form-submit" value="create account"style="background-color: #D23228;"/>
+							<input type="submit" name="signin" id="signin" class="form-submit" value="Log in"style="background-color: #D23228;"/></br>
+                            <input type="submit" name="signin" id="signin" class="form-submit" value="create account"style="background-color: #D23228;"/>
+							<div class="row">
+								{% if messages %}
+								{% for message in messages %}
+								
+									<p id="errorClass" style="color: red;">{{message}}</p>
+								{% endfor %}
+								{% endif %}
+							</div>
 						</div>
                     </form>
 				</div>
 				</div>
 			</div>
-			<div class="row">
-				{% if messages %}
-		        {% for message in messages %}
-					<p id="errorClass">{{message}}</p>
-		        {% endfor %}
-	        {% endif %}
-			</div>
+			
 		</div>
 	</section>
  </div>	

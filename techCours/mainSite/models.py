@@ -73,7 +73,7 @@ class Customer (models.Model):
     adress= models.CharField(max_length=50, null=True)
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE , related_name='customer')
     profile_pic = models.ImageField(null=True, blank=True)
-    course = models.ManyToManyField(Course, related_name='customer')
+    course = models.ManyToManyField(Course, related_name='my')
 
     def __str__(self):
         return self.user.username
@@ -102,3 +102,4 @@ class Teacher (models.Model):
 
     def __str__(self):
         return self.user.username
+
