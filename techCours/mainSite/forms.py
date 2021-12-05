@@ -3,45 +3,81 @@ from django.db.models import fields
 from django.db.models.base import Model
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Customer ,Teacher
+from .models import Customer, Teacher
 
 
 class CreateUserForm (UserCreationForm):
-   email= forms.EmailField(max_length=50 , help_text='use a valid email', required=True)
-   agree = forms.BooleanField(required=True)
-   
-   class Meta:
-      model = User
-      fields = ['first_name','last_name', 'email', 'username', 'password1','password2', 'agree']
+    email = forms.EmailField(
+        max_length=50, help_text='use a valid email', required=True)
+    agree = forms.BooleanField(required=True)
 
-   def clean_email(self):
-      email = self.cleaned_data['email'].lower()
-      try:
-         user= User.objects.get(email=email)
-      except Exception as e :
-         return email
-      raise forms.ValidationError(f'Email {email}  is already in use' )
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email',
+                  'username', 'password1', 'password2', 'agree']
 
-   def clean_username(self):
-      username = self.cleaned_data['username'].lower()
-      try:
-         user= User.objects.get(username=username)
-      except Exception as e:
-         return username
-      raise forms.ValidationError(f'Username {username}  is already in use' )
+    def clean_email(self):
+        email = self.cleaned_data['email'].lower()
+        try:
+            user = User.objects.get(email=email)
+        except Exception as e:
+            return email
+        raise forms.ValidationError(f'Email {email}  is already in use')
 
-class CreatTeacher(forms.ModelForm):
-   class Meta:
-      model=Teacher
-      fields=['phone','fildOfStudy','university','lastEducation']      
-   def clean_phone(self):
-      phone = self.cleaned_data['phone'].lower()
-      try:
-         user= Teacher.objects.get(phone=phone)
-      except Exception as e:
-         return phone
-      raise forms.ValidationError(f'phone {phone}  is already in use' )
+    def clean_username(self):
+        username = self.cleaned_data['username'].lower()
+        try:
+            user = User.objects.get(username=username)
+        except Exception as e:
+            return username
+        raise forms.ValidationError(f'Username {username}  is already in use')
 
 
+class UserEditForm(UserChangeForm):
+    class Meta(UserChangeForm.Meta):
+        fields = ["first_name", "last_name", "email", "username"]
+    password = None
+
+
+COUNTRYS = (
+    ('ir', 'Iran'),
+    ('us', 'Usa'),
+    ('ca', 'Canada'),
+    ('ch', 'China'),
+    ('in', 'India'),
+)
+
+
+class EditCustomerForm(forms.ModelForm):
+    adress = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control form-control-line'}))
+    contry = forms.ChoiceField(
+        widget=forms.Select,
+        choices=COUNTRYS,
+    )
+    contry.widget.attrs['class'] = 'form-control'
+
+    class Meta:
+        model = Customer
+        fields = ['phone', 'contry', 'adress']
+
+
+class CreatTeacherForm(forms.ModelForm):
+    contry = forms.ChoiceField(
+        widget=forms.Select,
+        choices=COUNTRYS,
+    )
+    contry.widget.attrs['class'] = 'form-control'
+    class Meta:
+        model = Teacher
+        fields = ['phone', 'fildOfStudy', 'university', 'lastEducation']
+
+    def clean_phone(self):
+        phone = self.cleaned_data['phone'].lower()
+        try:
+            user = Teacher.objects.get(phone=phone)
+        except Exception as e:
+            return phone
+        raise forms.ValidationError(f'phone {phone}  is already in use')

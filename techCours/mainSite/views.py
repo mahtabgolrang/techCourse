@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # Create your views here.
 from .models import *
-from .forms import CreateUserForm, CreatTeacher
+from .forms import CreateUserForm, CreatTeacherForm ,EditCustomerForm,UserEditForm
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -52,16 +52,15 @@ logger = logging.getLogger(__name__)
 @unauthenticated_user
 def loginPage(request):
     if request.method == 'POST':
-        logger.error(f'\n\n\n\n\n inja   -------------------------------------\n\n\n\n\n')
-
         username = request.POST.get('username')
         password = request.POST.get('password')
-        logger.error(f'\n\n\n\n\n {username}  {password}   -------------------------------------\n\n\n\n\n')
+        #logger.error(f'\n\n\n\n\n {username}  {password}   -------------------------------------\n\n\n\n\n')
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request,user)
             return redirect('main')
-        else: messages.info(request,'user name or password is incorrect...!')
+        else:
+             messages.e(request,'user name or password is incorrect...!')
     context = {}
     return render(request, 'login.html', context)
 
@@ -81,11 +80,11 @@ def main(request):
 def workwithus(request):
 
     form = CreateUserForm()
-    formTeacher = CreatTeacher()
+    formTeacher = CreatTeacherForm()
 
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
-        formTeacher = CreatTeacher(request.POST)
+        formTeacher = CreatTeacherForm(request.POST)
         if form.is_valid() and formTeacher.is_valid():
             messages.info(request, 'Account was created for')
             user = form.save()
@@ -119,11 +118,11 @@ def userdashboard(request):
     coursePurchased = allCours.filter(price__gt = 0)
     context = {
         "customer": customer,
-        'allCours': allCours,
-        'freeCours': freeCours,
-        'freeCoursSize': len(freeCours),
-        'coursePurchased': coursePurchased,
-        'coursePurchasedSize': len(coursePurchased),
+        "allCours": allCours,
+        "freeCours": freeCours,
+        "freeCoursSize": len(freeCours),
+        "coursePurchased": coursePurchased,
+        "coursePurchasedSize": len(coursePurchased),
     }
     return render(request, 'userdashboard.html', context)
 
@@ -131,9 +130,23 @@ def userdashboard(request):
 @allowed_users("customer")
 def userDashboardProfile(request):
     customer = request.user.customer
+    
+    if request.method == 'POST':
+        formCustomer = EditCustomerForm(request.POST , instance=request.user.customer)
+        formUser = UserEditForm(request.POST,instance=request.user)
+        if formCustomer.is_valid() and formUser.is_valid():
+            formCustomer.save()
+            formUser.save()   
 
-    context={
+            messages.success(request, 'your profile hase change  ' + request.user.username)
+    else:
+        formCustomer = EditCustomerForm(instance=request.user.customer)
+        formUser = UserEditForm(instance=request.user)
+        
+    context = {
         "customer": customer,
-
+        "formCustomer": formCustomer,
+        "form": formUser
     }
+    
     return render(request, 'userdashboard-profile.html', context)
