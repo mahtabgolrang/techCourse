@@ -1,173 +1,386 @@
 {% load static %}
-<!DOCTYPE html>
-<html>
+{% extends 'basehtml.html' %}
+{% load static %}
+{% load widget_tweaks %}
 
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Main Artboard</title>
-	<link rel="stylesheet" type="text/css" href="{% static '/css/mainpagestyle.css' %}">
+{% block style %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="TemplateMo">
+<link href="{% static '/assets/css/google-f.css' %}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/assets/css/fontawesome.css' %}">
 
-	<head>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/assets/css/templatemo-edu-meeting.css' %}">
 
-	<body>
-		<form method="GET">
-			<div id="Main_Artboard">
-				<svg class="Path_11_m" viewBox="2067.571 3069.041 1377.962 759.459">
-					<linearGradient id="Path_11_m" spreadMethod="pad" x1="0.5" x2="0.5" y1="0" y2="1">
-						<stop offset="0" stop-color="#0f2027" stop-opacity="1"></stop>
-						<stop offset="0.5021" stop-color="#203a43" stop-opacity="1"></stop>
-						<stop offset="1" stop-color="#2c5364" stop-opacity="1"></stop>
-					</linearGradient>
-					<path id="Path_11_m"
-						d="M 2732.5 3828.5 L 2067.57080078125 3828.5 L 2067.57080078125 3069.040771484375 L 3445.532958984375 3069.040771484375 L 2732.5 3828.5 Z">
-					</path>
-				</svg>
-				<svg class="Path_10" viewBox="3701.706 2954 539.391 109.397">
-					<path id="Path_10"
-						d="M 4241.0966796875 2954 L 4241.0966796875 3063.3974609375 L 3701.7060546875 3063.3974609375 L 3802.611328125 2954 L 4241.0966796875 2954 Z">
-					</path>
-				</svg>
-				<svg class="Line_4" viewBox="0 0 825 880">
-					<path id="Line_4" d="M 825 0 L 0 880">
-					</path>
-				</svg>
-				<svg class="Path_7_q" viewBox="2620.659 3158.264 873.284 12">
-					<linearGradient id="Path_7_q" spreadMethod="pad" x1="0.5" x2="0.5" y1="0" y2="1">
-						<stop offset="0" stop-color="#ab0d02" stop-opacity="1"></stop>
-						<stop offset="1" stop-color="#560701" stop-opacity="1"></stop>
-					</linearGradient>
-					<path id="Path_7_q"
-						d="M 2620.65869140625 3170.263671875 L 2637.706787109375 3158.263671875 L 3493.94287109375 3158.263671875 L 3477.841064453125 3170.263671875 L 2620.65869140625 3170.263671875 Z">
-					</path>
-				</svg>
-				<svg class="Path_12" viewBox="0 0 8 554.556">
-					<path id="Path_12" d="M 0 0 L 0 554.556396484375">
-					</path>
-				</svg>
-				<svg class="Line_1" viewBox="0 0 8 555">
-					<path id="Line_1" d="M 0 0 L 0 555">
-					</path>
-				</svg>
-				<img id="Mathematics-cuate" src="{% static '/image/Mathematics-cuate.png' %}">
-				
-				<div id="Start__Learning_With__techCour">
-					<span>Start </span><br /><span style="color:rgba(171,13,2,1);">Learning</span><br /><span>With
-					</span><br /><span style="color:rgba(171,13,2,1);">tech</span><span
-						style="color:rgba(255,199,39,1);">Course</span>
-				</div>
-				<div id="Toolbar_Group">
-					<svg class="Toolbar_white_side">
-						<rect id="Toolbar_white_side" rx="0" ry="0" x="0" y="0" width="1920" height="110">
-						</rect>
-					</svg>
-					{% if user.is_authenticated %}
-					<div class="Rectangle_10" id="Rectangle_10" width="358" height="76">
-						<p style="color: crimson;">Welcome, {{ user.get_username }}. Thanks for logging in.</p>
-					</div>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/assets/css/owl.css' %}">
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/assets/css/lightbox.css' %}">
+{% endblock %}
 
-					
-					<button>
-						<div onclick="application.goToTargetView(event)" id="Log_in_group">
-							<div id="Log_in">
-								<a href="{% url 'logout' %}"
-									style="font:Segoe UI;font: size 30px;text-decoration: none;color: black;">Logout</a>
-							</div>
-							<svg class="Rectangle_5_">
-								<linearGradient id="Rectangle_5_" spreadMethod="pad" x1="0.5" x2="0.5" y1="0" y2="1">
-									<stop offset="0" stop-color="#ab0d02" stop-opacity="1"></stop>
-									<stop offset="1" stop-color="#560701" stop-opacity="1"></stop>
-								</linearGradient>
-								<rect id="Rectangle_5_" rx="0" ry="0" x="0" y="0" width="94" height="4">
-								</rect>
-							</svg>
-						</div>
-					</button>
+{% block title %}
+ landing page
+{% endblock %}
 
-					{% else %}
+{% block body %}
+  <section class="section main-banner" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+          <source  src="{% static '/assets/images/course-video.mp4' %}" type="video/mp4" />
+      </video>
+      <div class="video-overlay header-text">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="caption">
+              <h6>Hello Students</h6>
+              <h2>Welcome to TechCourse</h2>
+              <p>This is an TechCourse website </p>
+              <div class="main-button-red">
+                  <div class="scroll-to-section"><a href="" role="button">Join Us Now!</a></div>
+              </div>
+          </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </section>
+  <!-- ***** Main Banner Area End ***** -->
 
-					<button>
-						<div onclick="application.goToTargetView(event)" id="Log_in_group">
-							<div id="Log_in">
-								<a href="{% url 'login' %}"
-									style="font:Segoe UI;font: size 30px;text-decoration: none;color: black;">Login</a>
-							</div>
-							<svg class="Rectangle_5_">
-								<linearGradient id="Rectangle_5_" spreadMethod="pad" x1="0.5" x2="0.5" y1="0" y2="1">
-									<stop offset="0" stop-color="#ab0d02" stop-opacity="1"></stop>
-									<stop offset="1" stop-color="#560701" stop-opacity="1"></stop>
-								</linearGradient>
-								<rect id="Rectangle_5_" rx="0" ry="0" x="0" y="0" width="94" height="4">
-								</rect>
-							</svg>
-						</div>
-					</button>
+ 
 
+  <section class="upcoming-meetings" id="meetings">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h2>All Courses</h2>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="categories">
+            <h4>Courses Catgories</h4>
+            <ul>
+              <li><a href="#">Sed tempus enim leo</a></li>
+              <li><a href="#">Aenean molestie quis</a></li>
+              <li><a href="#">Cras et metus vestibulum</a></li>
+              <li><a href="#">Nam et condimentum</a></li>
+              <li><a href="#">Phasellus nec sapien</a></li>
+            </ul>
+            <div class="main-button-red">
+              <a href="{% url '' %}" role="button">All Courses</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <div class="price">
+                    <span>$22.00</span>
+                  </div>
+                  <a href="{% url '' %}" role="button"><img src="{% static '/assets/images/meeting-01.jpg' %}" alt="New Lecturer Meeting"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>Nov <span>10</span></h6>
+                  </div>
+                  <a href="{% url '' %}"><h4>Digital Painting</h4></a>
+                  <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <div class="price">
+                    <span>$36.00</span>
+                  </div>
+                  <a href="#" role="button"><img src="{% static '/assets/images/meeting-02.jpg' %}" alt="Online Teaching"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>Nov <span>24</span></h6>
+                  </div>
+                  <a href="{% url '' %}"><h4>C++</h4></a>
+                  <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <div class="price">
+                    <span>$14.00</span>
+                  </div>
+                  <a href="{% url '' %}" role="button"><img src="{% static '/assets/images/meeting-03.jpg' %}" alt="Higher Education"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>Nov <span>26</span></h6>
+                  </div>
+                  <a href="{% url '' %}" role="button"><h4>Data Structures And Algorithms Basics</h4></a>
+                  <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <div class="price">
+                    <span>$48.00</span>
+                  </div>
+                  <a href="{% url '' %}"><img src="{% static '/assets/images/meeting-04.jpg' %}"alt="Student Training"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>Nov <span>30</span></h6>
+                  </div>
+                  <a href="{% url '' %}"><h4>History Of Graphic
+					Design</h4></a>
+                  <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-					<div id="work_with_us_group">
-						<div id="Work_with_us">
-							<span for="work">Work with us</span>
-							<input id="work" id="work_with_us_group" id="Work_with_us" type="button" />
+  <section class="apply-now" id="apply">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="item">
+                <h3>Best teachers with best methods</h3>
+                <p>from various 
+                    universities publish their knowledge here for any person who is striving to learn new things 
+                    properly..</p>
+                
+                <div class="main-button-red">
+                  <div class="scroll-to-section" ><a href="#" role="button">Join Us Now!</a></div>
+              </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="item">
+                <h3></h3>
+                
+                <p>In techCourse we are welcome to any student from elementary to university. Our courses start from basic to advanced, for every individual to taste the pleasure of learning..</p>
+                <p>Businesses and teams can use our courses to improve their members' knowledge so they can develop their business.</p>
 
-						</div>
-						<svg class="Rectangle_9_">
-							<linearGradient id="Rectangle_9_" spreadMethod="pad" x1="0.5" x2="0.5" y1="0" y2="1">
-								<stop offset="0" stop-color="#ab0d02" stop-opacity="1"></stop>
-								<stop offset="1" stop-color="#560701" stop-opacity="1"></stop>
-							</linearGradient>
-							<rect id="Rectangle_9_" rx="0" ry="0" x="0" y="0" width="170" height="4">
-							</rect>
-						</svg>
-					</div>
-					<button>
-						<div onclick="application.goToTargetView(event)" id="register_group">
-							<svg class="Rectangle_4_z">
-								<linearGradient id="Rectangle_4_z" spreadMethod="pad" x1="0.5" x2="0.5" y1="0" y2="1">
-									<stop offset="0" stop-color="#0f2027" stop-opacity="1"></stop>
-									<stop offset="0.5021" stop-color="#203a43" stop-opacity="1"></stop>
-									<stop offset="1" stop-color="#2c5364" stop-opacity="1"></stop>
-								</linearGradient>
-								<rect id="Rectangle_4_z" rx="7" ry="7" x="0" y="0" width="117" height="54">
-								</rect>
-							</svg>
-							<div id="Register">
-								<a href="{% url 'register' %}"
-									style="font:Segoe UI;font: size 30px;text-decoration: none;color: white;">Register</a>
-							</div>
-						</div>
-					</button>
+                <div class="main-button-yellow">
+                  <div class="scroll-to-section"><a href="{% url 'register' %}" role="button">Join Us Now!</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="accordions is-first-expanded">
+            <article class="accordion">
+                <div class="accordion-head">
+                    <span>all coursee</span>
+                    <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                </div>
+                
+            </article>
+            <article class="accordion">
+                <div class="accordion-head">
+                    <span>Categories</span>
+                    <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                </div>
+            </article>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="our-facts">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-12">
+              <h2>A Few Facts About Our University</h2>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-12">
+                  <div class="count-area-content percentage">
+                    <div class="count-digit">94</div>
+                    <div class="count-title">Succesed Students</div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="count-area-content">
+                    <div class="count-digit">126</div>
+                    <div class="count-title">Current Teachers</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-12">
+                  <div class="count-area-content new-students">
+                    <div class="count-digit">2345</div>
+                    <div class="count-title">New Students</div>
+                  </div>
+                </div> 
+                <div class="col-12">
+                  <div class="count-area-content">
+                    <div class="count-digit">32</div>
+                    <div class="count-title">Awards</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div class="col-lg-6 align-self-center">
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="contact-us" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 align-self-center">
+          <div class="row">
+            <div class="col-lg-12">
+              <form id="contact" action="" method="post">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h2>Contact Us</h2>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                      <input name="name" type="text" id="name" placeholder="YOURNAME...*" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="YOUR EMAIL..." required="">
+                  </fieldset>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                      <input name="subject" type="text" id="subject" placeholder="SUBJECT...*" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <textarea name="message" type="text" class="form-control" id="message" placeholder="YOUR MESSAGE..." required=""></textarea>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="button"><a href="{% url '' %}">SEND MESSAGE NOW</a></button>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="right-info">
+            <ul>
+              <li>
+                <h6>Email Address</h6>
+                <span><h6>techcoursescu@gmail.com</h6></span>
+              </li>
+              <li>
+                <h6>Website URL</h6>
+                <span><h6>www.techcoursescu.com</h6></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+		<p>Copyright © 2022 www.techcoursescu.com 
+			<br>
+			Contact Us: <a href="#main.html" target="_parent" title="free css templates">Contact Us</a>
+			<br>
+			All Courses: <a href="#categories.html" target="_blank" title="Build Better UI, Faster">All Courses</a>
+		  </p>
+	</div>
+  </section>
+{% endblock %}
 
-					{% endif %}
+{% block js %}
+<script type="text/javascript" src="{% static '/vendor/jquery/jquery.min.js'}"></script>
+<script type="text/javascript" src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js'}"></script>
 
+<script type="text/javascript" src="{% static '/assets/js/isotope.min.js'}"></script>
+<script type="text/javascript" src="{% static '/assets/js/owl-carousel.js'}"></script>
 
+<script type="text/javascript" src="{% static '/assets/js/lightbox.js'}"></script>
 
+<script type="text/javascript" src="{% static '/assets/js/tabs.js'}"></script>
 
+<script type="text/javascript" src="{% static '/assets/js/video.js'}"></script>
 
-					<img id="logo" src="{% static '/image/techCourse Logo.png' %}"
-						srcset="techCourse Logo 1x, logo@2x.png 2x">
-					<svg class="Line_Toolbar" viewBox="0 0 117 125">
-						<path id="Line_Toolbar" d="M 117 0 L 0 125">
-						</path>
-						<input id="logo" class="Line_Toolbar" id="Line_Toolbar" type="submit" />
-					</svg>
-					<svg class="gradient_rectangle_toolbar_bc">
-						<linearGradient id="gradient_rectangle_toolbar_bc" spreadMethod="pad" x1="0" x2="1" y1="0.5"
-							y2="0.5">
-							<stop offset="0" stop-color="#ab0d02" stop-opacity="1"></stop>
-							<stop offset="0.2476" stop-color="#d13228" stop-opacity="1"></stop>
-							<stop offset="0.5354" stop-color="#002121" stop-opacity="1"></stop>
-							<stop offset="0.8501" stop-color="#03c7e8" stop-opacity="1"></stop>
-							<stop offset="1" stop-color="#caf3f6" stop-opacity="1"></stop>
-						</linearGradient>
-						<rect id="gradient_rectangle_toolbar_bc" rx="0" ry="0" x="0" y="0" width="1920" height="19">
-						</rect>
-					</svg>
-				</div>
-			</div>
-		</form>
-	</body>
+<script type="text/javascript" src="{% static '/assets/js/slick-slider.js'}"></script>
 
-</html>
+<script type="text/javascript" src="{% static '/assets/js/custom.js'}"></script>
+
+<script>
+    //according to loftblog tut
+    $('.nav li:first').addClass('active');
+
+    var showSection = function showSection(section, isAnimate) {
+      var
+      direction = section.replace(/#/, ''),
+      reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+      reqSectionPos = reqSection.offset().top - 0;
+
+      if (isAnimate) {
+        $('body, html').animate({
+          scrollTop: reqSectionPos },
+        800);
+      } else {
+        $('body, html').scrollTop(reqSectionPos);
+      }
+
+    };
+
+    var checkSection = function checkSection() {
+      $('.section').each(function () {
+        var
+        $this = $(this),
+        topEdge = $this.offset().top - 80,
+        bottomEdge = topEdge + $this.height(),
+        wScroll = $(window).scrollTop();
+        if (topEdge < wScroll && bottomEdge > wScroll) {
+          var
+          currentId = $this.data('section'),
+          reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+          reqLink.closest('li').addClass('active').
+          siblings().removeClass('active');
+        }
+      });
+    };
+
+    $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+      e.preventDefault();
+      showSection($(this).attr('href'), true);
+    });
+
+    $(window).scroll(function () {
+      checkSection();
+    });
+</script>
+{% endblock %}
