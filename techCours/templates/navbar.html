@@ -26,6 +26,7 @@
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
+                  {% if user.is_authenticated %}
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                         <li><a href="meetings.html">Categories</a></li>
@@ -39,10 +40,19 @@
                         <li class="scroll-to-section"><a href="#courses">Courses</a></li> 
                         <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
                     </ul>        
+                    {% else %}
+                    <ul class="nav">
+                      <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                      <li><a href="meetings.html">Categories</a></li>
+                      <li><a href="meetings.html">Login</a></li>
+                      <li class="scroll-to-section"><a href="#courses">Register</a></li> 
+                      <li class="scroll-to-section"><a href="#contact">Work With Us</a></li> 
+                    </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
                     <!-- ***** Menu End ***** -->
+                  {% endif %}
                 </nav>
             </div>
         </div>
