@@ -10,17 +10,16 @@
 {% endblock %}
 
 {%block body%}
- <div class="main" style="background-color:0dcaf0;">
+ <div class="main" style="background-color:#0F2027;">
 	<!-- Sign up form -->
 	<section class="sign-in">
-		<div class="container">
+		<div class="container" style="background-color:#2C5364;">
 			<div class="signin-content">
 				<div class="signin-image">
-					<figure><img src="{% static '/image/signin-image.jpg' %}" alt="sing up image"></figure>
-					<a href="{% url 'register' %}" class="signup-image-link" role="button" style="text-decoration: none;">Create an account</a>
+					<figure><img src="{% static '/image/Mobile login-cuate.png' %}" alt="sing up image"></figure>
 				</div>
 				<div class="signin-form">
-					<h2 class="form-title"><strong>Login</strong></h2>
+					<h2 class="form-title"><strong style="color: white">Login</strong></h2>
 					<form method="POST" class="register-form" id="login-form">
 						{% csrf_token %}
 						<div class="form-group">
@@ -32,9 +31,11 @@
 							<input type="password" name="password" id="your_pass" placeholder="Password"/>
 						</div>
 						<div class="form-group form-button">
-							<input type="submit" name="signin" id="signin" class="form-submit" value="Log in"style="background-color: #0dcaf0;"/>
+							<input type="button" name="signin" id="signin" class="form-submit" value="Log in"style="background-color: #D23228;"/></br>
+                            <input type="button" name="signin" id="signin" class="form-submit" value="create account"style="background-color: #D23228;"/>
 						</div>
-					</form>
+                    </form>
+				</div>
 				</div>
 			</div>
 			<div class="row">
