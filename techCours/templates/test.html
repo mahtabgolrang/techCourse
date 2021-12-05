@@ -2,28 +2,6 @@
 {% load static %}
 
 {% block content %}
-<div class="content">
-    <form method="POST" class="form-group">
-        {% csrf_token %}
-        {{ formuser.as_p }}
-        {{ formTeacher.as_p}}
-        <button type="submit" class="btn btn-success">Register</button>
-    </form>
-    <div class="row">
-        {% if formuser.errors %}
-        {% for field in formuser %}
-        {% for error in field.errors %}
-        <p style="color:red">{{error}}</p>
-        {% endfor %}
-        {% endfor %}
-        {% endif %}
-        {% if formTeacher.errors %}
-        {% for field in formTeacher %}
-        {% for error in field.errors %}
-        <p style="color:red">{{error}}</p>
-        {% endfor %}
-        {% endfor %}
-        {% endif %}
-    </div>
-</div>
+
+
 {% endblock %}

@@ -25,7 +25,7 @@ class Course(models.Model):
     name = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=1000)
     price = models.FloatField(default=0)
-    category = models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category, related_name='course')
     subTittel = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     datepublished =models.DateField(null=True)
@@ -34,7 +34,8 @@ class Course(models.Model):
         ('p','Published'),
     )
     stutus=models.CharField(max_length=1, choices=stutuses , default='d')
-    
+    course_pic = models.ImageField(null=True, blank=True)
+
     fileZip=  models.FileField(upload_to='courses/zipFile',null=True, blank=True)
     dlNumber=models.IntegerField(default=0)
     cover = models.ImageField(upload_to='courses/covers/', null=True, blank=True)
@@ -70,9 +71,9 @@ class Customer (models.Model):
     contry = models.CharField(
         max_length=2, choices=COUNTRYS, blank=True, default='ir')
     adress= models.CharField(max_length=50, null=True)
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE , related_name='customer')
     profile_pic = models.ImageField(null=True, blank=True)
-    course = models.ManyToManyField(Course)
+    course = models.ManyToManyField(Course, related_name='customer')
 
     def __str__(self):
         return self.user.username
@@ -83,9 +84,9 @@ class Teacher (models.Model):
     phone = models.CharField(max_length=200,unique=True)
     #email = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE, related_name='teacher')
     profile_pic = models.ImageField(null=True, blank=True)
-    course = models.ManyToManyField(Course)
+    course = models.ManyToManyField(Course, related_name='teacher')
     fildOfStudy=models.CharField(max_length=60 , null=True)
     university=models.CharField(max_length=60, null=True)
     educations=(
