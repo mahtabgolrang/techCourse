@@ -4,9 +4,6 @@ from .models import *
 # Register your models here.
 
 
-@admin.register(Tag)
-class adminTag(admin.ModelAdmin):
-    list_display = ['name']
 
 
 @admin.register(Category)
@@ -14,9 +11,6 @@ class adminCategory(admin.ModelAdmin):
     list_display = ['name']
 
 
-@admin.register(Videos)
-class adminVideos(admin.ModelAdmin):
-    list_display = ['title','demo']
 
 
 @admin.register(Course)
@@ -36,4 +30,4 @@ class adminCustomer(admin.ModelAdmin):
 
 @admin.register(Teacher)
 class adminTeacher(admin.ModelAdmin):
-    list_display = ['user']
+    list_display = ['user',]

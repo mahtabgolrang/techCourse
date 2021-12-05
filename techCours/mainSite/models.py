@@ -1,13 +1,14 @@
+from typing import Counter
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
 
-class Tag (models.Model):
-    name = models.CharField(max_length=200, null=True)
+# class Tag (models.Model):
+#     name = models.CharField(max_length=200, null=True)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 
 class Category(models.Model):
@@ -18,24 +19,29 @@ class Category(models.Model):
         return self.name
 
 
-class Videos(models.Model):
-    title = models.CharField(max_length=100)
-    video = models.FileField(upload_to='video/%y')
-    demo =models.BooleanField()
-    def __str__(self):
-        return self.title
 
 
 class Course(models.Model):
-    name = models.CharField(max_length=200, null=True)
+    name = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=1000)
-    price = models.FloatField(null=True)
-    category = models.ManyToManyField(Category)
-    description = models.CharField(max_length=200, null=True)
+    price = models.FloatField(default=0)
+    category = models.ManyToManyField(Category, related_name='course')
+    subTittel = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
+    datepublished =models.DateField(null=True)
+    stutuses= (
+        ('d','Draft'),
+        ('p','Published'),
+    )
+    stutus=models.CharField(max_length=1, choices=stutuses , default='d')
+    course_pic = models.ImageField(null=True, blank=True)
+
+    fileZip=  models.FileField(upload_to='courses/zipFile',null=True, blank=True)
+    dlNumber=models.IntegerField(default=0)
+    cover = models.ImageField(upload_to='courses/covers/', null=True, blank=True)
    # demo_videos = models.ManyToManyField(Videos)
-    course_videos = models.ManyToManyField(Videos)
-    tags = models.ManyToManyField(Tag)
+    video = models.FileField(upload_to='courses/video/%y',null=True, blank=True)
+
 
     def __str__(self):
         return self.name
@@ -48,29 +54,51 @@ class Document(models.Model):
     def __str__(self):
         return self.title
 
-
+COUNTRYS = (
+        ('ir', 'Iran'),
+        ('us', 'Usa'),
+        ('ca', 'Canada'),
+        ('ch', 'China'),
+        ('in', 'India'),
+        )
 class Customer (models.Model):
     #name = models.CharField(max_length=200, null=True)
     #familyName = models.CharField(max_length=200, null=True)
-    phone = models.CharField(max_length=200, null=True)
+    phone = models.CharField(max_length=200,unique=True)
     #email = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
-    user = models.OneToOneField(User, null=True,on_delete=models.CASCADE)
+    
+    contry = models.CharField(
+        max_length=2, choices=COUNTRYS, blank=True, default='ir')
+    adress= models.CharField(max_length=50, null=True)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE , related_name='customer')
     profile_pic = models.ImageField(null=True, blank=True)
-    course = models.ManyToManyField(Course)
+    course = models.ManyToManyField(Course, related_name='customer')
+
     def __str__(self):
         return self.user.username
 
-   
 
 class Teacher (models.Model):
     #name = models.CharField(max_length=200, null=True)
-    phone = models.CharField(max_length=200, null=True)
+    phone = models.CharField(max_length=200,unique=True)
     #email = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE, related_name='teacher')
     profile_pic = models.ImageField(null=True, blank=True)
-    course = models.ManyToManyField(Course)
-    documents = models.OneToOneField(Document, on_delete=models.CASCADE, null=True)
+    course = models.ManyToManyField(Course, related_name='teacher')
+    fildOfStudy=models.CharField(max_length=60 , null=True)
+    university=models.CharField(max_length=60, null=True)
+    educations=(
+        ('b','Bachelor'),
+        ('bs','Bachelor Student'),
+        ('m','Master'),
+        ('ms','Master Student'),
+        ('p','PHD'),
+        ('ps','PHD Student'),
+    )
+    lastEducation=models.CharField(max_length=2,choices=educations, default='bs')
+    documents = models.ManyToManyField(Document)
+
     def __str__(self):
         return self.user.username
