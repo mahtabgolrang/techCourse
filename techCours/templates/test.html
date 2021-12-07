@@ -1,202 +1,115 @@
-{% extends 'root.html' %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>work with us</title>
 
-{% block style %}
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="TemplateMo">
-<link href="{% static '/assets/css/google-f.css' %}" rel="stylesheet">
-<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}">
-<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/assets/css/fontawesome.css' %}">
-<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/assets/css/templatemo-edu-meeting.css' %}">
-<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/assets/css/owl.css' %}">
-<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/assets/css/lightbox.css' %}">
-{% endblock %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-{% block title %}
-    Course Details
-{% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-{% block content %}
-  <!-- Sub Header -->
-  <div class="sub-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-sm-8">
-          <div class="left-content">
-            <p></p>
-          </div>
+    <link rel="stylesheet"  href="{% static '/assets/css/style-dark.css' %}">
+</head>
+<body>
+
+  <div class="page-content d-flex align-items-center">
+    <div class="container d-flex justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+            <div class="auth-card">
+                <div class="logo-area">
+                     <!-- <img id="header_logo" class="logo" src="{% static '/image/techCourse Logo.png'}"/> -->
+                </div>
+                <h5 class="auth-title">TechCourse Work with us</h5>
+                <hr class="separator">
+                <!-- Login-Form-->
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-2 mt">
+                        <input type="name" class="form-control auth-input" placeholder="FirstName" aria-describedby="name">
+                        <div id="name" class="form-text input-info-text"></div>
+                        <!-- {% render_field form.first_name type="name" class="form-group" placeholder="name" %} -->
+                    </div>
+                    <div class="mb-2 mt">
+                        <input type="name" class="form-control auth-input" placeholder="LastName" aria-describedby="Lastname">
+                        <div id="Lastname" class="form-text input-info-text"></div>
+                        <!-- {% render_field form.last_name type="name" class="form-group" placeholder="last name" %} -->
+                    </div>
+                    <div class="mb-2 mt">
+                        <input type="name" class="form-control auth-input" placeholder="Username" aria-describedby="username">
+                        <div id="username" class="form-text input-info-text"></div>
+                        <!-- {% render_field form.username type="name" class="form-group" id="username" placeholder="Username" %} -->
+                    </div>
+                    <div class="mb-2 mt">
+                        <input type="email" class="form-control auth-input" placeholder="Email" aria-describedby="email">
+                        <div id="email" class="form-text input-info-text"></div>
+                        <!-- {% render_field form.email type="email" class="form-group" id="email" placeholder="Email" %} -->
+                    </div>
+                    <div class="mb-2 mt">
+                        <input type="phone" class="form-control auth-input" placeholder="PhoneNumber" aria-describedby="phone">
+                        <div id="phone" class="form-text input-info-text"></div>
+                        <!-- {% render_field formTeacher.phone id="phone" type="tel" class="form-group" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" placeholder="PhoneNumber" %} -->
+                    </div>
+                    <div class="mb-2 mt">
+                        <input type="text" class="form-control auth-input" placeholder="Field Of Study" aria-describedby="fieldofstudy">
+                        <div id="fieldofstudy" class="form-text input-info-text"></div>
+                        <!-- {% render_field formTeacher.fildOfStudy type="text" class="form-group" id="fieldofstudy" placeholder="Field Of Study" %} -->
+                    </div>
+                    <div class="mb-2 mt">
+                        <input type="text" class="form-control auth-input" placeholder="University" aria-describedby="university">
+                        <div id="university" class="form-text input-info-text"></div>
+                        <!-- {% render_field formTeacher.university type="text" class="form-group" placeholder="University" %} -->
+                    </div>
+                    <div class="mb-2 mt">
+                        <input type="password" class="form-control auth-input" placeholder="Password" aria-describedby="pass">
+                        <div id="pass" class="form-text input-info-text"></div>
+                        <!-- {% render_field form.password1 type="password" class="form-group" id="pass" placeholder="Password" %} -->
+                    </div>
+                    <div class="mb-2 mt">
+                        <input type="password" class="form-control auth-input" placeholder="Repeat your password" aria-describedby="re_pass">
+                        <div id="re_pass" class="form-text input-info-text"></div>
+                        <!-- {% render_field form.password2 type="password" class="form-group" id="re_pass" placeholder="Repeatyourpassword" %} -->
+                    </div>
+                    <div class="mb-2 mt">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              lastEducation
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><span class="dropdown-item" href="#">Bachelor</span></li>
+                              <li><span class="dropdown-item" href="#">Master</span></li>
+                              <li><span class="dropdown-item" href="#">Doctor</span></li>
+                            </ul>
+                          </div>
+                          <!-- {{ formTeacher.lastEducation }} -->
+                    </div>
+                    <button class="btn auth-btn mt-2 mb-4">Login</button>
+                </form>
+                <p class="text mb-4"> have Account? <a href="#" class="text-link">Login</a></p>
+                <div class="row">
+                    {% if formuser.errors %}
+                        {% for field in formuser %}
+                            {% for error in field.errors %}
+                                <p style="color:red">{{error}}</p>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endif %}
+                    {% if formTeacher.errors %}
+                        {% for field in formTeacher %}
+                            {% for error in field.errors %}
+                                <p style="color:red">{{error}}</p>
+                             {% endfor %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
         </div>
-        <div class="col-lg-4 col-sm-4">
-          <div class="right-icons">
-            <ul>
-              <li><a href="#"><i ></i></a></li>
-              <li><a href="#"><i ></i></a></li>
-              <li><a href="#"><i ></i></a></li>
-              <li><a href="#"><i ></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
-  <section class="heading-page header-text" id="top">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h6>Get all details of courses</h6>
-          <h2>Course Name</h2>
-        </div>
-      </div>
-    </div>
-  </section>
+</body>
 
-  <section class="meetings-page" id="meetings">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="meeting-single-item">
-                <div class="thumb">
-                  <div class="price">
-                    <span>$14.00</span>
-                  </div>
-                  <div class="date">
-                    <h6>Nov <span>12</span></h6>
-                  </div>
-                  <a href="#"><img src="{% static '/assets/images/single-meeting.jpg' %}" alt=""></a>
-                </div>
-                <div class="down-content">
-                  <a href="#"><h4>course Name</h4></a>
-                  <p class="description">
-                    In This Training Series, We Have Tried To Discuss The Basic Concepts Of Computer
-                    Programming, Types Of Programming Languages, Computer Program Structure 
-                    Data Types And Information Structures With A General View And Provide An Overview
-                    To The Audience. The Content Of This Tutorial Is Organized In A Way That Prepares
-                    People To Learn Any Programming Language And Gives Them An Overview Of 
-                    Programming Knowledge. In Fact, This Training Package Can Be Considered As
-                    The Number One Lesson Of Any Programming Training Course.
-                    Therefore, It Is Strongly Recommended That If You Intend To Learn Any Programming
-                    Language, Be Sure To See This Tutorial Beforehand.</br><strong>Topics</strong>
-                    </br>List of topics and outlines of this educational series</br>Lesson 1: Basics of programming and types of programming languages</br>
-                    Lesson 2: Types of Commands and Components of a Program</br>Lesson 3: Data Types and Information Management and Storage Structures.
-                  </p>
-                  <div class="row">
-                    <div class="col-lg-4">
-                      <div class="hours">
-                        <h5>Hours</h5>
-                        <p>Monday - Friday: 07:00 AM - 13:00 PM<br>Saturday- Sunday: 09:00 AM - 15:00 PM</p>
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="location">
-                        <h5>Teacher</h5>
-                        <p>Doctor Mahmood Naderan 
-                        <br>PhD in Computer Engineering</p>
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="book now">
-                        <h5>Book Now</h5>
-                        <p>010-020-0340<br>090-080-0760</p>
-                      </div>
-                    </div>
-                    <div class="col-lg-12">
-                      <div class="share">
-                        <h5>Download The Course:</h5>
-                        <ul>
-                          <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">All Of Videos</button></a></li>
-                          <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">Buy Course</button></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-12">
-              <div class="main-button-red">
-                <a href="meetings.html">Back To course List</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer">
-        <p>Copyright © 2022 www.techcoursescu.com 
-          <br>
-          Contact Us: <a href="#main.html" target="_parent" title="free css templates">Contact Us</a>
-          <br>
-          All Courses: <a href="#categories.html" target="_blank" title="Build Better UI, Faster">All Courses</a>
-          </p>
-      </div>
-  </section>
-  {% endblock %}
-
-  {% block js %}
-  <script type="text/javascript" src="{% static '/vendor/jquery/jquery.min.js'}"></script>
-<script type="text/javascript" src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js'}"></script>
-
-<script type="text/javascript" src="{% static '/assets/js/isotope.min.js'}"></script>
-<script type="text/javascript" src="{% static '/assets/js/owl-carousel.js'}"></script>
-
-<script type="text/javascript" src="{% static '/assets/js/lightbox.js'}"></script>
-
-<script type="text/javascript" src="{% static '/assets/js/tabs.js'}"></script>
-
-<script type="text/javascript" src="{% static '/assets/js/video.js'}"></script>
-
-<script type="text/javascript" src="{% static '/assets/js/slick-slider.js'}"></script>
-
-<script type="text/javascript" src="{% static '/assets/js/custom.js'}"></script>
-
-  <script>
-      //according to loftblog tut
-      $('.nav li:first').addClass('active');
-
-      var showSection = function showSection(section, isAnimate) {
-        var
-        direction = section.replace(/#/, ''),
-        reqSection = $('.section').filter('[data-section="' + direction + '"]'),
-        reqSectionPos = reqSection.offset().top - 0;
-
-        if (isAnimate) {
-          $('body, html').animate({
-            scrollTop: reqSectionPos },
-          800);
-        } else {
-          $('body, html').scrollTop(reqSectionPos);
-        }
-
-      };
-
-      var checkSection = function checkSection() {
-        $('.section').each(function () {
-          var
-          $this = $(this),
-          topEdge = $this.offset().top - 80,
-          bottomEdge = topEdge + $this.height(),
-          wScroll = $(window).scrollTop();
-          if (topEdge < wScroll && bottomEdge > wScroll) {
-            var
-            currentId = $this.data('section'),
-            reqLink = $('a').filter('[href*=\\#' + currentId + ']');
-            reqLink.closest('li').addClass('active').
-            siblings().removeClass('active');
-          }
-        });
-      };
-
-      $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
-        e.preventDefault();
-        showSection($(this).attr('href'), true);
-      });
-
-      $(window).scroll(function () {
-        checkSection();
-      });
-  </script>
-  {% endblock %}
+<!-- Bootstrap 5 JS-Bundle CDN import: -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html>

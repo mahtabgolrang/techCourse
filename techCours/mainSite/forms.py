@@ -90,13 +90,20 @@ class EditCustomerForm(forms.ModelForm):
             return phone
         raise forms.ValidationError(f'phone {phone}  is already in use')
 
-
-class CreatTeacherForm(forms.ModelForm):
-    contry = forms.ChoiceField(
-        widget=forms.Select,
-        choices=COUNTRYS,
+educations = (
+        ('b', 'Bachelor'),
+        ('bs', 'Bachelor Student'),
+        ('m', 'Master'),
+        ('ms', 'Master Student'),
+        ('p', 'PHD'),
+        ('ps', 'PHD Student'),
     )
-    contry.widget.attrs['class'] = 'form-control'
+class CreatTeacherForm(forms.ModelForm):
+    lastEducation = forms.ChoiceField(
+        widget=forms.Select,
+        choices=educations,
+    )
+    lastEducation.widget.attrs['class'] = ' btn btn-secondary dropdown-toggle w-100'
 
     class Meta:
         model = Teacher
