@@ -18,11 +18,6 @@ class adminCourse(admin.ModelAdmin):
     list_display = ['name','title','price','date_created']
 
 
-@admin.register(Document)
-class adminDocument(admin.ModelAdmin):
-    list_display = ['title']
-
-
 @admin.register(Customer)
 class adminCustomer(admin.ModelAdmin):
     list_display = ['user',]
@@ -31,3 +26,7 @@ class adminCustomer(admin.ModelAdmin):
 @admin.register(Teacher)
 class adminTeacher(admin.ModelAdmin):
     list_display = ['user',]
+
+@admin.register(ContactUs)
+class adminCustomer(admin.ModelAdmin):
+    list_display = ['name', 'email' , 'subject']

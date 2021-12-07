@@ -1,4 +1,5 @@
 from typing import Counter
+from django.core.checks import messages
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
@@ -19,59 +20,58 @@ class Category(models.Model):
         return self.name
 
 
-
-
 class Course(models.Model):
     name = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=1000)
     price = models.FloatField(default=0)
-    category = models.ManyToManyField(Category, related_name='course')
+    category = models.ManyToManyField(Category, related_name='category')
     subTittel = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
-    datepublished =models.DateField(null=True)
-    stutuses= (
-        ('d','Draft'),
-        ('p','Published'),
+    datepublished = models.DateTimeField(null=True)
+    stutuses = (
+        ('d', 'Draft'),
+        ('p', 'Published'),
     )
-    stutus=models.CharField(max_length=1, choices=stutuses , default='d')
+    stutus = models.CharField(max_length=1, choices=stutuses, default='d')
     course_pic = models.ImageField(null=True, blank=True)
-
-    fileZip=  models.FileField(upload_to='courses/zipFile',null=True, blank=True)
-    dlNumber=models.IntegerField(default=0)
-    cover = models.ImageField(upload_to='courses/covers/', null=True, blank=True)
+    duration = models.DurationField(max_length=100, null=True)
+    fileZip = models.FileField(
+        upload_to='courses/zipFile', null=True, blank=True)
+    dlNumber = models.IntegerField(default=0)
+    cover = models.ImageField(
+        upload_to='courses/covers/', null=True, blank=True)
    # demo_videos = models.ManyToManyField(Videos)
-    video = models.FileField(upload_to='courses/video/%y',null=True, blank=True)
+    video = models.FileField(
+        upload_to='courses/video/%y', null=True, blank=True)
 
+    class Meta:
+        ordering = ["-dlNumber"]
 
     def __str__(self):
         return self.name
 
 
-class Document(models.Model):
-    title = models.CharField(max_length=1000)
-    profile_pic = models.ImageField(null=True, blank=True)
-
-    def __str__(self):
-        return self.title
-
 COUNTRYS = (
-        ('ir', 'Iran'),
-        ('us', 'Usa'),
-        ('ca', 'Canada'),
-        ('ch', 'China'),
-        ('in', 'India'),
-        )
+    ('ir', 'Iran'),
+    ('us', 'Usa'),
+    ('ca', 'Canada'),
+    ('ch', 'China'),
+    ('in', 'India'),
+)
+
+
 class Customer (models.Model):
     #name = models.CharField(max_length=200, null=True)
     #familyName = models.CharField(max_length=200, null=True)
-    phone = models.CharField(max_length=200,unique=True)
+    phone = models.CharField(max_length=200, unique=True)
     #email = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
-    
+
     contry = models.CharField(
         max_length=2, choices=COUNTRYS, blank=True, default='ir')
-    adress= models.CharField(max_length=50, null=True)
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE , related_name='customer')
+    adress = models.CharField(max_length=50, null=True)
+    user = models.OneToOneField(
+        User, null=True, on_delete=models.CASCADE, related_name='customer')
     profile_pic = models.ImageField(null=True, blank=True)
     course = models.ManyToManyField(Course, related_name='my')
 
@@ -81,25 +81,42 @@ class Customer (models.Model):
 
 class Teacher (models.Model):
     #name = models.CharField(max_length=200, null=True)
-    phone = models.CharField(max_length=200,unique=True)
+    phone = models.CharField(max_length=200, unique=True)
     #email = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE, related_name='teacher')
-    profile_pic = models.ImageField(null=True, blank=True)
+    user = models.OneToOneField(
+        User, null=True, on_delete=models.CASCADE, related_name='teacher')
+    profile_pic = models.ImageField(
+        upload_to='teacher/profile/picture', null=True, blank=True)
     course = models.ManyToManyField(Course, related_name='teacher')
-    fildOfStudy=models.CharField(max_length=60 , null=True)
-    university=models.CharField(max_length=60, null=True)
-    educations=(
-        ('b','Bachelor'),
-        ('bs','Bachelor Student'),
-        ('m','Master'),
-        ('ms','Master Student'),
-        ('p','PHD'),
-        ('ps','PHD Student'),
+    fildOfStudy = models.CharField(max_length=60, null=True)
+    university = models.CharField(max_length=60, null=True)
+    educations = (
+        ('b', 'Bachelor'),
+        ('bs', 'Bachelor Student'),
+        ('m', 'Master'),
+        ('ms', 'Master Student'),
+        ('p', 'PHD'),
+        ('ps', 'PHD Student'),
     )
-    lastEducation=models.CharField(max_length=2,choices=educations, default='bs')
-    documents = models.ManyToManyField(Document)
+    lastEducation = models.CharField(
+        max_length=2, choices=educations, default='bs')
+    documents = models.FileField(
+        upload_to='teacher/documents/', null=True, blank=True)
 
     def __str__(self):
         return self.user.username
 
+
+class ContactUs(models.Model):
+    name = models.CharField(max_length=30, null=True)
+    email = models.EmailField(max_length=50, null=True)
+    subject = models.CharField(max_length=30, null=True)
+    message = models.CharField(max_length=200, null=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+
+    class Meta:
+        ordering = ["-date_created"]
+
+    def __str__(self):
+        return self.name + "   " + self.email
