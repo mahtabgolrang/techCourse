@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Customer, Teacher
+from .models import Customer, Teacher, ContactUs
 
 
 class CreateUserForm (UserCreationForm):
@@ -40,10 +40,11 @@ class UserEditForm(UserChangeForm):
     class Meta(UserChangeForm.Meta):
         fields = ["first_name", "last_name", "email", "username"]
     password = None
+
     def clean_email(self):
         email = self.cleaned_data['email'].lower()
         try:
-            user = User.objects.get(email=email).exclude(pk = request.user.id)
+            user = User.objects.get(email=email).exclude(pk=request.user.id)
         except Exception as e:
             return email
         raise forms.ValidationError(f'Email {email}  is already in use')
@@ -51,11 +52,11 @@ class UserEditForm(UserChangeForm):
     def clean_username(self):
         username = self.cleaned_data['username'].lower()
         try:
-            user = User.objects.get(username=username).exclude(pk = request.user.id)
+            user = User.objects.get(
+                username=username).exclude(pk=request.user.id)
         except Exception as e:
             return username
         raise forms.ValidationError(f'Username {username}  is already in use')
-
 
 
 COUNTRYS = (
@@ -68,7 +69,8 @@ COUNTRYS = (
 
 
 class EditCustomerForm(forms.ModelForm):
-    adress = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control form-control-line','rows': 3}))
+    adress = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'form-control form-control-line', 'rows': 3}))
     contry = forms.ChoiceField(
         widget=forms.Select,
         choices=COUNTRYS,
@@ -78,11 +80,12 @@ class EditCustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
         fields = ['phone', 'contry', 'adress']
-    
+
     def clean_phone(self):
         phone = self.cleaned_data['phone'].lower()
         try:
-            user = Teacher.objects.get(phone=phone).exclude(pk = request.user.teacher.id)
+            user = Teacher.objects.get(phone=phone).exclude(
+                pk=request.user.teacher.id)
         except Exception as e:
             return phone
         raise forms.ValidationError(f'phone {phone}  is already in use')
@@ -94,6 +97,7 @@ class CreatTeacherForm(forms.ModelForm):
         choices=COUNTRYS,
     )
     contry.widget.attrs['class'] = 'form-control'
+
     class Meta:
         model = Teacher
         fields = ['phone', 'fildOfStudy', 'university', 'lastEducation']
@@ -105,3 +109,15 @@ class CreatTeacherForm(forms.ModelForm):
         except Exception as e:
             return phone
         raise forms.ValidationError(f'phone {phone}  is already in use')
+
+
+class CreatContactUsForm(forms.ModelForm):
+    name = forms.CharField(max_length=30 ,required=True)
+    email =forms.EmailField(max_length=50 , required=True)
+    subject = forms.CharField(max_length=30 , required=True)
+    message = forms.CharField( max_length=200,widget=forms.TextInput(
+        attrs={"rows":3, "cols":10}))
+    class Meta:
+        model = ContactUs
+        fields = ['name', 'email', 'subject', 'message']
+        widgets= { 'message': forms.Textarea(attrs={"rows":3, "cols":10}),}

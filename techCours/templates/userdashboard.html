@@ -217,17 +217,16 @@ user dashboard {{ customer.user.username }}
                                         <td>{{ course.category.name }}</td>
                                         <!-- serach object in template -->
                                         <td>
-                                            hour1
+                                            {{course.duration}}
                                         </td>
                                         <td>{{course.price}}</td>
-                                        <td>356</td>
                                         <td>
                                             <label class="label label-info">View Course</label>
                                         </td>
                                     </tr>
                                     {% endfor %}
                                     {% else %}
-                                    <div class ="row"> <strong>not thing to show</strong></div>
+                                    <div class ="row"> <strong>           nothing to show    </strong></div>
                                     {% endif %}
 
                                 </tbody>

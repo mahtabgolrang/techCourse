@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # Create your views here.
 from .models import *
-from .forms import CreateUserForm, CreatTeacherForm ,EditCustomerForm,UserEditForm
+from .forms import CreateUserForm, CreatTeacherForm, EditCustomerForm, UserEditForm, CreatContactUsForm
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -57,10 +57,10 @@ def loginPage(request):
         #logger.error(f'\n\n\n\n\n {username}  {password}   -------------------------------------\n\n\n\n\n')
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request,user)
+            login(request, user)
             return redirect('main')
         else:
-             messages.e(request,'user name or password is incorrect...!')
+            messages.error(request, 'user name or password is incorrect...!')
     context = {}
     return render(request, 'login.html', context)
 
@@ -71,8 +71,28 @@ def logoutUser(request):
 
 
 def main(request):
-    context = {
+    course = Course.objects.filter(stutus='p')
+    showSomeCourse = course[:len(course) % 4]
+    courseNumber = len(course)
+    category = Category.objects.all()
+    showCategory = category[:len(category) % 5]
+    customerNumber = len(Customer.objects.all())
+    teacherNumber = len(Teacher.objects.all())
+    form = CreatContactUsForm()
+    if request.method == 'POST':
+        form = CreatContactUsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'your message send to us')
 
+            
+    context = {
+        "showSomeCourse": showSomeCourse,
+        "showCategory": showCategory,
+        "customerNumber": customerNumber,
+        "teacherNumber": teacherNumber,
+        "courseNumber": courseNumber,
+        "form": form,
     }
     return render(request, 'main.html', context)
 
@@ -113,9 +133,9 @@ def test(request):
 def userdashboard(request):
     customer = request.user.customer
     allCours = customer.course.all()
-    freeCours =allCours.filter(price = 0)
+    freeCours = allCours.filter(price=0)
     #logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
-    coursePurchased = allCours.filter(price__gt = 0)
+    coursePurchased = allCours.filter(price__gt=0)
     context = {
         "customer": customer,
         "allCours": allCours,
@@ -126,27 +146,31 @@ def userdashboard(request):
     }
     return render(request, 'userdashboard.html', context)
 
+
 @login_required
 @allowed_users("customer")
 def userDashboardProfile(request):
     customer = request.user.customer
-    
+
     if request.method == 'POST':
-        formCustomer = EditCustomerForm(request.POST , instance=request.user.customer)
-        formUser = UserEditForm(request.POST,instance=request.user)
+        formCustomer = EditCustomerForm(
+            request.POST, instance=request.user.customer)
+        formUser = UserEditForm(request.POST, instance=request.user)
         if formCustomer.is_valid() and formUser.is_valid():
             formCustomer.save()
-            formUser.save()   
+            formUser.save()
 
-            messages.success(request, 'your profile hase change  ' + request.user.username)
+            messages.success(
+                request, 'your profile hase change  ' + request.user.username)
+            return redirect("/")
     else:
         formCustomer = EditCustomerForm(instance=request.user.customer)
         formUser = UserEditForm(instance=request.user)
-        
+
     context = {
         "customer": customer,
         "formCustomer": formCustomer,
         "form": formUser
     }
-    
+
     return render(request, 'userdashboard-profile.html', context)
