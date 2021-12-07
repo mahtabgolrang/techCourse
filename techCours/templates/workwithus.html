@@ -3,7 +3,9 @@
 {% load widget_tweaks %}
 
 {% block style %}
-<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="{% static '/css/loginstyle.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"  href="{% static '/assets/css/style-dark.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -11,98 +13,101 @@ work with us
 {% endblock %}
 
 {% block body %}
-<div class="main" style="background-color:0dcaf0;">
-  <!-- Sign up form -->
-  <section class="signup">
-    <div class="container">
-      <div class="signup-content">
-        <div class="signup-form">
-          <h2 class="form-title"><strong>Work with us</strong></h2>
-          <form method="POST" class="register-form" id="register-form">
-
-            {% csrf_token %}
-            <div class="form-group">
-              <label for="name"><i class="zmdi material-icons-name"></i></label>
-              {% render_field form.first_name type="name" class="form-group" placeholder="name" %}
-
-            </div>
-            <div class="form-group">
-              <label for="last_name"><i class="zmdi material-icons-name"></i></label>
-              {% render_field form.last_name type="name" class="form-group" placeholder="last name" %}
-
-            </div>
-            <div class="form-group">
-              <label for="username"><i class="zmdi"></i></label>
-              {% render_field form.username type="name" class="form-group" id="username" placeholder="Username" %}
-
-            </div>
-            <div class="form-group">
-              <label for="email"><i class="zmdi"></i></label>
-              {% render_field form.email type="email" class="form-group" id="email" placeholder="Email" %}
-
-            </div>
-
-            <div class="form-group">
-              <label for="pass"><i class="zmdi"></i></label>
-              {% render_field form.password1 type="password" class="form-group" id="pass" placeholder="Password" %}
-
-            </div>
-            <div class="form-group">
-              <label for="re-pass"><i class="zmdi"></i></label>
-              {% render_field form.password2 type="password" class="form-group" id="re_pass" placeholder="Repeatyourpassword" %}
-            </div>
-
-            <div class="form-group">
-              <label for="phone"><i class="zmdi"></i></label>
-              {% render_field formTeacher.phone id="phone" type="tel" class="form-group" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" placeholder="PhoneNumber" %}
-            </div>
-
-            <div class="form-group">
-              <label for="fieldofstudy"><i class="zmdi material-icons-name"></i></label>
-              {% render_field formTeacher.fildOfStudy type="text" class="form-group" id="fieldofstudy" placeholder="Field Of Study" %}
-
-            </div>
-
-            <div class="form-group">
-              <label for="university"><i class="zmdi material-icons-name"></i></label>
-              {% render_field formTeacher.university type="text" class="form-group" placeholder="University" %}
-
-            </div>
-            <div class="form-group">
-              {{ formTeacher.lastEducation }}
-            </div>
-
-            <div class="form-group">
-              {% render_field form.agree type="checkbox" class="agree-term" id="agree-term"%}
-              <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements
-                in</label>
-            </div>
-            <div class="form-group form-button">
-              <input type="submit" name="signup" href="{''}" id="signup" class="form-submit" value="Continue"
-                style="background-color: #0dcaf0;" />
-            </div>
-          </form>
-        </div>
-        <div class="signup-image">
-          <figure><img src="{% static '/image/Mathematics-bro.png' %}" alt="sing up image"></figure>
-          <!-- <a href="{% url 'login' %}" class="signup-image-link" role="button" style="text-decoration: none;">I am already member</a> -->
-          {% if formuser.errors %}
-          {% for field in formuser %}
-          {% for error in field.errors %}
-          <p style="color:red">{{error}}</p>
-          {% endfor %}
-          {% endfor %}
-          {% endif %}
-          {% if formTeacher.errors %}
-          {% for field in formTeacher %}
-          {% for error in field.errors %}
-          <p style="color:red">{{error}}</p>
-          {% endfor %}
-          {% endfor %}
-          {% endif %}
-        </div>
+<div class="page-content d-flex align-items-center">
+  <div class="container d-flex justify-content-center">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+          <div class="auth-card">
+              <div class="logo-area">
+                   <!-- <img id="header_logo" class="logo" src="{% static '/image/techCourse Logo.png'}"/> -->
+              </div>
+              <h5 class="auth-title">TechCourse Work with us</h5>
+              <hr class="separator">
+              <!-- Login-Form-->
+              <form method="POST">
+                  {% csrf_token %}
+                  <div class="mb-2 mt">
+                      <input type="name" class="form-control auth-input" placeholder="FirstName" aria-describedby="name">
+                      <div id="name" class="form-text input-info-text"></div>
+                      <!-- {% render_field form.first_name type="name" class="form-group" placeholder="name" %} -->
+                  </div>
+                  <div class="mb-2 mt">
+                      <input type="name" class="form-control auth-input" placeholder="LastName" aria-describedby="Lastname">
+                      <div id="Lastname" class="form-text input-info-text"></div>
+                      <!-- {% render_field form.last_name type="name" class="form-group" placeholder="last name" %} -->
+                  </div>
+                  <div class="mb-2 mt">
+                      <input type="name" class="form-control auth-input" placeholder="Username" aria-describedby="username">
+                      <div id="username" class="form-text input-info-text"></div>
+                      <!-- {% render_field form.username type="name" class="form-group" id="username" placeholder="Username" %} -->
+                  </div>
+                  <div class="mb-2 mt">
+                      <input type="email" class="form-control auth-input" placeholder="Email" aria-describedby="email">
+                      <div id="email" class="form-text input-info-text"></div>
+                      <!-- {% render_field form.email type="email" class="form-group" id="email" placeholder="Email" %} -->
+                  </div>
+                  <div class="mb-2 mt">
+                      <input type="phone" class="form-control auth-input" placeholder="PhoneNumber" aria-describedby="phone">
+                      <div id="phone" class="form-text input-info-text"></div>
+                      <!-- {% render_field formTeacher.phone id="phone" type="tel" class="form-group" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" placeholder="PhoneNumber" %} -->
+                  </div>
+                  <div class="mb-2 mt">
+                      <input type="text" class="form-control auth-input" placeholder="Field Of Study" aria-describedby="fieldofstudy">
+                      <div id="fieldofstudy" class="form-text input-info-text"></div>
+                      <!-- {% render_field formTeacher.fildOfStudy type="text" class="form-group" id="fieldofstudy" placeholder="Field Of Study" %} -->
+                  </div>
+                  <div class="mb-2 mt">
+                      <input type="text" class="form-control auth-input" placeholder="University" aria-describedby="university">
+                      <div id="university" class="form-text input-info-text"></div>
+                      <!-- {% render_field formTeacher.university type="text" class="form-group" placeholder="University" %} -->
+                  </div>
+                  <div class="mb-2 mt">
+                      <input type="password" class="form-control auth-input" placeholder="Password" aria-describedby="pass">
+                      <div id="pass" class="form-text input-info-text"></div>
+                      <!-- {% render_field form.password1 type="password" class="form-group" id="pass" placeholder="Password" %} -->
+                  </div>
+                  <div class="mb-2 mt">
+                      <input type="password" class="form-control auth-input" placeholder="Repeat your password" aria-describedby="re_pass">
+                      <div id="re_pass" class="form-text input-info-text"></div>
+                      <!-- {% render_field form.password2 type="password" class="form-group" id="re_pass" placeholder="Repeatyourpassword" %} -->
+                  </div>
+                  <div class="mb-2 mt">
+                      <div class="dropdown">
+                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            lastEducation
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><span class="dropdown-item" href="#">Bachelor</span></li>
+                            <li><span class="dropdown-item" href="#">Master</span></li>
+                            <li><span class="dropdown-item" href="#">Doctor</span></li>
+                          </ul>
+                        </div>
+                        <!-- {{ formTeacher.lastEducation }} -->
+                  </div>
+                  <button class="btn auth-btn mt-2 mb-4">Login</button>
+              </form>
+              <p class="text mb-4"> have Account? <a href="#" class="text-link">Login</a></p>
+              <div class="row">
+                  {% if formuser.errors %}
+                      {% for field in formuser %}
+                          {% for error in field.errors %}
+                              <p style="color:red">{{error}}</p>
+                          {% endfor %}
+                      {% endfor %}
+                  {% endif %}
+                  {% if formTeacher.errors %}
+                      {% for field in formTeacher %}
+                          {% for error in field.errors %}
+                              <p style="color:red">{{error}}</p>
+                           {% endfor %}
+                      {% endfor %}
+                  {% endif %}
+              </div>
+          </div>
       </div>
-    </div>
-  </section>
-</div>
+  </div>
+</div>i
+{% endblock %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 {% endblock %}
