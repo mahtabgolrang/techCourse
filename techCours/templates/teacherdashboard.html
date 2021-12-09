@@ -1,0 +1,390 @@
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Xtreme lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Xtreme admin lite design, Xtreme admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description" content="Xtreme Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Teacher Dashboard</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/assetss/images/favicon.png' %}">
+    <!-- Custom CSS -->
+    <link href="{% static '/assetss/libs/chartist/dist/chartist.min.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static '/dist/css/style.min.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+    data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <aside class="left-sidebar" data-sidebarbg="skin6">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <!-- User Profile-->
+                        <!-- User Profile-->
+                        <div class="user-profile d-flex no-block dropdown m-t-20">
+                            <div class="user-pic"><img src="{% static '/assetss/images/users/1.jpg' %}" alt="users"
+                                    class="rounded-circle" width="40" /></div>
+                            <div class="user-content hide-menu m-l-10">
+                                <a href="{% url 'main' %}" class="" id="Userdd" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <h5 class="m-b-0 user-name font-medium">Steave Jobs <i
+                                            class="fa fa-angle-down"></i></h5>
+                                    <span class="op-5 user-email">varun@gmail.com</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
+                                    <a class="dropdown-item" href="{% url 'main' %}"><i
+                                            class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{% url 'main' %}"><i
+                                            class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End User Profile-->
+                    <!-- User Profile-->
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="{% url 'main' %}" aria-expanded="false">
+                            <i class="mdi mdi-view-dashboard"></i><span
+                                class="hide-menu">Dashboard</span></a></li>
+
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="{% url 'main' %}" aria-expanded="false">
+                            <i class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
+
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="{% url 'main' %}" aria-expanded="false">
+                            <i class="mdi mdi-border-all"></i><span
+                                class="hide-menu">Transactions</span></a></li>
+
+                                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="{% url 'main' %}" aria-expanded="false"><i class="fa fa-plus-square"></i><span
+                                        class="hide-menu">Create New Course</span></a></li>            
+
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="{% url 'main' %}" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span
+                                class="hide-menu">Resume(CV)</span></a></li>
+                </ul>
+
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+    </aside>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row align-items-center">
+                <div class="col-5">
+                    <h4 class="page-title">Teacher Dashboard</h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'main' %}">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+
+            <!-- ============================================================== -->
+            <!-- Information Boxes-->
+            <!-- ============================================================== -->
+            <div class="row">
+                
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">All Courses</h4>
+                            <div class="feed-widget">
+                                <ul class="list-style-none feed-body m-0 p-b-20">
+                                    <li class="feed-item">
+                                        <div class="feed-icon bg-info"> <!--Dayere dor icon-->
+                                            <i class="mdi mdi-note-multiple"></i> <!--khode icon-->
+                                        </div>
+                                         5
+                                     <!--   <span class="ms-auto font-12 ">Just Now</span> -->
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Free Courses</h4>
+                            <div class="feed-widget">
+                                <ul class="list-style-none feed-body m-0 p-b-20">
+                                    <li class="feed-item">
+                                        <div class="feed-icon bg-success"><i class="mdi mdi-sale"></i></div>3
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Sold Courses</h4>
+                            <div class="feed-widget">
+                                <ul class="list-style-none feed-body m-0 p-b-20">
+                                    <li class="feed-item">
+                                        <div class="feed-icon bg-warning"><i class="ti-shopping-cart"></i></div>2
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Total Earning</h4>
+                            <div class="feed-widget">
+                                <ul class="list-style-none feed-body m-0 p-b-20">
+                                    <li class="feed-item">
+                                        <div class="feed-icon btn-orange"><i class="mdi mdi-square-inc-cash"></i></div>1,800,000T
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- Information Boxes-->
+            <!-- ============================================================== -->
+
+
+            <!-- ============================================================== -->
+            <!-- Table for top courses -->
+            <!-- ============================================================== -->
+            <div class="row"> <!-- Start the rowwwwww -->
+
+
+                <!-- column -->
+                <div class="col-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- title -->
+                            <div class="d-md-flex">
+                                <div>
+                                    <h4 class="card-title">Top Courses</h4>
+                                </div>
+                            </div>
+                            <!-- title -->
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table v-middle">
+                                <thead>
+                                    <tr class="bg-light">
+                                        <th class="border-top-0">Course name</th>
+                                        <th class="border-top-0">Download No.</th>
+                                        <th class="border-top-0">Price</th>
+                                        <th class="border-top-0"></th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10"><a
+                                                        class="btn btn-circle d-flex btn-info text-white">#1</a>
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16">History of graphic Design</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>12</td>
+                                        <td>180,000T</td>
+                                        <td>
+                                            <label class="label label-info">View Course</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10"><a
+                                                        class="btn btn-circle d-flex btn-orange text-white">#2</a>
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16">App Design Course</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>10</td>
+                                        <td>Free</td>
+                                        <td>
+                                            <label class="label label-info">View Course</label>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10"><a
+                                                        class="btn btn-circle d-flex btn-success text-white">#3</a>
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16">Digital Painting</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>8</td>
+                                        <td>10,000T</td>
+                                        <td>
+                                            <label class="label label-info">View Course</label>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10"><a
+                                                        class="btn btn-circle d-flex btn-purple text-white">#4</a>
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16">Data Stucture</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>5</td>
+                                        <td>Free</td>
+                                        <td>
+                                            <label class="label label-info">View Course</label>
+                                        </td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- column -->
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Recent Transactions</h4>
+                        </div>
+                        <div class="comment-widgets scrollable">
+                            <!-- Comment Row -->
+                            <div class="d-flex flex-row comment-row m-t-0">
+                                <div class="p-2"><img src="{% static '/assetss/images/users/1.jpg' %}" alt="user" width="50"
+                                        class="rounded-circle"></div>
+                                <div class="comment-text w-100">
+                                    <h6 class="font-medium">James Anderson</h6>
+                                    <span class="m-b-15 d-block">Receive 10,000T </span>
+                                    <div class="comment-footer">
+                                        <span class="text-muted float-end">April 14, 2021</span> <span
+                                            class="label label-rounded label-primary">Course name</span> <span
+                                            class="action-icons">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Comment Row -->
+                            <div class="d-flex flex-row comment-row m-t-0">
+                                <div class="p-2"><img src="{% static '/assetss/images/users/1.jpg' %}" alt="user" width="50"
+                                        class="rounded-circle"></div>
+                                <div class="comment-text w-100">
+                                    <h6 class="font-medium">James Anderson</h6>
+                                    <span class="m-b-15 d-block">Receive 10,000T </span>
+                                    <div class="comment-footer">
+                                        <span class="text-muted float-end">April 14, 2021</span> <span
+                                            class="label label-rounded label-primary">Course name</span> <span
+                                            class="action-icons">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Comment Row -->
+                            <div class="d-flex flex-row comment-row m-t-0">
+                                <div class="p-2"><img src="{% static '/assetss/images/users/1.jpg' %}" alt="user" width="50"
+                                        class="rounded-circle"></div>
+                                <div class="comment-text w-100">
+                                    <h6 class="font-medium">James Anderson</h6>
+                                    <span class="m-b-15 d-block">Receive 10,000T </span>
+                                    <div class="comment-footer">
+                                        <span class="text-muted float-end">April 14, 2021</span> <span
+                                            class="label label-rounded label-primary">Course name</span> <span
+                                            class="action-icons">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- column -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- Table -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>
+
+</body>
+<script src="{% static '/assetss/libs/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{% static '/assetss/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/dist/js/app-style-switcher.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static '/dist/js/waves.js' %}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static '/dist/js/sidebarmenu.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static '/dist/js/custom.js' %}"></script>
+    <!--This page JavaScript -->
+    <!--chartis chart-->
+    <script src="{% static '/assetss/libs/chartist/dist/chartist.min.js' %}"></script>
+    <script src="{% static '/assetss/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js' %}"></script>
+    <script src="{% static '/dist/js/pages/dashboards/dashboard1.js' %}"></script>
+</html>
