@@ -174,3 +174,26 @@ def userDashboardProfile(request):
     }
 
     return render(request, 'userdashboard-profile.html', context)
+
+def teacherDashboard(request):
+
+    return render(request, 'teacherdashboard.html')
+
+def TeacherDashboardProfile(request):
+
+    return render(request, 'teacherdashboard-profile.html')
+
+
+def teacherDashboardCreateCourse(request):
+
+    return render(request, 'teacherdashboard-createcourse.html')
+
+
+def teacherDashboardResume(request):
+
+    return render(request, 'teacherdashboard-resume.html')
+
+def teacherDashboardTransaction(request):
+
+    return render(request, 'teacherdashboard-transaction.html')
+
