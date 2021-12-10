@@ -218,7 +218,7 @@ def showAllCourse(request):
     courses = Course.objects.all()
 
     paginator = Paginator(courses ,10)
-    page = request.Get.get("page" ,1)
+    page = request.GET.get("page" ,1)
     try:
         result = paginator.page(page)
     except PageNotAnInteger:
