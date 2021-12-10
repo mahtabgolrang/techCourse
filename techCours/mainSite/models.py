@@ -33,13 +33,11 @@ class Course(models.Model):
         ('p', 'Published'),
     )
     stutus = models.CharField(max_length=1, choices=stutuses, default='d')
-    course_pic = models.ImageField(null=True, blank=True)
+    course_pic = models.ImageField(upload_to='courses/coverPictures/' ,null=True, blank=True)
     duration = models.DurationField(max_length=100, null=True)
     fileZip = models.FileField(
-        upload_to='courses/zipFile', null=True, blank=True)
+        upload_to='courses/zipFile/', null=True, blank=True)
     dlNumber = models.IntegerField(default=0)
-    cover = models.ImageField(
-        upload_to='courses/covers/', null=True, blank=True)
    # demo_videos = models.ManyToManyField(Videos)
     video = models.FileField(
         upload_to='courses/video/%y', null=True, blank=True)

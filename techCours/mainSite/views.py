@@ -75,7 +75,7 @@ def logoutUser(request):
 
 
 def main(request):
-    course = Course.objects.filter(stutus__exaxt='p')
+    course = Course.objects.filter(stutus='p')
     showSomeCourse = course[:4]
     courseNumber = course.count()
     category = Category.objects.all()
@@ -109,6 +109,7 @@ def workwithus(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         formTeacher = CreatTeacherForm(request.POST)
+        
         if form.is_valid() and formTeacher.is_valid():
             messages.info(request, 'Account was created for')
             user = form.save()
@@ -184,7 +185,28 @@ def teacherDashboard(request):
     return render(request, 'teacherdashboard.html')
 
 def TeacherDashboardProfile(request):
+    teacher = request.user.teacher
 
+    if request.method == 'POST':
+        formCustomer = EditCustomerForm(
+            request.POST, instance=request.user.customer)
+        formUser = UserEditForm(request.POST, instance=request.user)
+        if formCustomer.is_valid() and formUser.is_valid():
+            formCustomer.save()
+            formUser.save()
+
+            messages.success(
+                request, 'your profile hase change  ' + request.user.username)
+            return redirect("/")
+    else:
+        formCustomer = EditCustomerForm(instance=request.user.customer)
+        formUser = UserEditForm(instance=request.user)
+
+    context = {
+        "customer": customer,
+        "formCustomer": formCustomer,
+        "form": formUser
+    }
     return render(request, 'teacherdashboard-profile.html')
 
 
