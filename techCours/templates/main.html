@@ -86,14 +86,14 @@
                   <div class="price">
                     <span>${{course.price}}</span>
                   </div>
-                  <a href="#" role="button"><img src="{{course.course_pic.url}}" alt="Online Teaching"></a>
+                  <a href="{% url 'course' course.id %}" role="button"><img src="{{course.course_pic.url}}" alt="Online Teaching"></a>
                 </div>
                 <div class="down-content">
                   <div class="date">
                     <h6>{{course.datepublished|date:"F"}} <span>{{course.datepublished|date:"d"}}</span></h6>
                   </div>
 
-                  <a href=""><h4>{{course.name}}</h4></a>
+                  <a href="{% url 'course' course.id %}"><h4>{{course.name}}</h4></a>
                   <p>{{course.title}}</p>
                 </div>
               </div>
