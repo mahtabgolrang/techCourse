@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Xtreme lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Xtreme admin lite design, Xtreme admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="Xtreme Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Teacher Dashboard</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/assetss/images/favicon.png' %}">
+    <link href="{% static '/distt/css/style.min.css' %}" rel="stylesheet"  >
+    
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li>
+                            <!-- User Profile-->
+                            <div class="user-profile d-flex no-block dropdown m-t-20">
+                                <div class="user-pic"><img src="{% static '/assetss/images/users/1.jpg' %}" alt="users"
+                                        class="rounded-circle" width="40" /></div>
+                                <div class="user-content hide-menu m-l-10">
+                                    <a href="#" class="" id="Userdd" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <h5 class="m-b-0 user-name font-medium">Steave Jobs <i
+                                                class="fa fa-angle-down"></i></h5>
+                                        <span class="op-5 user-email">varun@gmail.com</span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
+                                        <a class="dropdown-item" href="#"><i
+                                                class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#"><i
+                                                class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End User Profile-->
+                        </li>
+                       <!-- User Profile-->
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="#" aria-expanded="false">
+                                <i class="mdi mdi-view-dashboard"></i><span
+                                    class="hide-menu">Dashboard</span></a></li>
+
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="#" aria-expanded="false">
+                                <i class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
+
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="#" aria-expanded="false">
+                                <i class="mdi mdi-border-all"></i><span
+                                    class="hide-menu">Transactions</span></a></li>
+
+                                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="#" aria-expanded="false"><i class="fa fa-plus-square"></i><span
+                                            class="hide-menu">Create New Course</span></a></li>            
+
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span
+                                    class="hide-menu">Resume(CV)</span></a></li>
+
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h4 class="page-title">Resume (CV) </h4>
+                        <span class="text-muted">Complete your CV here so admin can give you permission to start your work at techCourse </span>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- Row 1 -->
+                <div class="row">
+                    <!-- Col 1-->
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="fs-4 fw-bold text-info">Fill your information</p>
+                                <p class="fs-4">Submit your information and after admin's confirmation you can start your work</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Col 1-->
+                </div>
+                <!-- row 1 -->
+                <!-- Row 2 -->
+                <div class="row">
+                    <!-- Column 1 -->
+                    <div class="col-lg-10 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="form-horizontal form-material mx-2">
+                                    <!--Sec 1-->
+                                    <div class="form-group">
+
+                                        <label class="col-md-12 fw-bold fs-4">Do you work in any company or organization right now?</label>
+                                        <label class="fs-7">If you are working in any company right now please enter in below.</label>
+                                    </br>
+                                        <label class="fs-7">You can enter maximum 2 companies.</label>
+
+                                        <label class="col-md-12 fs-6 fw-bold">Company 1</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="Faradars.org"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </br>
+                                        <label class="col-md-12 fs-6 fw-bold">Job Situation</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="Teacher"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+
+                                    <hr class="bg-info border-2 border-top border-secondary">
+
+                                    <label class="col-md-12 fs-6 fw-bold">Company 2</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="Faradars.org"
+                                            class="form-control form-control-line">
+                                    </div>
+                                </br>
+                                    <label class="col-md-12 fs-6 fw-bold">Job Situation</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="Teacher"
+                                            class="form-control form-control-line">
+                                    </div>
+                                     <!--Sec 1-->
+
+                                      <hr class="bg-info border-5 border-top border-info">
+
+                                     <!--Sec 2-->
+                                    <div class="form-group">
+
+                                        <label class="col-md-12 fw-bold fs-4">What are you planning to teach in techCourse?</label>
+                                        <label class="fs-7">Tell us what are your very first courses and teaching plans for uploading.</label>
+                                    </br>
+                                        <label class="fs-7">At least one course is required. (maximum is 2)</label>
+
+                                        <label class="col-md-12 fs-6 fw-bold">Course Title 1</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="Faradars.org"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </br>
+                                        <label class="col-md-12 fs-6 fw-bold">Course Time period (By hours)</label>
+                                        <div class="col-md-8">
+                                            <input type="text" placeholder="Teacher"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+
+                                    <hr class="bg-info border-2 border-top border-secondary">
+
+                                    <label class="col-md-12 fs-6 fw-bold">Course Title 2</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="Faradars.org"
+                                            class="form-control form-control-line">
+                                    </div>
+                                </br>
+                                    <label class="col-md-12 fs-6 fw-bold">Course Time period (By hours)</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="Teacher"
+                                            class="form-control form-control-line">
+                                    </div>
+                                    <!--Sec 2-->
+                                    <hr class="bg-info border-5 border-top border-info">
+
+                                    <!--Sec 3 -->
+                                    <div class="form-group">
+                                        <label class="col-md-12 fw-bold fs-4">Upload your resume (CV)</label>
+                                        <label class="fs-7">Please upload your resume with pdf. or zip. format.</label>
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-info text-white">Choose File</button>
+                                        </div>
+                                    </div>
+                                    <!--Sec 3 -->
+                                    <hr class="bg-info border-5 border-top border-info">
+                                    <!-- Sec 4 -->
+                                    <div class="form-group">
+                                        <label class="col-md-12 fw-bold fs-4">Any Extra information or description you want to add ?</label>
+                                        <div class="col-md-12">
+                                            <textarea rows="5" class="form-control form-control-line"></textarea>
+                                        </div>
+                                    </div>
+                                    <!-- Sec 4 -->
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-success text-white">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column 1 -->
+                </div>
+                <!-- Row 2-->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+
+
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    
+</body>
+    <script src="{% static '/assetss/libs/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{% static '/assetss/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/distt/js/app-style-switcher.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static '/distt/js/waves.js' %}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static '/distt/js/sidebarmenu.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static '/distt/js/custom.js' %}"></script>
+</html>

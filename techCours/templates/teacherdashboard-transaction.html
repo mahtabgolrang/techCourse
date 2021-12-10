@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Xtreme lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Xtreme admin lite design, Xtreme admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="Xtreme Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Transactions</title>
+    
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/assetss/images/favicon.png' %}">
+    <link href="{% static '/distt/css/style.min.css' %}" rel="stylesheet"  >
+    
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li>
+                            <!-- User Profile-->
+                            <div class="user-profile d-flex no-block dropdown m-t-20">
+                                <div class="user-pic"><img src="{% static '/assetss/images/users/1.jpg' %}" alt="users"
+                                        class="rounded-circle" width="40" /></div>
+                                <div class="user-content hide-menu m-l-10">
+                                    <a href="#" class="" id="Userdd" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <h5 class="m-b-0 user-name font-medium">Steave Jobs <i
+                                                class="fa fa-angle-down"></i></h5>
+                                        <span class="op-5 user-email">varun@gmail.com</span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
+                                        <a class="dropdown-item" href="#"><i
+                                                class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                        
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#"><i
+                                                class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End User Profile-->
+                        </li>
+                        <!-- User Profile--><!-- User Profile-->
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="#" aria-expanded="false">
+                            <i class="mdi mdi-view-dashboard"></i><span
+                                class="hide-menu">Dashboard</span></a></li>
+
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="#" aria-expanded="false">
+                            <i class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
+
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="#" aria-expanded="false">
+                            <i class="mdi mdi-border-all"></i><span
+                                class="hide-menu">Transactions</span></a></li>
+
+                                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="#" aria-expanded="false"><i class="fa fa-plus-square"></i><span
+                                        class="hide-menu">Create New Course</span></a></li>            
+
+                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="#" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span
+                                class="hide-menu">Resume(CV)</span></a></li>
+
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                    <div class="col-5">
+                        <h4 class="page-title">Transactions</h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <div class="row">
+                    
+
+                <!-- ============================================================== -->
+                <!-- Information Boxes-->
+                <!-- ============================================================== -->
+
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">All Courses</h4>
+                                <div class="feed-widget">
+                                    <ul class="list-style-none feed-body m-0 p-b-20">
+                                        <li class="feed-item">
+                                            <div class="feed-icon bg-info"> <!--Dayere dor icon-->
+                                                <i class="mdi mdi-note-multiple"></i> <!--khode icon-->
+                                            </div>
+                                             5
+                                         <!--   <span class="ms-auto font-12 ">Just Now</span> -->
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Free Courses</h4>
+                                <div class="feed-widget">
+                                    <ul class="list-style-none feed-body m-0 p-b-20">
+                                        <li class="feed-item">
+                                            <div class="feed-icon bg-success"><i class="mdi mdi-sale"></i></div>3
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Sold Courses</h4>
+                                <div class="feed-widget">
+                                    <ul class="list-style-none feed-body m-0 p-b-20">
+                                        <li class="feed-item">
+                                            <div class="feed-icon bg-warning"><i class="ti-shopping-cart"></i></div>2
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Total Earning</h4>
+                                <div class="feed-widget">
+                                    <ul class="list-style-none feed-body m-0 p-b-20">
+                                        <li class="feed-item">
+                                            <div class="feed-icon btn-orange"><i class="mdi mdi-square-inc-cash"></i></div>1,800,000T
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- ============================================================== -->
+                <!-- END !!! Information Boxes-->
+                <!-- ============================================================== -->
+
+
+
+                <!-- ============================================================== -->
+                <!-- Transaction Table -->
+                <!-- ============================================================== -->
+                <div class="row">
+                  <!-- column -->
+                  <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- title -->
+                            <div class="d-md-flex">
+                                <div>
+                                    <h4 class="card-title">Transactions</h4>
+                                </div>
+                                
+                            </div>
+                            <!-- title -->
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table v-middle">
+                                <thead>
+                                    <tr class="bg-light">
+                                        <th class="border-top-0">Sender</th>
+                                        <th class="border-top-0">Course Name</th>
+                                        <th class="border-top-0">Amount</th>
+                                        <th class="border-top-0">Date</th>
+                                        <th class="border-top-0">Time</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10"><a
+                                                        class="btn btn-circle d-flex btn-info text-white">#1</a>
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16">Amanda Baker</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>History of graphic Design</td>
+                                        <td>180,000T</td>
+                                        <td>5 December</td>
+                                        <td>
+                                            just now
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10"><a
+                                                        class="btn btn-circle d-flex btn-orange text-white">#2</a>
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16">Shiva Namdarzade</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>App Design Course</td>
+                                        <td>50,000T</td>
+                                        <td>5 December</td>
+                                        <td>
+                                          11:00 AM
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10"><a
+                                                        class="btn btn-circle d-flex btn-success text-white">#3</a>
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16">Mohamadreza Soltani</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Digital Painting</td>
+                                        <td>10,000T</td>
+                                        <td>4 December</td>
+                                        <td>
+                                          3:43 PM
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="m-r-10"><a
+                                                        class="btn btn-circle d-flex btn-purple text-white">#4</a>
+                                                </div>
+                                                <div class="">
+                                                    <h4 class="m-b-0 font-16">Mahtab Golrang</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Data Stucture</td>
+                                        <td>40,000T</td>
+                                        <td>3 December</td>
+                                        <td>
+                                            8:22 AM
+                                        </td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- Transaction Table -->
+                <!-- ============================================================== -->
+
+
+
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    
+</body>
+<script src="{% static '/assetss/libs/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{% static '/assetss/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/distt/js/app-style-switcher.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static '/distt/js/waves.js' %}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static '/distt/js/sidebarmenu.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static '/distt/js/custom.js' %}"></script>
+</html>
