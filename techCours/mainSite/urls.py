@@ -23,8 +23,8 @@ urlpatterns = [
          views.teacherDashboardResume, name="teacherdashboard-resume"),
     path('accounts/teacherdashboard/transaction',
          views.teacherDashboardTransaction, name="teacherdashboard-transaction"),
-    path('course/<int:course_id>', views.courseDetailsView , name="course"),
-     path('allcourse/', views.showAllCourse , name="allcourse")
+    path('course/<int:course_id>', views.courseDetailsView, name="course"),
+    path('allcourse/', views.showAllCourse, name="allcourse"),
 
 
 
