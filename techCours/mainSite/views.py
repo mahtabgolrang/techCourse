@@ -1,7 +1,10 @@
 from django.contrib.messages.api import info
+from django.core import paginator
 from django.forms.models import construct_instance
+from django.http.response import Http404
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.core.paginator import Paginator ,PageNotAnInteger , EmptyPage
 # Create your views here.
 from .models import *
 from .forms import CreateUserForm, CreatTeacherForm, EditCustomerForm, UserEditForm, CreatContactUsForm
@@ -15,6 +18,7 @@ from .decorators import unauthenticated_user, allowed_users
 import logging
 from techCourse.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
+from django.http import HttpResponse, HttpResponseNotFound
 
 # Create your views here.
 
@@ -71,13 +75,13 @@ def logoutUser(request):
 
 
 def main(request):
-    course = Course.objects.filter(stutus='p')
-    showSomeCourse = course[:len(course) % 4]
-    courseNumber = len(course)
+    course = Course.objects.filter(stutus__exaxt='p')
+    showSomeCourse = course[:4]
+    courseNumber = course.count()
     category = Category.objects.all()
-    showCategory = category[:len(category) % 5]
-    customerNumber = len(Customer.objects.all())
-    teacherNumber = len(Teacher.objects.all())
+    showCategory = category[:5]
+    customerNumber = Customer.objects.all().count()
+    teacherNumber = Teacher.objects.all().count()
     form = CreatContactUsForm()
     if request.method == 'POST':
         form = CreatContactUsForm(request.POST)
@@ -125,14 +129,14 @@ def workwithus(request):
 
 def test(request):
 
-    return render(request, 'test.html')
+    return render(request,"course-details.html")
 
 
 @login_required
 @allowed_users("customer")
 def userdashboard(request):
     customer = request.user.customer
-    allCours = customer.course.all()
+    allCours = customer.course_set.all()
     freeCours = allCours.filter(price=0)
     #logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
     coursePurchased = allCours.filter(price__gt=0)
@@ -197,3 +201,32 @@ def teacherDashboardTransaction(request):
 
     return render(request, 'teacherdashboard-transaction.html')
 
+def courseDetailsView(request,course_id):
+    
+    try:
+        course=Course.objects.get(id=course_id)
+    except Course.DoesNotExist:
+        return HttpResponseNotFound("<h1>course dose not exist</h1>")
+    context={
+        "coursedetails":course
+    }
+
+    return render(request,"course-details.html",context)
+
+
+def showAllCourse(request):
+    courses = Course.objects.all()
+
+    paginator = Paginator(courses ,10)
+    page = request.Get.get("page" ,1)
+    try:
+        result = paginator.page(page)
+    except PageNotAnInteger:
+        result = paginator.page(1) 
+    except EmptyPage:
+        result = paginator.page(paginator.num_pages)   
+
+    context={
+        "result":result
+    }
+    return render(request ,"all-course.html" ,context )        

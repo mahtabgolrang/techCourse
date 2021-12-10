@@ -7,6 +7,7 @@ urlpatterns = [
     path('accounts/login/', views.loginPage, name="login"),
     path('accounts/register/', views.registerPage, name="register"),
     path('accounts/workwithus/', views.workwithus, name="workwithus"),
+    path('test/', views.test, name="test"),
     path('accounts/userdashbord/main',
          views.userdashboard, name="userdashboard-main"),
     path('accounts/userdashbord/profile',
@@ -22,7 +23,8 @@ urlpatterns = [
          views.teacherDashboardResume, name="teacherdashboard-resume"),
     path('accounts/teacherdashboard/transaction',
          views.teacherDashboardTransaction, name="teacherdashboard-transaction"),
-
+    path('course/<int:course_id>', views.courseDetailsView , name="course"),
+     path('allcourse/', views.showAllCourse , name="allcourse")
 
 
 
