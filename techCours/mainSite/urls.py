@@ -26,6 +26,6 @@ urlpatterns = [
     path('course/<int:course_id>', views.courseDetailsView, name="course"),
     path('allcourse/', views.showAllCourse, name="allcourse"),
 
-
+     
 
 ]

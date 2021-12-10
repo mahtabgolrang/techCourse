@@ -12,12 +12,11 @@ from .models import Customer, Teacher, ContactUs
 class CreateUserForm (UserCreationForm):
     email = forms.EmailField(
         max_length=50, help_text='use a valid email', required=True)
-    agree = forms.BooleanField(required=True)
 
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email',
-                  'username', 'password1', 'password2', 'agree']
+                  'username', 'password1', 'password2']
 
     def clean_email(self):
         email = self.cleaned_data['email'].lower()
@@ -118,13 +117,43 @@ class CreatTeacherForm(forms.ModelForm):
         raise forms.ValidationError(f'phone {phone}  is already in use')
 
 
+
+class EditTeacherForm(forms.ModelForm):
+    adress = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'form-control form-control-line', 'rows': 3}))
+    contry = forms.ChoiceField(
+        widget=forms.Select,
+        choices=COUNTRYS,
+    )
+    contry.widget.attrs['class'] = 'form-control'
+    lastEducation = forms.ChoiceField(
+        widget=forms.Select,
+        choices=educations,
+    )
+    lastEducation.widget.attrs['class'] = ' btn btn-secondary dropdown-toggle w-100'
+
+    class Meta:
+        model = Teacher
+        fields = ['phone','fildOfStudy','university','lastEducation', 'contry', 'adress']
+
+    def clean_phone(self):
+        phone = self.cleaned_data['phone'].lower()
+        try:
+            user = Teacher.objects.get(phone=phone).exclude(
+                pk=request.user.teacher.id)
+        except Exception as e:
+            return phone
+        raise forms.ValidationError(f'phone {phone}  is already in use')
+
 class CreatContactUsForm(forms.ModelForm):
     name = forms.CharField(max_length=30 ,required=True)
     email =forms.EmailField(max_length=50 , required=True)
     subject = forms.CharField(max_length=30 , required=True)
     message = forms.CharField( max_length=200,widget=forms.TextInput(
-        attrs={"rows":3, "cols":10}))
+        attrs={"rows":3, "cols":10}) , required=True)
     class Meta:
         model = ContactUs
         fields = ['name', 'email', 'subject', 'message']
         widgets= { 'message': forms.Textarea(attrs={"rows":3, "cols":10}),}
+
+

@@ -51,7 +51,7 @@
                     <div class="mb-2 mt">
                         <!-- <input type="phone" class="form-control auth-input" placeholder="PhoneNumber" aria-describedby="phone"> -->
                         <div id="phone" class="form-text input-info-text"></div>
-                        {% render_field formTeacher.phone id="phone" type="tel" class="form-control auth-input" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" placeholder="PhoneNumber" %}
+                        {% render_field formTeacher.phone id="phone" type="tel" class="form-control auth-input" pattern="[0]{1}[0-9]{10}" placeholder="PhoneNumber" %}
                     </div>
                     <div class="mb-2 mt">
                         <!-- <input type="text" class="form-control auth-input" placeholder="Field Of Study" aria-describedby="fieldofstudy"> -->
@@ -63,6 +63,9 @@
                         <div id="university" class="form-text input-info-text"></div>
                         {% render_field formTeacher.university type="text" class="form-control auth-input" placeholder="University" %}
                     </div>
+                    <div class="mb-2 mt ">
+                        {{ formTeacher.lastEducation }}
+                  </div>
                     <div class="mb-2 mt">
                         <!-- <input type="password" class="form-control auth-input" placeholder="Password" aria-describedby="pass"> -->
                         <div id="pass" class="form-text input-info-text"></div>
@@ -73,15 +76,13 @@
                         <div id="re_pass" class="form-text input-info-text"></div>
                         {% render_field form.password2 type="password" class="form-control auth-input" id="re_pass" placeholder="Repeatyourpassword" %}
                     </div>
-                    <div class="mb-2 mt ">
-                          {{ formTeacher.lastEducation }}
-                    </div>
+                    
                     <button type="submit" class="btn auth-btn mt-2 mb-4">Register</button>
                 </form>
                 <p class="text mb-4"> have Account? <a href="#" class="text-link">Login</a></p>
                 <div class="row">
-                    {% if formuser.errors %}
-                        {% for field in formuser %}
+                    {% if form.errors %}
+                        {% for field in form %}
                             {% for error in field.errors %}
                                 <p style="color:red">{{error}}</p>
                             {% endfor %}
