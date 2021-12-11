@@ -164,14 +164,13 @@
 
                                         <label class="col-md-12 fs-6 fw-bold">Company 1</label>
                                         <div class="col-md-8">
-                                            <input type="text" placeholder="Faradars.org"
-                                                class="form-control form-control-line">
+                                            {% render_field editeTeacher.companiName1 type="name" class="form-control form-control-line"  placeholder="Faradars.org" %}
+
                                         </div>
                                     </br>
                                         <label class="col-md-12 fs-6 fw-bold">Job Situation</label>
                                         <div class="col-md-8">
-                                            <input type="text" placeholder="Teacher"
-                                                class="form-control form-control-line">
+                                            {% render_field editeTeacher.jobSituation1 type="name" class="form-control form-control-line"  placeholder="Teacher" %}
                                         </div>
                                     </div>
 
@@ -179,14 +178,14 @@
 
                                     <label class="col-md-12 fs-6 fw-bold">Company 2</label>
                                     <div class="col-md-8">
-                                        <input type="text" placeholder="Faradars.org"
-                                            class="form-control form-control-line">
+                                        {% render_field editeTeacher.companiName2 type="name" class="form-control form-control-line"  placeholder="Faradars.org" %}
+
                                     </div>
                                 </br>
                                     <label class="col-md-12 fs-6 fw-bold">Job Situation</label>
                                     <div class="col-md-8">
-                                        <input type="text" placeholder="Teacher"
-                                            class="form-control form-control-line">
+                                        {% render_field editeTeacher.jobSituation2 type="name" class="form-control form-control-line"  placeholder="Teacher" %}
+
                                     </div>
                                      <!--Sec 1-->
 
@@ -202,14 +201,14 @@
 
                                         <label class="col-md-12 fs-6 fw-bold">Course Title 1</label>
                                         <div class="col-md-8">
-                                            <input type="text" placeholder="Faradars.org"
-                                                class="form-control form-control-line">
+                                            {% render_field editeTeacher.courseTitle1 type="name" class="form-control form-control-line"  placeholder="course title" %}
+
                                         </div>
                                     </br>
                                         <label class="col-md-12 fs-6 fw-bold">Course Time period (By hours)</label>
                                         <div class="col-md-8">
-                                            <input type="text" placeholder="Teacher"
-                                                class="form-control form-control-line">
+                                            {% render_field editeTeacher.courseTime1 type="name" class="form-control form-control-line"  placeholder="course time" %}
+
                                         </div>
                                     </div>
 
@@ -217,14 +216,14 @@
 
                                     <label class="col-md-12 fs-6 fw-bold">Course Title 2</label>
                                     <div class="col-md-8">
-                                        <input type="text" placeholder="Faradars.org"
-                                            class="form-control form-control-line">
+                                        {% render_field editeTeacher.courseTitle2 type="name" class="form-control form-control-line"  placeholder="course title" %}
+
                                     </div>
                                 </br>
                                     <label class="col-md-12 fs-6 fw-bold">Course Time period (By hours)</label>
                                     <div class="col-md-8">
-                                        <input type="text" placeholder="Teacher"
-                                            class="form-control form-control-line">
+                                        {% render_field editeTeacher.courseTime2 type="name" class="form-control form-control-line"  placeholder="course time" %}
+
                                     </div>
                                     <!--Sec 2-->
                                     <hr class="bg-info border-5 border-top border-info">
@@ -234,8 +233,7 @@
                                         <label class="col-md-12 fw-bold fs-4">Upload your resume (CV)</label>
                                         <label class="fs-7">Please upload your resume with pdf. or zip. format.</label>
                                         <div class="col-sm-12">
-                                            <label for="formFileMultiple" class="form-label"></label>
-                                            <input class="form-control" type="file" id="formFileMultiple" multiple />
+                                            {{editeTeacher.documents}}
                                         </div>
                                     </div>
                                     <!--Sec 3 -->
@@ -244,7 +242,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12 fw-bold fs-4">Any Extra information or description you want to add ?</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
+                                            {{editeTeacher.exteraInfo}}
                                         </div>
                                     </div>
                                     <!-- Sec 4 -->

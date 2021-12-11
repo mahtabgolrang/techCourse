@@ -101,6 +101,16 @@ class Teacher (models.Model):
         max_length=2, choices=educations, default='bs')
     documents = models.FileField(
         upload_to='teacher/documents/', null=True, blank=True)
+    companiName1= models.CharField(max_length=50, null=True)
+    jobSituation1= models.CharField(max_length=50, null=True)
+    companiName2= models.CharField(max_length=50, null=True)
+    jobSituation2= models.CharField(max_length=50, null=True)
+    courseTitle1= models.CharField(max_length=50, null=True)
+    courseTime1= models.CharField(max_length=50, null=True)
+    courseTitle2= models.CharField(max_length=50, null=True)
+    courseTime2= models.CharField(max_length=50, null=True)
+    exteraInfo =models.CharField(max_length=200 , null=True)
+    wallet=models.FloatField(default=0)
 
     def __str__(self):
         return self.user.username

@@ -156,4 +156,10 @@ class CreatContactUsForm(forms.ModelForm):
         fields = ['name', 'email', 'subject', 'message']
         widgets= { 'message': forms.Textarea(attrs={"rows":3, "cols":10}),}
 
-
+class EditTeacherResume(forms.ModelForm):
+    exteraInfo = forms.CharField( max_length=200,widget=forms.TextInput(
+        attrs={"rows":3, "cols":10 , 'class' :'form-control form-control-line'}) , required=True)
+    class Meta:
+        model = Teacher
+        fields = ['companiName1','jobSituation1','companiName2','jobSituation2',
+         'courseTitle1', 'courseTime1','courseTitle2','courseTime2','documents','exteraInfo']
