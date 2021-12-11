@@ -21,33 +21,38 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="{% url 'main' %}" class="logo">
                         techCourse
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                   {% if user.is_authenticated %}
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                        <li><a href="meetings.html">Categories</a></li>
+                        <li class="scroll-to-section"><a href="{% url 'main' %}" class="active">Home</a></li>
+                        <li><a href="{% url 'allcourse' %}">Courses</a></li>
                         <li class="has-sub">
                             <a href="javascript:void(0)">{{user.username}}</a>
                             <ul class="sub-menu">
-                                <li><a href="meetings.html">Dashboard</a></li>
+                              {% if user.customer %}
+                                <li><a href="{% url 'userdashboard-main' %}">Dashboard</a></li>
+                              {% endif %}
+
+                              {% if user.teacher %}
+                                <li><a href="{% url 'teacherdashboard-main' %}">Dashboard</a></li>
+                              {% endif %}
                                 <li><a href="{% url 'logout' %}">Logout</a></li>
-                                <li><a href="{% url 'logout' %}">Cart</a></li>
+                                <li><a href="#">Cart</a></li>
                             </ul>
                         </li>
-                        <li class="scroll-to-section"><a href="#courses">Courses</a></li> 
                         <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
                     </ul>        
                     {% else %}
                     <ul class="nav">
-                      <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                      <li><a href="#">Categories</a></li>
-                      <li><a href="#">Login</a></li>
-                      <li class="scroll-to-section"><a href="#">Register</a></li> 
-                      <li class="scroll-to-section"><a href="#">Work With Us</a></li> 
+                      <li class="scroll-to-section"><a href="{% url 'main' %}" class="active">Home</a></li>
+                      <li><a href="{% url 'allcourse' %}">Courses</a></li>
+                      <li><a href="{% url 'login' %}">Login</a></li>
+                      <li class="scroll-to-section"><a href="{% url 'register' %}">Register</a></li> 
+                      <li class="scroll-to-section"><a href="{% url 'workwithus' %}">Work With Us</a></li> 
                       <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
                     </ul>
                     <a class='menu-trigger'>
