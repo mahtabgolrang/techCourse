@@ -44,18 +44,12 @@
           </form>
           <p class="text mb-4">Dont have Account? <a href="{% url 'register' %}" class="text-link">Register</a></p>
           <div class="row">
-            <!-- {% if messages %}
+            {% if messages %}
             {% for message in messages %}
               <p style="color: red;">{{message}}</p>
             {% endfor %}
-            {% endif %} -->
-            {% if form.errors %}
-                {% for field in form %}
-                    {% for error in field.errors %}
-                      <p style="color:red">{{error}}</p>
-                    {% endfor %}
-                {% endfor %}
-            {% endif %}
+            {% endif %} 
+           
           </div>
         </div>
       </div>
