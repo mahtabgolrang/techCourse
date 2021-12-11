@@ -147,7 +147,7 @@ def userdashboard(request):
         "freeCours": freeCours,
         "freeCoursSize": len(freeCours),
         "coursePurchased": coursePurchased,
-        "coursePurchasedSize": len(coursePurchased),
+        "coursePurchasedSize": coursePurchased.count(),
     }
     return render(request, 'userdashboard.html', context)
 
@@ -183,8 +183,20 @@ def userDashboardProfile(request):
 @login_required
 @allowed_users("teacher")
 def teacherDashboard(request):
-
-    return render(request, 'teacherdashboard.html')
+    teaacher =request.user.teacher
+    allCours = teaacher.course_set.all()
+    freeCours = allCours.filter(price=0)
+    #logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
+    coursePurchased = allCours.filter(price__gt=0)
+    context = {
+        "teaacher": teaacher,
+        "allCours": allCours,
+        "freeCours": freeCours,
+        "freeCoursSize": len(freeCours),
+        "coursePurchased": coursePurchased,
+        "coursePurchasedSize": coursePurchased.count(),
+    }
+    return render(request, 'teacherdashboard.html' , context)
 
 @login_required
 @allowed_users("teacher")
@@ -258,8 +270,20 @@ def teacherDashboardResume(request):
 @login_required
 @allowed_users("teacher")
 def teacherDashboardTransaction(request):
-
-    return render(request, 'teacherdashboard-transaction.html')
+    teaacher =request.user.teacher
+    allCours = teaacher.course_set.all()
+    freeCours = allCours.filter(price=0)
+    #logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
+    coursePurchased = allCours.filter(price__gt=0)
+    context = {
+        "teaacher": teaacher,
+        "allCours": allCours,
+        "freeCours": freeCours,
+        "freeCoursSize": len(freeCours),
+        "coursePurchased": coursePurchased,
+        "coursePurchasedSize": coursePurchased.count(),
+    }
+    return render(request, 'teacherdashboard-transaction.html' , context)
 
 def courseDetailsView(request,course_id):
     

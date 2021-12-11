@@ -1,7 +1,7 @@
 {% extends 'root.html' %}
 {% load static %}
 {% load widget_tweaks %}
-
+{% load urlfy %}
 {% block style %}
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
@@ -72,17 +72,7 @@
                 <div class="down-content">
                   <a href="#"><h4>{{course.name}}</h4></a>
                   <p class="description">
-                    In This Training Series, We Have Tried To Discuss The Basic Concepts Of Computer
-                    Programming, Types Of Programming Languages, Computer Program Structure 
-                    Data Types And Information Structures With A General View And Provide An Overview
-                    To The Audience. The Content Of This Tutorial Is Organized In A Way That Prepares
-                    People To Learn Any Programming Language And Gives Them An Overview Of 
-                    Programming Knowledge. In Fact, This Training Package Can Be Considered As
-                    The Number One Lesson Of Any Programming Training Course.
-                    Therefore, It Is Strongly Recommended That If You Intend To Learn Any Programming
-                    Language, Be Sure To See This Tutorial Beforehand.</br><strong>Topics</strong>
-                    </br>List of topics and outlines of this educational series</br>Lesson 1: Basics of programming and types of programming languages</br>
-                    Lesson 2: Types of Commands and Components of a Program</br>Lesson 3: Data Types and Information Management and Storage Structures.
+                    {{course.subTittel}}
                   </p>
                   <div class="row">
                     <div class="col-lg-4">
@@ -94,15 +84,29 @@
                     <div class="col-lg-4">
                       <div class="location">
                         <h5>Teacher</h5>
-                        <p>Doctor Mahmood Naderan 
-                        <br>PhD in Computer Engineering</p>
+                        {% for teacher in course.teacher%}
+                        {{teacher.user.get_full_name}}
+                        {% endfor %}
                       </div>
                     </div>
                     
                     <div class="col-lg-12">
                       <div class="share">
                         <h5>Download The Course:</h5>
+                        {% if user.is_authenticated %}
+                          {%if user.customer %}
+                            {% if user.customer.course|in_course= course.id %}
+                            <li><a href="{{course.fileZip.url}}"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">All Of Videos</button></a></li>
+
+                            {{else}}
+
+                            {% endif %}
+                          {%endif%}
+
+                        {% else %}
+                        {% endif %}
                         <ul>
+
                           <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">All Of Videos</button></a></li>
                           <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">Buy Course</button></a></li>
                         </ul>

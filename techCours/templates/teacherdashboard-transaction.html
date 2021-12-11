@@ -233,12 +233,14 @@
                                         <th class="border-top-0">Sender</th>
                                         <th class="border-top-0">Course Name</th>
                                         <th class="border-top-0">Amount</th>
-                                        <th class="border-top-0">Date</th>
-                                        <th class="border-top-0">Time</th>
                                         
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
+                                    {% for course in allCours %}
+                                        {{for customer in course.customer}}
+
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
@@ -246,74 +248,23 @@
                                                         class="btn btn-circle d-flex btn-info text-white">#1</a>
                                                 </div>
                                                 <div class="">
-                                                    <h4 class="m-b-0 font-16">Amanda Baker</h4>
-                                                </div>
+                                                    {% if customer.profile_pic %}
+                                                    <div class="user-pic"><img src="{{ customer.profile_pic.url }}" alt="users"
+                                                        class="rounded-circle" width="40" /></div>
+                                                    {% else %}
+                                                    <div class="user-pic"><img src="{% static '/image/1.jpg' %}" alt="users"
+                                                        class="rounded-circle" width="40" /></div>
+                                                    {% endif %}                                                </div>
                                             </div>
                                         </td>
-                                        <td>History of graphic Design</td>
-                                        <td>180,000T</td>
-                                        <td>5 December</td>
-                                        <td>
-                                            just now
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="m-r-10"><a
-                                                        class="btn btn-circle d-flex btn-orange text-white">#2</a>
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="m-b-0 font-16">Shiva Namdarzade</h4>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>App Design Course</td>
-                                        <td>50,000T</td>
-                                        <td>5 December</td>
-                                        <td>
-                                          11:00 AM
-                                        </td>
+                                        <td>{{course.name}}</td>
+                                        <td>{{course.price * 80 / 100}}</td>
                                         
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="m-r-10"><a
-                                                        class="btn btn-circle d-flex btn-success text-white">#3</a>
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="m-b-0 font-16">Mohamadreza Soltani</h4>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Digital Painting</td>
-                                        <td>10,000T</td>
-                                        <td>4 December</td>
-                                        <td>
-                                          3:43 PM
-                                        </td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="m-r-10"><a
-                                                        class="btn btn-circle d-flex btn-purple text-white">#4</a>
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="m-b-0 font-16">Mahtab Golrang</h4>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Data Stucture</td>
-                                        <td>40,000T</td>
-                                        <td>3 December</td>
-                                        <td>
-                                            8:22 AM
-                                        </td>
-                                        
-                                    </tr>
+
+
+
+
                                 </tbody>
                             </table>
                         </div>
