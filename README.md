@@ -14,6 +14,9 @@ Teacher 2
 user = ssetayesh_morad
 pass = imaostad
 
+teacher 3
+user = namdarzadeh
+pass = heyiamteacher
 
 Student 1
 User = mahtabgole
