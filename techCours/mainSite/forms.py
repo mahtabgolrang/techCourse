@@ -167,10 +167,8 @@ class EditTeacherResume(forms.ModelForm):
 class AddCourseForm(forms.ModelForm):
     duration =forms.DurationField()
     
-    category=forms.ChoiceField(
-        widget=forms.Select,
-        choices=Category.objects.all(),
-        required=True,
+    category=forms.ModelChoiceField(
+        queryset=Category.objects.all(),
     )
     category.widget.attrs['class'] = 'form-select shadow-none form-control-line'
     subTittel =forms.CharField( max_length=200,widget=forms.TextInput(
