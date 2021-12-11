@@ -223,7 +223,9 @@ def teacherDashboardCreateCourse(request):
     if request.method=="POST":
         addCourse =AddCourseForm( request.POST , request.FILES)
         if addCourse.is_valid():
-            addCourse.save()
+            course =addCourse.save()
+            teacher.course.add(course)
+            
     else:
         addCourse =AddCourseForm()
 
