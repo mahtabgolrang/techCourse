@@ -10,19 +10,16 @@
     <meta name="description" content="Xtreme Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
     <title>Teacher Dashboard</title>
-    <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{% static '/assetss/images/favicon.png' %}">
-    <!-- Custom CSS -->
+
     <link href="{% static '/assetss/libs/chartist/dist/chartist.min.css' %}" rel="stylesheet">
-    <!-- Custom CSS -->
+
     <link href="{% static '/distt/css/style.min.css' %}" rel="stylesheet">
 </head>
 <body>
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
     data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
-    <!-- ============================================================== -->
-    <!-- Left Sidebar - style you can find in sidebar.scss  -->
-    <!-- ============================================================== -->
+
     <aside class="left-sidebar" data-sidebarbg="skin6">
         <!-- Sidebar scroll-->
         <div class="scroll-sidebar">
@@ -32,27 +29,30 @@
                     <!-- User Profile-->
                         <!-- User Profile-->
                         <div class="user-profile d-flex no-block dropdown m-t-20">
-                            <div class="user-pic"><img src="{% static '/assetss/images/users/1.jpg' %}" alt="users"
-                                    class="rounded-circle" width="40" />
-                            </div>
+                            {% if customer.profile_pic %}
+                          <div class="user-pic"><img src="{{ customer.profile_pic.url }}" alt="users"
+                              class="rounded-circle" width="40" /></div>
+                          {% else %}
+                          <div class="user-pic"><img src="{% static '/image/1.jpg' %}" alt="users"
+                              class="rounded-circle" width="40" /></div>
+                          {% endif %}
                             <div class="user-content hide-menu m-l-10">
                                 <a href="{% url 'main' %}" class="" id="Userdd" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <h5 class="m-b-0 user-name font-medium">Steave Jobs <i
+                                    <h5 class="m-b-0 user-name font-medium">{{customer.user.get_full_name}}<i
                                             class="fa fa-angle-down"></i></h5>
-                                    <span class="op-5 user-email">varun@gmail.com</span>
+                                    <span class="op-5 user-email">{{customer.user.email}}</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
-                                    <a class="dropdown-item" href="{% url 'main' %}"><i
+                                    <a class="dropdown-item" href="javascript:void(0)"><i
                                             class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{% url 'main' %}"><i
+                                    <a class="dropdown-item" href="javascript:void(0)"><i
                                             class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- End User Profile-->
-                    <!-- User Profile-->
+
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                             href="{% url 'main' %}" aria-expanded="false">
                             <i class="mdi mdi-view-dashboard"></i><span
@@ -75,22 +75,10 @@
                             href="{% url 'main' %}" aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span
                                 class="hide-menu">Resume(CV)</span></a></li>
                 </ul>
-
             </nav>
-            <!-- End Sidebar navigation -->
         </div>
-        <!-- End Sidebar scroll-->
     </aside>
-    <!-- ============================================================== -->
-    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper  -->
-    <!-- ============================================================== -->
     <div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
         <div class="page-breadcrumb">
             <div class="row align-items-center">
                 <div class="col-5">
@@ -104,23 +92,10 @@
                         </nav>
                     </div>
                 </div>
-                
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
         <div class="container-fluid">
-
-            <!-- ============================================================== -->
-            <!-- Information Boxes-->
-            <!-- ============================================================== -->
             <div class="row">
-                
-
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body">
@@ -131,7 +106,7 @@
                                         <div class="feed-icon bg-info"> <!--Dayere dor icon-->
                                             <i class="mdi mdi-note-multiple"></i> <!--khode icon-->
                                         </div>
-                                         5
+                                        {{ allCours.count}}
                                      <!--   <span class="ms-auto font-12 ">Just Now</span> -->
                                     </li>
                                 </ul>
@@ -139,7 +114,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body">
@@ -147,15 +121,14 @@
                             <div class="feed-widget">
                                 <ul class="list-style-none feed-body m-0 p-b-20">
                                     <li class="feed-item">
-                                        <div class="feed-icon bg-success"><i class="mdi mdi-sale"></i></div>3
+                                        <div class="feed-icon bg-success"><i class="mdi mdi-sale"></i></div>
+                                        {{ freeCoursSize}}
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body">
@@ -163,15 +136,14 @@
                             <div class="feed-widget">
                                 <ul class="list-style-none feed-body m-0 p-b-20">
                                     <li class="feed-item">
-                                        <div class="feed-icon bg-warning"><i class="ti-shopping-cart"></i></div>2
+                                        <div class="feed-icon bg-warning"><i class="ti-shopping-cart"></i></div>
+                                        {{}}
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body">
@@ -179,28 +151,16 @@
                             <div class="feed-widget">
                                 <ul class="list-style-none feed-body m-0 p-b-20">
                                     <li class="feed-item">
-                                        <div class="feed-icon btn-orange"><i class="mdi mdi-square-inc-cash"></i></div>1,800,000T
+                                        <div class="feed-icon btn-orange"><i class="mdi mdi-square-inc-cash"></i></div>
+                                        {{}}
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-            <!-- ============================================================== -->
-            <!-- Information Boxes-->
-            <!-- ============================================================== -->
-
-
-            <!-- ============================================================== -->
-            <!-- Table for top courses -->
-            <!-- ============================================================== -->
             <div class="row"> <!-- Start the rowwwwww -->
-
-
-                <!-- column -->
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
@@ -214,111 +174,48 @@
                         </div>
                         <div class="table-responsive">
                             <table class="table v-middle">
+                                {% if allCours.count > 0 %}
                                 <thead>
                                     <tr class="bg-light">
                                         <th class="border-top-0">Course name</th>
                                         <th class="border-top-0">Download No.</th>
                                         <th class="border-top-0">Price</th>
                                         <th class="border-top-0"></th>
-                                        
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for course in allCours %}
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <div class="m-r-10"><a
-                                                        class="btn btn-circle d-flex btn-info text-white">#1</a>
+                                                <div class="m-r-10">
+                                                    {% if course.course_pic %}
+                                                    <a class="btn btn-circle d-flex btn-info text-white">#1</a>
                                                 </div>
                                                 <div class="">
-                                                    <h4 class="m-b-0 font-16">History of graphic Design</h4>
+                                                    <h4 class="m-b-0 font-16">{{ course.name }}</h4>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>12</td>
-                                        <td>180,000T</td>
+                                        <td>{{}}</td>
+                                        <td>{{teacher.Earning}}</td>
                                         <td>
                                             <label class="label label-info">View Course</label>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="m-r-10"><a
-                                                        class="btn btn-circle d-flex btn-orange text-white">#2</a>
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="m-b-0 font-16">App Design Course</h4>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>10</td>
-                                        <td>Free</td>
-                                        <td>
-                                            <label class="label label-info">View Course</label>
-                                        </td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="m-r-10"><a
-                                                        class="btn btn-circle d-flex btn-success text-white">#3</a>
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="m-b-0 font-16">Digital Painting</h4>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>8</td>
-                                        <td>10,000T</td>
-                                        <td>
-                                            <label class="label label-info">View Course</label>
-                                        </td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="m-r-10"><a
-                                                        class="btn btn-circle d-flex btn-purple text-white">#4</a>
-                                                </div>
-                                                <div class="">
-                                                    <h4 class="m-b-0 font-16">Data Stucture</h4>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>5</td>
-                                        <td>Free</td>
-                                        <td>
-                                            <label class="label label-info">View Course</label>
-                                        </td>
-                                        
-                                    </tr>
+                                    {% endfor %}
+                                    {% else %}
+                                    <div class ="row"> <strong>           nothing to show    </strong></div>
+                                    {% endif %}
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
-                <!-- column -->
-                
-                <!-- column -->
             </div>
-            <!-- ============================================================== -->
-            <!-- Table -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Container fluid  -->
-        <!-- ============================================================== -->
-
     </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
 </div>
-
 </body>
 <script src="{% static '/assetss/libs/jquery/dist/jquery.min.js' %}"></script>
     <!-- Bootstrap tether Core JavaScript -->
