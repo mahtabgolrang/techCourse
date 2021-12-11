@@ -78,7 +78,7 @@ class EditCustomerForm(forms.ModelForm):
 
     class Meta:
         model = Customer
-        fields = ['phone', 'contry', 'adress']
+        fields = ['phone', 'contry', 'adress','profile_pic']
 
     def clean_phone(self):
         phone = self.cleaned_data['phone'].lower()
@@ -134,7 +134,7 @@ class EditTeacherForm(forms.ModelForm):
 
     class Meta:
         model = Teacher
-        fields = ['phone','fildOfStudy','university','lastEducation', 'contry', 'adress']
+        fields = ['phone','fildOfStudy','university','lastEducation', 'contry', 'adress', 'profile_pic']
 
     def clean_phone(self):
         phone = self.cleaned_data['phone'].lower()

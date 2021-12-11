@@ -1,5 +1,7 @@
 {% load static %}
 {% load widget_tweaks %}
+{% load mathfilters %}
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -254,7 +256,7 @@
                                         </td>
                                         <td>{{course.name}}</td>
                                         
-                                        <td>{{course.price|mal:0.8}}</td>
+                                        <td>{{course.price|mul:0.8}}</td>
                                         
                                     </tr>
                                         {% endfor %}

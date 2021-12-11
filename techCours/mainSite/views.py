@@ -160,7 +160,7 @@ def userDashboardProfile(request):
     if request.method == 'POST':
         formCustomer = EditCustomerForm(
             request.POST, instance=request.user.customer)
-        formUser = UserEditForm(request.POST, instance=request.user)
+        formUser = UserEditForm(request.POST , request.FILES, instance=request.user)
         if formCustomer.is_valid() and formUser.is_valid():
             formCustomer.save()
             formUser.save()
@@ -204,7 +204,7 @@ def TeacherDashboardProfile(request):
     teacher = request.user.teacher
     if request.method == 'POST':
         formTeacher = EditTeacherForm(
-            request.POST, instance=request.user.teacher)
+            request.POST , request.FILES, instance=request.user.teacher)
         formUser = UserEditForm(request.POST, instance=request.user)
         if formTeacher.is_valid() and formUser.is_valid():
             formTeacher.save()
