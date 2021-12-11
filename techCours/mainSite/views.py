@@ -211,7 +211,7 @@ def TeacherDashboardProfile(request):
         "formTeacher": formTeacher,
         "form": formUser
     }
-    return render(request, 'teacherdashboard-profile.html')
+    return render(request, 'teacherdashboard-profile.html', context)
 
 @login_required
 @allowed_users("teacher")
