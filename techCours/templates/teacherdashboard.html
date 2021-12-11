@@ -200,7 +200,7 @@
                                         <td>{{}}</td>
                                         <td>{{teacher.Earning}}</td>
                                         <td>
-                                            <label class="label label-info">View Course</label>
+                                            <button class="label label-info"><a href="{% url 'course' course.id %}">View Course</a></button>
                                         </td>
                                     </tr>
                                     {% endfor %}
