@@ -65,7 +65,7 @@
                     </div>
                     <button class="btn auth-btn mt-2 mb-4">Register</button>
                 </form>
-                <p class="text mb-4"> have Account? <a href="#" class="text-link">Login</a></p>
+                <p class="text mb-4"> have Account? <a href="{% url 'login' %}" class="text-link">Login</a></p>
                 <div class="row">
                     {% if messages %}
                     {% for message in messages %}

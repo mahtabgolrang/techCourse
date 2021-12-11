@@ -67,10 +67,10 @@
                   <div class="date">
                     <h6>{{course.datepublished|date:"F"}} <span>{{course.datepublished|date:"d"}}</span></h6>
                   </div>
-                  <a href="#"><img src="{{course.course_pic.url}}" alt=""></a>
+                  <a href="{% url 'course' course.id %}"><img src="{{course.course_pic.url}}" alt=""></a>
                 </div>
                 <div class="down-content">
-                  <a href="#"><h4>{{course.name}}</h4></a>
+                  <a href="{% url 'course' course.id %}"><h4>{{course.name}}</h4></a>
                   <p class="description">
                     In This Training Series, We Have Tried To Discuss The Basic Concepts Of Computer
                     Programming, Types Of Programming Languages, Computer Program Structure 
@@ -114,7 +114,7 @@
             </div>
             <div class="col-lg-12">
               <div class="main-button-red">
-                <a href="meetings.html">Back To course List</a>
+                <a href="{% url 'allcourse' %}">Back To course List</a>
               </div>
             </div>
           </div>
@@ -124,9 +124,9 @@
     <div class="footer">
         <p>Copyright © 2022 www.techcoursescu.com 
           <br>
-          Contact Us: <a href="#main.html" target="_parent" title="free css templates">Contact Us</a>
+          Contact Us: <a href="{% url 'main' %}" target="_parent" title="free css templates">Contact Us</a>
           <br>
-          All Courses: <a href="#categories.html" target="_blank" title="Build Better UI, Faster">All Courses</a>
+          All Courses: <a href="{% url 'allcourse' %}" target="_blank" title="Build Better UI, Faster">All Courses</a>
           </p>
       </div>
   </section>

@@ -46,10 +46,10 @@ user dashboard {{ customer.user.username }}
                                     <span class="op-5 user-email">{{customer.user.email}}</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
-                                    <a class="dropdown-item" href="javascript:void(0)"><i
+                                    <a type="button" class="dropdown-item" href="javascript:void(0)" href="{% url 'userdashboard-profile' %}"><i
                                             class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                             <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="javascript:void(0)"><i
+                                    <a type="button" class="dropdown-item" href="javascript:void(0)" href="{% url 'logout' %}"><i
                                             class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                 </div>
                             </div>
@@ -58,10 +58,10 @@ user dashboard {{ customer.user.username }}
                     </li>
                     <!-- User Profile-->
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                            href="{% url 'userdashboard-main' %}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                                 class="hide-menu">Dashboard</span></a></li>
                     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href="pages-profile.html" aria-expanded="false"><i class="mdi mdi-account-network"></i><span
+                            href="{% url 'userdashboard-profile' %}" aria-expanded="false"><i class="mdi mdi-account-network"></i><span
                                 class="hide-menu">Profile</span></a></li>
                 </ul>
             </nav>
@@ -86,7 +86,7 @@ user dashboard {{ customer.user.username }}
                     <div class="d-flex align-items-center">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'main' %}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                             </ol>
                         </nav>
