@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Customer, Teacher, ContactUs
+from .models import Category, Course, Customer, Teacher, ContactUs
 
 
 class CreateUserForm (UserCreationForm):
@@ -163,3 +163,18 @@ class EditTeacherResume(forms.ModelForm):
         model = Teacher
         fields = ['companiName1','jobSituation1','companiName2','jobSituation2',
          'courseTitle1', 'courseTime1','courseTitle2','courseTime2','documents','exteraInfo']
+
+class AddCourseForm(forms.ModelForm):
+    duration =forms.DurationField()
+    
+    category=forms.ChoiceField(
+        widget=forms.Select,
+        choices=Category.objects.all(),
+        required=True,
+    )
+    category.widget.attrs['class'] = 'form-select shadow-none form-control-line'
+    subTittel =forms.CharField( max_length=200,widget=forms.TextInput(
+        attrs={"rows":3, "cols":10}) , required=True)
+    class Meta:
+        model = Course
+        fields =['name' ,'title','subTittel','category','price','duration','course_pic','fileZip', 'video'] 

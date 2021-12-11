@@ -110,6 +110,7 @@ class Teacher (models.Model):
     courseTitle2= models.CharField(max_length=50, null=True)
     courseTime2= models.CharField(max_length=50, null=True)
     exteraInfo =models.CharField(max_length=200 , null=True)
+    accepted =models.BooleanField(default=False)
     wallet=models.FloatField(default=0)
 
     def __str__(self):

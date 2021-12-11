@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator ,PageNotAnInteger , EmptyPage
 # Create your views here.
 from .models import *
-from .forms import CreateUserForm, CreatTeacherForm, EditCustomerForm, UserEditForm, CreatContactUsForm, EditTeacherForm , EditTeacherResume
+from .forms import CreateUserForm, CreatTeacherForm, EditCustomerForm, UserEditForm, CreatContactUsForm, EditTeacherForm , EditTeacherResume,AddCourseForm
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -215,13 +215,29 @@ def TeacherDashboardProfile(request):
 @login_required
 @allowed_users("teacher")
 def teacherDashboardCreateCourse(request):
+    teacher = request.user.teacher
     
-    return render(request, 'teacherdashboard-createcourse.html')
+    if  not teacher.accepted :
+        return HttpResponseNotFound("<h1>you haven't access for creat a new  course </h1>")
+    
+    if request.method=="POST":
+        addCourse =AddCourseForm( request.POST , request.FILES)
+        if addCourse.is_valid():
+            addCourse.save()
+    else:
+        addCourse =AddCourseForm()
+
+    context ={
+        "teacher":teacher,
+        "addCourse":addCourse
+    }
+    return render(request, 'teacherdashboard-createcourse.html', context)
 
 @login_required
 @allowed_users("teacher")
 def teacherDashboardResume(request):
-    
+    teacher = request.user.teacher
+
     if request.method=="POST":
         editeTeacher =EditTeacherResume( request.POST , request.FILES, instance=request.user.teacher)
         if editeTeacher.is_valid():
@@ -230,6 +246,8 @@ def teacherDashboardResume(request):
         editeTeacher=EditTeacherResume(instance=request.user.teacher)
 
     context={
+        "teacher":teacher,
+
         "editeTeacher":editeTeacher,
         
     }
