@@ -183,13 +183,13 @@ def userDashboardProfile(request):
 @login_required
 @allowed_users("teacher")
 def teacherDashboard(request):
-    teaacher =request.user.teacher
-    allCours = teaacher.course.all()
+    teacher =request.user.teacher
+    allCours = teacher.course.all()
     freeCours = allCours.filter(price=0)
     #logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
     coursePurchased = allCours.filter(price__gt=0)
     context = {
-        "teaacher": teaacher,
+        "teacher": teacher,
         "allCours": allCours,
         "freeCours": freeCours,
         "freeCoursSize": len(freeCours),

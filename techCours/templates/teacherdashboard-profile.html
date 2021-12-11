@@ -42,8 +42,8 @@
                         <!-- User Profile-->
                             <!-- User Profile-->
                             <div class="user-profile d-flex no-block dropdown m-t-20">
-                                {% if customer.profile_pic %}
-                              <div class="user-pic"><img src="{{ customer.profile_pic.url }}" alt="users"
+                                {% if teacher.profile_pic %}
+                              <div class="user-pic"><img src="{{teacher.profile_pic.url}}" alt="users"
                                   class="rounded-circle" width="40" /></div>
                               {% else %}
                               <div class="user-pic"><img src="{% static '/image/1.jpg' %}" alt="users"
@@ -52,15 +52,15 @@
                                 <div class="user-content hide-menu m-l-10">
                                     <a href="#" class="" id="Userdd" role="button"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <h5 class="m-b-0 user-name font-medium">{{customer.user.get_full_name}}<i
+                                        <h5 class="m-b-0 user-name font-medium">{{teacher.user.get_full_name}}<i
                                                 class="fa fa-angle-down"></i></h5>
-                                        <span class="op-5 user-email">{{customer.user.email}}</span>
+                                        <span class="op-5 user-email">{{teacher.user.email}}</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
-                                        <a type="button" class="dropdown-item" href="javascript:void(0)" href="{% url 'teacherdashboard-profile' %}"><i
+                                        <a type="button" class="dropdown-item"  href="{% url 'teacherdashboard-profile' %}"><i
                                                 class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                         <div class="dropdown-divider"></div>
-                                        <a type="button" class="dropdown-item" href="javascript:void(0)" href="{% url 'logout' %}"><i
+                                        <a type="button" class="dropdown-item"  href="{% url 'logout' %}"><i
                                                 class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                     </div>
                                 </div>
@@ -136,7 +136,12 @@
                                 <center class="m-t-30"> 
                                     {% if teacher.profile_pic %}
                                     <div class="user-pic">
-                                        <img src="{% static '/assetss/images/users/5.jpg' %}"
+                                        <img src="{{teacher.profile_pic.url}}"
+                                        class="rounded-circle" width="150" />
+                                    </div>
+                                    {% else %}
+                                    <div class="user-pic">
+                                        <img src="{% static '/assetss/images/users/1.jpg' %}"
                                         class="rounded-circle" width="150" />
                                     </div>
                                     {% endif %}
@@ -168,12 +173,17 @@
                             <div class="card-body">
                                 <form class="form-horizontal form-material mx-2">
                                  {% csrf_token %}
-                                    <div class="form-group">
-                                        <label class="col-md-12">Full Name</label>
-                                        <div class="col-md-12">
-                                                {% render_field form.first_name type="name" class="form-control form-control-line" %}
-                                            </div>
+                                 <div class="form-group">
+                                    <label class="col-md-12">First Name</label>
+                                    <div class="col-md-12">
+                                        {% render_field form.first_name type="name" class="form-control form-control-line" %}
                                     </div>
+                                </div> <div class="form-group">
+                                    <label class="col-md-12">Last Name</label>
+                                    <div class="col-md-12">
+                                    {% render_field form.last_name type="name" class="form-control form-control-line"  %}
+                                    </div>
+                                </div>
 
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-12">Email</label>
@@ -200,7 +210,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Field Of Study</label>
                                         <div class="col-md-12">
-                                                {% render_field formTeacher.fieldofstudy type="text" class="form-control form-control-line" placeholder="Computer Engineering"  %}
+                                                {% render_field formTeacher.fildOfStudy type="text" class="form-control form-control-line" placeholder="Computer Engineering"  %}
                                         </div>
                                     </div>
 
@@ -310,16 +320,16 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="{% static '/assets/libs/jquery/dist/jquery.min.js' %}"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="{% static '/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static '/dist/js/app-style-switcher.js' %}"></script>
-    <!--Wave Effects -->
-    <script src="{% static '/dist/js/waves.js' %}"></script>
-    <!--Menu sidebar -->
-    <script src="{% static '/dist/js/sidebarmenu.js' %}"></script>
-    <!--Custom JavaScript -->
-    <script src="{% static '/dist/js/custom.js' %}"></script>
+   
 </body>
-
+<script src="{% static '/assetss/libs/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{% static '/assetss/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/distt/js/app-style-switcher.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static '/distt/js/waves.js' %}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static '/distt/js/sidebarmenu.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static '/distt/js/custom.js' %}"></script>
 </html>
