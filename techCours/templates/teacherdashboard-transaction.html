@@ -45,8 +45,8 @@
                         <!-- User Profile-->
                             <!-- User Profile-->
                             <div class="user-profile d-flex no-block dropdown m-t-20">
-                                {% if customer.profile_pic %}
-                              <div class="user-pic"><img src="{{ customer.profile_pic.url }}" alt="users"
+                                {% if teacher.profile_pic %}
+                              <div class="user-pic"><img src="{{ teacher.profile_pic.url }}" alt="users"
                                   class="rounded-circle" width="40" /></div>
                               {% else %}
                               <div class="user-pic"><img src="{% static '/image/1.jpg' %}" alt="users"
@@ -63,7 +63,7 @@
                                         <a type="button" class="dropdown-item"  href="{% url 'teacherdashboard-profile' %}"><i
                                                 class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                         <div class="dropdown-divider"></div>
-                                        <a type="button" class="dropdown-item" href="{% url 'logout' %}"><i
+                                        <a type="button" class="dropdown-item"  href="{% url 'logout' %}"><i
                                                 class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                     </div>
                                 </div>
@@ -128,12 +128,6 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <div class="row">
-                    
-
-                <!-- ============================================================== -->
-                <!-- Information Boxes-->
-                <!-- ============================================================== -->
-
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
@@ -144,7 +138,7 @@
                                             <div class="feed-icon bg-info"> <!--Dayere dor icon-->
                                                 <i class="mdi mdi-note-multiple"></i> <!--khode icon-->
                                             </div>
-                                             5
+                                            {{ allCours.count}}
                                          <!--   <span class="ms-auto font-12 ">Just Now</span> -->
                                         </li>
                                     </ul>
@@ -152,7 +146,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
@@ -160,15 +153,14 @@
                                 <div class="feed-widget">
                                     <ul class="list-style-none feed-body m-0 p-b-20">
                                         <li class="feed-item">
-                                            <div class="feed-icon bg-success"><i class="mdi mdi-sale"></i></div>3
+                                            <div class="feed-icon bg-success"><i class="mdi mdi-sale"></i></div>
+                                            {{ freeCoursSize}}
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
@@ -176,15 +168,14 @@
                                 <div class="feed-widget">
                                     <ul class="list-style-none feed-body m-0 p-b-20">
                                         <li class="feed-item">
-                                            <div class="feed-icon bg-warning"><i class="ti-shopping-cart"></i></div>2
+                                            <div class="feed-icon bg-warning"><i class="ti-shopping-cart"></i></div>
+                                            {{coursePurchasedSize}}
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
@@ -192,15 +183,14 @@
                                 <div class="feed-widget">
                                     <ul class="list-style-none feed-body m-0 p-b-20">
                                         <li class="feed-item">
-                                            <div class="feed-icon btn-orange"><i class="mdi mdi-square-inc-cash"></i></div>1,800,000T
+                                            <div class="feed-icon btn-orange"><i class="mdi mdi-square-inc-cash"></i></div>
+                                            {{teacher.wallet}}
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
                 <!-- ============================================================== -->
                 <!-- END !!! Information Boxes-->

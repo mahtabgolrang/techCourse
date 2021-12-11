@@ -229,8 +229,8 @@ def TeacherDashboardProfile(request):
 def teacherDashboardCreateCourse(request):
     teacher = request.user.teacher
     
-    if  not teacher.accepted :
-        return HttpResponseNotFound("<h1>you haven't access for creat a new  course </h1>")
+    # if  not teacher.accepted :
+    #     return HttpResponseNotFound("<h1>you haven't access for creat a new  course </h1>")
     
     if request.method=="POST":
         addCourse =AddCourseForm( request.POST , request.FILES)
@@ -276,7 +276,7 @@ def teacherDashboardTransaction(request):
     #logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
     coursePurchased = allCours.filter(price__gt=0)
     context = {
-        "teaacher": teaacher,
+        "teacher": teaacher,
         "allCours": allCours,
         "freeCours": freeCours,
         "freeCoursSize": len(freeCours),

@@ -71,7 +71,7 @@ class Customer (models.Model):
     user = models.OneToOneField(
         User, null=True, on_delete=models.CASCADE, related_name='customer')
     profile_pic = models.ImageField(null=True, blank=True)
-    course = models.ManyToManyField(Course, related_name='my')
+    course = models.ManyToManyField(Course, related_name='course')
 
     def __str__(self):
         return self.user.username

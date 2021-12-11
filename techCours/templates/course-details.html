@@ -89,16 +89,15 @@
                         {% endfor %}
                       </div>
                     </div>
-                    
                     <div class="col-lg-12">
                       <div class="share">
                         <h5>Download The Course:</h5>
                         {% if user.is_authenticated %}
                           {%if user.customer %}
-                            {% if user.customer.course|in_course= course.id %}
+                            {% if user.customer.course.all|in_course:course.id %}
                             <li><a href="{{course.fileZip.url}}"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">All Of Videos</button></a></li>
 
-                            {{else}}
+                            {% else %}
                             <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">Buy Course</button></a></li>
 
                             {% endif %}
@@ -107,7 +106,6 @@
                         {% else %}
                         {% endif %}
                         <ul>
-
                           <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">All Of Videos</button></a></li>
                           <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">Buy Course</button></a></li>
                         </ul>
