@@ -137,7 +137,7 @@ def test(request):
 @allowed_users("customer")
 def userdashboard(request):
     customer = request.user.customer
-    allCours = customer.course_set.all()
+    allCours = customer.course.all()
     freeCours = allCours.filter(price=0)
     #logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
     coursePurchased = allCours.filter(price__gt=0)
@@ -184,7 +184,7 @@ def userDashboardProfile(request):
 @allowed_users("teacher")
 def teacherDashboard(request):
     teaacher =request.user.teacher
-    allCours = teaacher.course_set.all()
+    allCours = teaacher.course.all()
     freeCours = allCours.filter(price=0)
     #logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
     coursePurchased = allCours.filter(price__gt=0)
@@ -271,7 +271,7 @@ def teacherDashboardResume(request):
 @allowed_users("teacher")
 def teacherDashboardTransaction(request):
     teaacher =request.user.teacher
-    allCours = teaacher.course_set.all()
+    allCours = teaacher.course.all()
     freeCours = allCours.filter(price=0)
     #logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
     coursePurchased = allCours.filter(price__gt=0)
