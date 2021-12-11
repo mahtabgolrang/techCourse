@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator ,PageNotAnInteger , EmptyPage
 # Create your views here.
 from .models import *
-from .forms import CreateUserForm, CreatTeacherForm, EditCustomerForm, UserEditForm, CreatContactUsForm
+from .forms import CreateUserForm, CreatTeacherForm, EditCustomerForm, UserEditForm, CreatContactUsForm, EditTeacherForm
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -180,45 +180,53 @@ def userDashboardProfile(request):
 
     return render(request, 'userdashboard-profile.html', context)
 
+@login_required
+@allowed_users("teacher")
 def teacherDashboard(request):
 
     return render(request, 'teacherdashboard.html')
 
+@login_required
+@allowed_users("teacher")
 def TeacherDashboardProfile(request):
     teacher = request.user.teacher
 
     if request.method == 'POST':
-        formCustomer = EditCustomerForm(
-            request.POST, instance=request.user.customer)
+        formTeacher = EditTeacherForm(
+            request.POST, instance=request.user.teacher)
         formUser = UserEditForm(request.POST, instance=request.user)
-        if formCustomer.is_valid() and formUser.is_valid():
-            formCustomer.save()
+        if formTeacher.is_valid() and formUser.is_valid():
+            formTeacher.save()
             formUser.save()
 
             messages.success(
                 request, 'your profile hase change  ' + request.user.username)
             return redirect("/")
     else:
-        formCustomer = EditCustomerForm(instance=request.user.customer)
+        formTeacher = EditTeacherForm(instance=request.user.teacher)
         formUser = UserEditForm(instance=request.user)
 
     context = {
-        "customer": customer,
-        "formCustomer": formCustomer,
+        "teacher": teacher,
+        "formTeacher": formTeacher,
         "form": formUser
     }
     return render(request, 'teacherdashboard-profile.html')
 
-
+@login_required
+@allowed_users("teacher")
 def teacherDashboardCreateCourse(request):
 
     return render(request, 'teacherdashboard-createcourse.html')
 
-
+@login_required
+@allowed_users("teacher")
 def teacherDashboardResume(request):
 
     return render(request, 'teacherdashboard-resume.html')
 
+@login_required
+@allowed_users("teacher")
 def teacherDashboardTransaction(request):
 
     return render(request, 'teacherdashboard-transaction.html')
