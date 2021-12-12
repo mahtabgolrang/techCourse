@@ -51,15 +51,22 @@ All Course
       <div class="col-lg-12">
         <div class="row">
           <div class="col-lg-12">
-            {% for course in result %}
+            
             <div class="row grid">
+              {% for course in result %}
               <div class="col-lg-4 templatemo-item-col all soon">
                 <div class="meeting-item">
                   <div class="thumb">
                     <div class="price">
                       <span>${{course.price}}</span>
                     </div>
-                    <a href="{% url 'course' course.id %}" role="button"><img src="{{course.course_pic.url}}" alt="Online Teaching"></a>
+                    <a href="{% url 'course' course.id %}" role="button">
+                      {% if course.course_pic %}
+                      <img src="{{course.course_pic.url}}" alt="Online Teaching">
+                      {% else %}
+                      <img src="{% static '/image/Join Us Section.png' %} " >
+                      {% endif %}
+                    </a>
                   </div>
                   <div class="down-content">
                     <div class="date">
@@ -70,9 +77,9 @@ All Course
                   </div>
                 </div>
               </div>
-              
+              {% endfor %}
             </div>
-            {% endfor %}
+           
           </div>
 
           <div class="col-lg-12">
