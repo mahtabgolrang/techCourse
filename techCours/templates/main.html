@@ -78,15 +78,20 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-6">
-        {% for course in showSomeCourse %}
+      <div class="col-lg-8">
         <div class="row">
+        {% for course in showSomeCourse %}
+        
            
-            <div class="col-lg-8">
+            <div class="col-lg-6">
               <div class="meeting-item">
                 <div class="thumb">
                   <div class="price">
+                    {% if course.price  == 0 %}
+                    <span>free</span>
+                    {% else %}
                     <span>${{course.price}}</span>
+                    {%endif%}
                   </div>
                   <a href="{% url 'course' course.id %}" role="button">
 
@@ -108,8 +113,9 @@
                 </div>
               </div>
             </div>
-          </div>
+         
             {% endfor %}
+          </div>
         </div>
       </div>
     </div>
@@ -199,7 +205,7 @@
               <div class="col-12">
                 <div class="count-area-content">
                   <div class="count-digit">{{courseNumber}}</div>
-                  <div class="count-title">Awards</div>
+                  <div class="count-title">All Courses</div>
                 </div>
               </div>
             </div>

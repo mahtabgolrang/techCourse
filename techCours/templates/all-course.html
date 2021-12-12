@@ -58,7 +58,11 @@ All Course
                 <div class="meeting-item">
                   <div class="thumb">
                     <div class="price">
+                      {% if course.price  == 0 %}
+                      <span>free</span>
+                      {% else %}
                       <span>${{course.price}}</span>
+                      {%endif%}
                     </div>
                     <a href="{% url 'course' course.id %}" role="button">
                       {% if course.course_pic %}
