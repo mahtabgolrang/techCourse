@@ -168,7 +168,7 @@ class AddCourseForm(forms.ModelForm):
     
     category=forms.ChoiceField(
         widget=forms.Select,
-        choices=[(choice.pk, choice) for choice in Category.objects.all()],
+        choices=[(categury.pk, categury) for categury in Category.objects.all()],
         required=True,
     )
     category.widget.attrs['class'] = 'form-select shadow-none form-control-line'
