@@ -14,7 +14,7 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=200, null=True)
-    category_pic = models.ImageField(null=True, blank=True)
+    category_pic = models.ImageField(upload_to='category/coverPictures/' ,null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -85,7 +85,7 @@ class Teacher (models.Model):
     user = models.OneToOneField(
         User, null=True, on_delete=models.CASCADE, related_name='teacher')
     profile_pic = models.ImageField(
-        upload_to='teacher/profile/picture', null=True, blank=True)
+        upload_to='teacher/profile/picture/', null=True, blank=True)
     course = models.ManyToManyField(Course, related_name='teacher')
     fildOfStudy = models.CharField(max_length=60, null=True)
     university = models.CharField(max_length=60, null=True)
@@ -97,6 +97,7 @@ class Teacher (models.Model):
         ('p', 'PHD'),
         ('ps', 'PHD Student'),
     )
+    address=models.CharField(max_length=50, null=True)
     lastEducation = models.CharField(
         max_length=2, choices=educations, default='bs')
     documents = models.FileField(

@@ -119,7 +119,7 @@ class CreatTeacherForm(forms.ModelForm):
 
 
 class EditTeacherForm(forms.ModelForm):
-    adress = forms.CharField(widget=forms.TextInput(
+    address = forms.CharField(widget=forms.TextInput(
         attrs={'class': 'form-control form-control-line', 'rows': 3}))
     contry = forms.ChoiceField(
         widget=forms.Select,
@@ -131,10 +131,9 @@ class EditTeacherForm(forms.ModelForm):
         choices=educations,
     )
     lastEducation.widget.attrs['class'] = ' btn btn-secondary dropdown-toggle w-100'
-
     class Meta:
         model = Teacher
-        fields = ['phone','fildOfStudy','university','lastEducation', 'contry', 'adress', 'profile_pic']
+        fields = ['phone','fildOfStudy','university','lastEducation', 'contry', 'address', 'profile_pic']
 
     def clean_phone(self):
         phone = self.cleaned_data['phone'].lower()

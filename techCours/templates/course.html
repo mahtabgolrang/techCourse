@@ -2,6 +2,7 @@
 {% load static %}
 {% load widget_tweaks %}
 {% load urlfy %}
+
 {% block style %}
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
@@ -20,34 +21,13 @@
 
 {% block content %}
   <!-- Sub Header -->
-  <div class="sub-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-sm-8">
-          <div class="left-content">
-            <p></p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-4">
-          <div class="right-icons">
-            <ul>
-              <li><a href="#"><i ></i></a></li>
-              <li><a href="#"><i ></i></a></li>
-              <li><a href="#"><i ></i></a></li>
-              <li><a href="#"><i ></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+ 
   <section class="heading-page header-text" id="top">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <h6>Get all details of courses</h6>
-          <h2>Course Name</h2>
+          <h2>{{course.name}}</h2>
         </div>
       </div>
     </div>
@@ -65,15 +45,20 @@
                     <span>${{course.price}}</span>
                   </div>
                   <div class="date">
-                    <h6>{{course.datepublished|date:"F"}} <span>{{course.datepublished|date:"d"}}</span></h6>
-                  </div>
-                  <a href="{% url 'course' course.id %}"><img src="{{course.course_pic.url}}" alt=""></a>
+                    <h6>{{course.datepublished|date:"F"}} <span>{{course.datepublished|date:"d"}}</span></h6>    
+                    </div>
+                    {% if course.course_pic %}
+                    <a href="#"><img src="{{course.course_pic.url}}" alt=""></a>
+                    {% else %}
+                    <a href="#"><img src="{% static '/assets/images/single-meeting.jpg' %}" alt=""></a>
+                    {%endif%}
+                  
                 </div>
                 <div class="down-content">
-                  <a href="{% url 'course' course.id %}"><h4>{{course.name}}</h4></a>
+                  <a href="#"><h4>{{course.title}}</h4></a>
                   <p class="description">
                     {{course.subTittel}}
-                  </p>
+                       </p>
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="hours">
@@ -84,18 +69,41 @@
                     <div class="col-lg-4">
                       <div class="location">
                         <h5>Teacher</h5>
-                        {% for teacher in course.teacher%}
-                        {{teacher.user.get_full_name}}
+                        {% for teacher in course.teacher.all%}
+                          <P>{{teacher.user.get_full_name}}</P>
                         {% endfor %}
                       </div>
                     </div>
+                    
                     <div class="col-lg-12">
                       <div class="share">
+
+
+
                         <h5>Download The Course:</h5>
-                        {% if user.is_authenticated %}
+                        <ul>
+                          {% if user.is_authenticated %}
                           {%if user.customer %}
                             {% if user.customer.course.all|in_course:course.id %}
-                            <li><a href="{{course.fileZip.url}}"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">All Of Videos</button></a></li>
+                            <li> 
+                              {% if course.fileZip %}
+                              <a href="{{course.fileZip.url}}">
+                                {% endif %}
+                              <button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">All Of Videos</button></a></li>
+
+                            {% else %}
+                            <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">Buy Course</button></a></li>
+
+                            {% endif %}
+                          {%endif%}
+
+                          {%if user.teacher %}
+                            {% if user.teacher.course.all|in_course:course.id %}
+                            <li>
+                              {% if course.fileZip %}
+                              <a href="{{course.fileZip.url}}">
+                                {% endif %}
+                              <button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">All Of Videos</button></a></li>
 
                             {% else %}
                             <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">Buy Course</button></a></li>
@@ -104,10 +112,10 @@
                           {%endif%}
 
                         {% else %}
+                        <p> you need login first</p>
                         {% endif %}
-                        <ul>
-                          <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">All Of Videos</button></a></li>
-                          <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">Buy Course</button></a></li>
+                          <!-- <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">All Of Videos</button></a></li>
+                          <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">Buy Course</button></a></li> -->
                         </ul>
                       </div>
                     </div>
@@ -117,7 +125,7 @@
             </div>
             <div class="col-lg-12">
               <div class="main-button-red">
-                <a href="{% url 'allcourse' %}">Back To course List</a>
+                <a href="meetings.html">Back To course List</a>
               </div>
             </div>
           </div>
@@ -127,9 +135,9 @@
     <div class="footer">
         <p>Copyright © 2022 www.techcoursescu.com 
           <br>
-          Contact Us: <a href="{% url 'main' %}" target="_parent" title="free css templates">Contact Us</a>
+          Contact Us: <a href="#main.html" target="_parent" title="free css templates">Contact Us</a>
           <br>
-          All Courses: <a href="{% url 'allcourse' %}" target="_blank" title="Build Better UI, Faster">All Courses</a>
+          All Courses: <a href="#categories.html" target="_blank" title="Build Better UI, Faster">All Courses</a>
           </p>
       </div>
   </section>

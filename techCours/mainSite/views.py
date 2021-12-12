@@ -130,7 +130,7 @@ def workwithus(request):
 
 def test(request):
 
-    return render(request,"course-details.html")
+    return render(request,"course.html")
 
 
 @login_required
@@ -203,16 +203,19 @@ def teacherDashboard(request):
 def TeacherDashboardProfile(request):
     teacher = request.user.teacher
     if request.method == 'POST':
-        formTeacher = EditTeacherForm(
-            request.POST , request.FILES, instance=request.user.teacher)
+        formTeacher = EditTeacherForm(request.POST , request.FILES, instance=request.user.teacher)
         formUser = UserEditForm(request.POST, instance=request.user)
         if formTeacher.is_valid() and formUser.is_valid():
+            
+
             formTeacher.save()
             formUser.save()
-
+            
             messages.success(
                 request, 'your profile hase change  ' + request.user.username)
-            return redirect("/")
+        else: 
+            messages.error(request , 'somthing worng')   
+     
     else:
         formTeacher = EditTeacherForm(instance=request.user.teacher)
         formUser = UserEditForm(instance=request.user)
@@ -287,15 +290,13 @@ def teacherDashboardTransaction(request):
 
 def courseDetailsView(request,course_id):
     
-    try:
-        course=Course.objects.get(id=course_id)
-    except Course.DoesNotExist:
-        return HttpResponseNotFound("<h1>course dose not exist</h1>")
+    course=Course.objects.get(id=course_id)
+
     context={
-        "coursedetails":course
+        "course":course
     }
 
-    return render(request,"course-details.html",context)
+    return render(request,"course.html",context)
 
 
 def showAllCourse(request):
