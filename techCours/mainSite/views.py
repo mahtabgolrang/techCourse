@@ -290,8 +290,11 @@ def teacherDashboardTransaction(request):
 
 def courseDetailsView(request,course_id):
     
-    course=Course.objects.get(id=course_id)
-
+    try:
+        course=Course.objects.get(id=course_id)
+    except Course.DoesNotExist:
+        return HttpResponseNotFound("<h1>course dose not exist</h1>")
+        
     context={
         "course":course
     }
@@ -300,7 +303,7 @@ def courseDetailsView(request,course_id):
 
 
 def showAllCourse(request):
-    courses = Course.objects.all()
+    courses = Course.objects.filter(stutus='p')
 
     paginator = Paginator(courses ,10)
     page = request.GET.get("page" ,1)
