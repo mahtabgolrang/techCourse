@@ -294,7 +294,9 @@ def courseDetailsView(request,course_id):
         course=Course.objects.get(id=course_id)
     except Course.DoesNotExist:
         return HttpResponseNotFound("<h1>course dose not exist</h1>")
-        
+
+    if course.stutus == 'd':
+        return HttpResponseNotFound("<h1>course dose not published</h1>")  
     context={
         "course":course
     }

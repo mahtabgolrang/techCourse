@@ -46,10 +46,10 @@ user dashboard {{ customer.user.username }}
                                     <span class="op-5 user-email">{{customer.user.email}}</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
-                                    <a type="button" class="dropdown-item" href="javascript:void(0)" href="{% url 'userdashboard-profile' %}"><i
+                                    <a type="button" class="dropdown-item"  href="{% url 'userdashboard-profile' %}"><i
                                             class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                             <div class="dropdown-divider"></div>
-                                    <a type="button" class="dropdown-item" href="javascript:void(0)" href="{% url 'logout' %}"><i
+                                    <a type="button" class="dropdown-item"  href="{% url 'logout' %}"><i
                                             class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                 </div>
                             </div>
@@ -242,4 +242,9 @@ user dashboard {{ customer.user.username }}
             </div>
         </div>
     </div>
+    {% endblock %}
+
+    {% block js %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
     {% endblock %}
