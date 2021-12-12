@@ -91,7 +91,7 @@
                   <a href="{% url 'course' course.id %}" role="button">
 
                     {% if course.course_pic %}
-                    <img src="{{course.course_pic.url}}" alt="Online Teaching" style="width: 407.5px;height:200px;">
+                    <img src="{{course.course_pic.url}}" alt="Online Teaching" style="height:200px;">
                     {% else %}
                     <img src="{% static '/image/Join Us Section.png' %} " >
                     {% endif %}
