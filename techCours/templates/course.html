@@ -74,12 +74,17 @@
                         {% endfor %}
                       </div>
                     </div>
-                    
+                    <div class="col-lg-4">
+                      <div class="book now">
+                        <video width="400" controls>
+                          <source src="mov_bbb.mp4" type="video/mp4">
+                          <source src="mov_bbb.ogg" type="video/ogg">
+                          Your browser does not support HTML video.
+                        </video>
+                      </div>
+                    </div>
                     <div class="col-lg-12">
                       <div class="share">
-
-
-
                         <h5>Download The Course:</h5>
                         <ul>
                           {% if user.is_authenticated %}
