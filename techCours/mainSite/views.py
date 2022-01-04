@@ -130,7 +130,7 @@ def workwithus(request):
 
 def test(request):
 
-    return render(request,"course.html")
+    return render(request,"payment.html")
 
 
 @login_required
@@ -325,3 +325,32 @@ def showAllCourse(request):
         "result":result
     }
     return render(request ,"all-course.html" ,context )        
+
+
+@login_required
+@allowed_users("teacher")
+def payment(request,course_id):
+    try:
+        course=Course.objects.get(id=course_id)
+    except Course.DoesNotExist:
+        return HttpResponseNotFound("<h1>course dose not exist</h1>")
+
+    if course.stutus == 'd':
+        return HttpResponseNotFound("<h1>course dose not published</h1>") 
+
+
+    if request.method=="POST":
+        teacher = course.teacher
+        transaction =Transaction(course = course , price = course.price , customer =request.customer , teacher = teacher)
+        course.dlNumber+=1
+        teacher.wallet +=course.price * 0.8
+        transaction.save()
+        teacher.save()
+        course.save()
+        return HttpResponse(f"<h1>thank you for buy course {course.name} your Tracking Code is {transaction.id}<h1>")
+        
+                
+    context={
+        "course":course
+    }    
+    return render(request,"payment.html",context)

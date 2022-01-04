@@ -25,7 +25,8 @@ urlpatterns = [
          views.teacherDashboardTransaction, name="teacherdashboard-transaction"),
     path('course/<int:course_id>/', views.courseDetailsView, name="course"),
     path('allcourse/', views.showAllCourse, name="allcourse"),
-    path('accounts/' ,include('django.contrib.auth.urls'))
+    path('accounts/' ,include('django.contrib.auth.urls')),
+    path('payment/<int:course_id>/',views.payment ,name="payment")
 
      
 
