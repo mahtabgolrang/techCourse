@@ -186,6 +186,7 @@ def teacherDashboard(request):
     teacher =request.user.teacher
     allCours = teacher.course.all()
     freeCours = allCours.filter(price=0)
+    transaction = teacher.transaction.all()[0:3]
     #logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
     coursePurchased = allCours.filter(price__gt=0)
     context = {
@@ -195,6 +196,7 @@ def teacherDashboard(request):
         "freeCoursSize": len(freeCours),
         "coursePurchased": coursePurchased,
         "coursePurchasedSize": coursePurchased.count(),
+        "transaction":transaction,
     }
     return render(request, 'teacherdashboard.html' , context)
 
@@ -278,6 +280,8 @@ def teacherDashboardTransaction(request):
     freeCours = allCours.filter(price=0)
     #logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
     coursePurchased = allCours.filter(price__gt=0)
+    transaction = teaacher.transaction.all()
+
     context = {
         "teacher": teaacher,
         "allCours": allCours,
@@ -285,6 +289,7 @@ def teacherDashboardTransaction(request):
         "freeCoursSize": len(freeCours),
         "coursePurchased": coursePurchased,
         "coursePurchasedSize": coursePurchased.count(),
+        "transaction":transaction,
     }
     return render(request, 'teacherdashboard-transaction.html' , context)
 

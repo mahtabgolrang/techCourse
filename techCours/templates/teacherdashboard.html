@@ -1,5 +1,7 @@
 {% load static %}
 {% load widget_tweaks %}
+{% load mathfilters %}
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -223,50 +225,35 @@
                         </div>
                         <div class="comment-widgets scrollable">
                             <!-- Comment Row -->
+
+                            {% if transaction %}
+                            {% for t in transaction %}
                             <div class="d-flex flex-row comment-row m-t-0">
-                                <div class="p-2"><img src="{% static '/image/users/1.jpg' %}" alt="user" width="50"
-                                        class="rounded-circle"></div>
+                                <div class="p-2">
+                                    {% if t.customer.profile_pic %}
+                                    <div class="user-pic"><img src="{{t.customer.profile_pic.url}}" alt="users"
+                                        class="rounded-circle" width="50" /></div>
+                                    {% else %}
+                                    <div class="user-pic"><img src="{% static '/image/1.jpg' %}" alt="users"
+                                        class="rounded-circle" width="50" /></div>
+                                    {% endif %}
                                 <div class="comment-text w-100">
-                                    <h6 class="font-medium">James Anderson</h6>
-                                    <span class="m-b-15 d-block">Receive 10,000T </span>
+                                    <h6 class="font-medium">{{t.customer.get_full_name}}</h6>
+                                    <span class="m-b-15 d-block">Receive {{t.price|mul:0.8}} </span>
                                     <div class="comment-footer">
-                                        <span class="text-muted float-end">April 14, 2021</span> <span
-                                            class="label label-rounded label-primary">Course name</span> <span
+                                        <span class="text-muted float-end">{{t.date_created}}</span> <span
+                                            class="label label-rounded label-primary">{{t.course.name}}</span> <span
                                             class="action-icons">
                                         </span>
                                     </div>
                                 </div>
                             </div>
+                            {% endfor %}
+                            {%else%}
+                            <strong>   No Transaction</strong>
+                            {% endif %}
                             <!-- Comment Row -->
-                            <div class="d-flex flex-row comment-row m-t-0">
-                                <div class="p-2"><img src="{% static '/image/users/1.jpg' %}" alt="user" width="50"
-                                        class="rounded-circle"></div>
-                                <div class="comment-text w-100">
-                                    <h6 class="font-medium">James Anderson</h6>
-                                    <span class="m-b-15 d-block">Receive 10,000T </span>
-                                    <div class="comment-footer">
-                                        <span class="text-muted float-end">April 14, 2021</span> <span
-                                            class="label label-rounded label-primary">Course name</span> <span
-                                            class="action-icons">
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Comment Row -->
-                            <div class="d-flex flex-row comment-row m-t-0">
-                                <div class="p-2"><img src="{% static '/image/users/1.jpg' %}" alt="user" width="50"
-                                        class="rounded-circle"></div>
-                                <div class="comment-text w-100">
-                                    <h6 class="font-medium">James Anderson</h6>
-                                    <span class="m-b-15 d-block">Receive 10,000T </span>
-                                    <div class="comment-footer">
-                                        <span class="text-muted float-end">April 14, 2021</span> <span
-                                            class="label label-rounded label-primary">Course name</span> <span
-                                            class="action-icons">
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>

@@ -176,7 +176,7 @@
                     <div class="col-lg-8 col-xlg-9 col-md-7">
                         <div class="card">
                             <div class="card-body">
-                                <form class="form-horizontal form-material mx-2" method="POST">
+                                <form class="form-horizontal form-material mx-2" method="POST"  enctype="multipart/form-data">
                                  {% csrf_token %}
                                  <div class="form-group">
                                     <label class="col-md-12">First Name</label>
@@ -267,7 +267,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Profile Picture</label>
                                         <div class="col-md-12">
-                                           {{ formTeacher.profile_pic }}
+                                            {{ formTeacher.profile_pic }}
                                         </div>
                                     </div>
                                     <div class="form-group">

@@ -227,16 +227,15 @@
                                 </thead>
                                 <tbody>
                                     
-                                    {% for course in allCours %}
-                                        {% for customer in course.customer %}
+                                    {% for t in transaction %}
 
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 
                                                 <div class="m-r-10">
-                                                    {% if customer.profile_pic %}
-                                                    <div class="user-pic"><img src="{{ customer.profile_pic.url }}" alt="users"
+                                                    {% if t.customer.profile_pic %}
+                                                    <div class="user-pic"><img src="{{ t.customer.profile_pic.url }}" alt="users"
                                                         class="rounded-circle" width="40" /></div>
                                                     {% else %}
                                                     <div class="user-pic"><img src="{% static '/image/1.jpg' %}" alt="users"
@@ -244,13 +243,12 @@
                                                     {% endif %}                                                </div>
                                             </div>
                                         </td>
-                                        <td>{{course.name}}</td>
+                                        <td>{{t.course.name}}</td>
                                         
-                                        <td>{{course.price|mul:0.8}}</td>
+                                        <td>{{t.price|mul:0.8}}</td>
                                         
                                     </tr>
                                         {% endfor %}
-                                    {% endfor %}
 
 
                                 </tbody>
