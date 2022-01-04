@@ -135,7 +135,7 @@ class Transaction(models.Model):
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     price =models.FloatField(default=0)
     course = models.ManyToManyField(Course, related_name='transaction')
-    tacher = models.ManyToManyField(Teacher, related_name='transaction')
+    teacher = models.ManyToManyField(Teacher, related_name='transaction')
     customer= models.ManyToManyField(Customer, related_name='transaction')
     class Meta:
         ordering = ["-date_created"]

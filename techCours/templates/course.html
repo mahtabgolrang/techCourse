@@ -76,11 +76,16 @@
                     </div>
                     <div class="col-lg-4">
                       <div class="book now">
+                        {% if  course.video%}
+                        
                         <video width="400" controls>
-                          <source src="mov_bbb.mp4" type="video/mp4">
-                          <source src="mov_bbb.ogg" type="video/ogg">
+
+                          <source src="course.video.url" type="video/mp4">
                           Your browser does not support HTML video.
                         </video>
+                        
+                        {% endif %}
+                        
                       </div>
                     </div>
                     <div class="col-lg-12">
@@ -89,15 +94,16 @@
                         <ul>
                           {% if user.is_authenticated %}
                           {%if user.customer %}
-                            {% if user.customer.course.all|in_course:course.id %}
+
+                            {% if userBuy%}
                             <li> 
                               {% if course.fileZip %}
                               <a href="{{course.fileZip.url}}">
-                                {% endif %}
+                              {% endif %}
                               <button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">All Of Videos</button></a></li>
 
                             {% else %}
-                            <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">Buy Course</button></a></li>
+                            <li><a href="{% url 'payment' course.id %}"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">Buy Course</button></a></li>
 
                             {% endif %}
                           {%endif%}
@@ -109,10 +115,6 @@
                               <a href="{{course.fileZip.url}}">
                                 {% endif %}
                               <button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">All Of Videos</button></a></li>
-
-                            {% else %}
-                            <li><a href="#"><button style="background-color: #a12c2f;border-radius: 22px;color:white ;border: none;">Buy Course</button></a></li>
-
                             {% endif %}
                           {%endif%}
 

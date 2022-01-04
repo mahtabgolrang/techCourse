@@ -234,16 +234,30 @@
                                             <div class="d-flex align-items-center">
                                                 
                                                 <div class="m-r-10">
-                                                    {% if t.customer.profile_pic %}
-                                                    <div class="user-pic"><img src="{{ t.customer.profile_pic.url }}" alt="users"
-                                                        class="rounded-circle" width="40" /></div>
+                                                    {% for customer in t.customer.all %}
+                                                    {% if customer.profile_pic %}
+                                                    <div class="user-pic"><img src="{{ customer.profile_pic.url }}" alt="users"
+                                                        class="rounded-circle" width="40" />
+                                                        <span> {{customer.user.get_full_name}}</span>  
+                                                    </div>
                                                     {% else %}
                                                     <div class="user-pic"><img src="{% static '/image/1.jpg' %}" alt="users"
-                                                        class="rounded-circle" width="40" /></div>
-                                                    {% endif %}                                                </div>
+                                                        class="rounded-circle" width="40" />
+                                                        <span> {{customer.user.get_full_name}}</span>  
+                                                    </div>
+                                                    {% endif %}  
+                                                    {% endfor %}
+
+
+                                                               
+                                                                                </div>
                                             </div>
                                         </td>
-                                        <td>{{t.course.name}}</td>
+                                        {% for course in t.course.all %}
+                                        <td>{{course.name}}</td>
+                                        
+                                        {% endfor %}
+                               
                                         
                                         <td>{{t.price|mul:0.8}}</td>
                                         

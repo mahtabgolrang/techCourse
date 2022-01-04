@@ -204,30 +204,50 @@ user dashboard {{ customer.user.username }}
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for course in allCours %}
+                                    {% for t in allCours %}
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <div class="m-r-10">
+                                                    {% for course in t.course.all %}
                                                     {% if course.course_pic %}
-                                                    <img src="{{ course.course_pic.url }}"/>
+                                                    <div class="user-pic"><img src="{{course.course_pic.url}}" alt="users"
+                                                         width="50" /></div>
                                                     {% endif %}
+                                                    {% endfor %}
+
+                                                    
                                                 </div>
                                                 <div class="">
-                                                    <h4 class="m-b-0 font-16">{{ course.name }}</h4>
+                                                    {% for course in t.course.all %}
+                                                        <h4 class="m-b-0 font-16">{{ course.name }}</h4>
+                                                     {% endfor %}
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>{{ course.teacher.user.get_full_name }}</td>
-                                        <td>{{ course.category.name }}</td>
+                                        {% for teacher in t.teacher.all %}
+                                        <td>{{ teacher.user.get_full_name }}</td>
+                                        {% endfor %} 
+                                        {% for course in t.course.all %}
+                                        {% for category in course.category.all %}
+                                        <td>{{ category.name }}</td>
+                                        {% endfor %}
+                                        
+                                        {% endfor %}
+                                       
                                         <!-- serach object in template -->
                                         <td>
+                                            {% for course in t.course.all %}
                                             {{course.duration}}
+                                            {% endfor %}
                                         </td>
-                                        <td>{{course.price}}</td>
+                                        <td>{{t.price}}</td>
+                                        <td>{{t.date_created}} </td>
                                         <td>
-                                            <button class="label label-info"><a href={{course.fileZip.url}} style="color: white;text-decoration: none;">View Course</a></button>
-                                        </td>
+                                            {% for course in t.course.all %}
+                                                 <button class="label label-info"><a href={{course.fileZip.url}} style="color: white;text-decoration: none;">Download Course</a></button>
+                                             {% endfor %}
+                                                </td>
                                     </tr>
                                     {% endfor %}
                                     {% else %}

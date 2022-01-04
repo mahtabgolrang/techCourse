@@ -137,9 +137,10 @@ def test(request):
 @allowed_users("customer")
 def userdashboard(request):
     customer = request.user.customer
-    allCours = customer.course.all()
+
+    allCours = customer.transaction.all()
     freeCours = allCours.filter(price=0)
-    #logger.error(f'\n\n\n\n  {allCours}  --------------\n\n\n\n')
+    
     coursePurchased = allCours.filter(price__gt=0)
     context = {
         "customer": customer,
@@ -301,10 +302,23 @@ def courseDetailsView(request,course_id):
         return HttpResponseNotFound("<h1>course dose not exist</h1>")
 
     if course.stutus == 'd':
-        return HttpResponseNotFound("<h1>course dose not published</h1>")  
-    context={
-        "course":course
-    }
+        return HttpResponseNotFound("<h1>course dose not published</h1>") 
+    customer = request.user.customer
+    if customer :
+        tr = customer.transaction.all()
+        cr =tr.filter(course__id__exact=course_id) 
+        if len(cr)>0:
+            userBuy= True
+        else :
+            userBuy=False
+        context={
+        "course":course,
+        "userBuy":userBuy,
+    } 
+    else:          
+        context={
+          "course":course
+        }
 
     return render(request,"course.html",context)
 
@@ -328,7 +342,7 @@ def showAllCourse(request):
 
 
 @login_required
-@allowed_users("teacher")
+@allowed_users("customer")
 def payment(request,course_id):
     try:
         course=Course.objects.get(id=course_id)
@@ -338,19 +352,28 @@ def payment(request,course_id):
     if course.stutus == 'd':
         return HttpResponseNotFound("<h1>course dose not published</h1>") 
 
+    customer = request.user.customer
 
     if request.method=="POST":
-        teacher = course.teacher
-        transaction =Transaction(course = course , price = course.price , customer =request.customer , teacher = teacher)
+        course=Course.objects.get(id=course_id)
+        teacher = course.teacher.all()[0]
+        transaction =Transaction(price = course.price)
+        transaction.save()
+        transaction.course.add(course)
+        transaction.tacher.add(teacher)
+        transaction.customer.add(customer)
+        transaction.save()
+
         course.dlNumber+=1
         teacher.wallet +=course.price * 0.8
-        transaction.save()
+        
         teacher.save()
         course.save()
         return HttpResponse(f"<h1>thank you for buy course {course.name} your Tracking Code is {transaction.id}<h1>")
         
-                
+    
+
     context={
-        "course":course
+        "course":course,
     }    
     return render(request,"payment.html",context)

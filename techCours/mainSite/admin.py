@@ -30,3 +30,5 @@ class adminTeacher(admin.ModelAdmin):
 @admin.register(ContactUs)
 class adminCustomer(admin.ModelAdmin):
     list_display = ['name', 'email' , 'subject']
+    
+admin.site.register(Transaction)
