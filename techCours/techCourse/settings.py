@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'mainSite',
     'widget_tweaks',
     'mathfilters',
+    'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
