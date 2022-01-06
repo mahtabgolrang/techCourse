@@ -51,20 +51,23 @@
                               <div class="user-pic"><img src="{% static '/image/1.jpg' %}" alt="users"
                                   class="rounded-circle" width="40" /></div>
                               {% endif %}
-                                <div class="user-content hide-menu m-l-10">
-                                    <a href="#" class="" id="Userdd" role="button"
-                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <h5 class="m-b-0 user-name font-medium">{{teacher.user.get_full_name}}<i
-                                                class="fa fa-angle-down"></i></h5>
-                                        <span class="op-5 user-email">{{teacher.user.email}}</span>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
-                                        <a type="button" class="dropdown-item" href="{% url 'teacherdashboard-profile' %}"><i
-                                                class="ti-user m-r-5 m-l-5"></i> My Profile</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a type="button" class="dropdown-item" href="{% url 'logout' %}"><i
-                                                class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
-                                    </div>
+                              <div class="user-content hide-menu m-l-10">
+                                <a href="#" class="" id="Userdd" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <h5 class="m-b-0 user-name font-medium">{{teacher.user.get_full_name}}<i
+                                            class="fa fa-angle-down"></i></h5>
+                                    <span class="op-5 user-email">{{teacher.user.email}}</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
+                                    <a type="button" class="dropdown-item" href="{% url 'teacherdashboard-profile' %}"><i
+                                            class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a type="button" class="dropdown-item"  href="{% url 'logout' %}"><i
+                                            class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                    <a type="button" class="dropdown-item"  href="{% url 'logout' %}"><i
+                                                class="fa fa-power-off m-r-5 m-l-5"></i> change my password</a>    
+                                            
+                                </div>
                                 </div>
                             </div>
     
