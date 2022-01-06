@@ -369,6 +369,16 @@ def payment(request,course_id):
         
         teacher.save()
         course.save()
+        
+        
+        subject = 'Welcome to techCourse'
+        message = f'''Hi {customer.user.first_name}
+                    You are successfully registered with the user name {customer.user.username}
+                    We are so happy that you have chosen us. Here you can learn with us and improve your skills.
+                    Hope you enjoy studying with us,
+                    The techCourse Team.'''
+        send_mail(subject, message, EMAIL_HOST_USER,
+                      [customer.user.email], fail_silently=False)
         return HttpResponse(f"<h1>thank you for buy course {course.name} your Tracking Code is {transaction.id}<h1>")
         
     
