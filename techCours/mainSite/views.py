@@ -380,7 +380,8 @@ def payment(request,course_id):
         send_mail(subject, message, EMAIL_HOST_USER,
                       [customer.user.email], fail_silently=False)
         return HttpResponse(f"<h1>thank you for buy course {course.name} your Tracking Code is {transaction.id}<h1>")
-        
+        #    return redirect('course', course_id=course.id)
+
     
 
     context={
