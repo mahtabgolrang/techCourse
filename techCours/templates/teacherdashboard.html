@@ -234,7 +234,7 @@
                             <div class="d-flex flex-row comment-row m-t-0">
                                 <div class="p-2">
 
-                                    {% for course in t.course.all %}
+                                    {% for customer in t.customer.all %}
                                     {% if customer.profile_pic %}
                                     <div class="user-pic"><img src="{{customer.profile_pic.url}}" alt="users"
                                         class="rounded-circle" width="50" /></div>
@@ -242,6 +242,9 @@
                                     <div class="user-pic"><img src="{% static '/image/1.jpg' %}" alt="users"
                                         class="rounded-circle" width="50" /></div>
                                     {% endif %}
+
+                                    <span> {{customer.user.get_full_name}}</span>  
+
                                     {% endfor %}
 
 
