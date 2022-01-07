@@ -303,8 +303,10 @@ def courseDetailsView(request,course_id):
 
     if course.stutus == 'd':
         return HttpResponseNotFound("<h1>course dose not published</h1>") 
-    customer = request.user.customer
-    if customer :
+    try:
+        
+        customer = request.user.customer
+
         tr = customer.transaction.all()
         cr =tr.filter(course__id__exact=course_id) 
         if len(cr)>0:
@@ -315,11 +317,11 @@ def courseDetailsView(request,course_id):
         "course":course,
         "userBuy":userBuy,
     } 
-    else:          
-        context={
+            
+    except :
+       context={
           "course":course
         }
-
     return render(request,"course.html",context)
 
 
