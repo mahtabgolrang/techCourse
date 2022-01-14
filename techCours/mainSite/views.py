@@ -44,14 +44,14 @@ def registerPage(request):
             user.groups.add(group)
             customer = Customer.objects.create(user=user)
             customer.save()
-            # subject = 'Welcome to techCourse'
-            # message = f'''Hi {user.first_name}
-            #         You are successfully registered with the user name {user.username}
-            #         We are so happy that you have chosen us. Here you can learn with us and improve your skills.
-            #         Hope you enjoy studying with us,
-            #         The techCourse Team.'''
-            # send_mail(subject, message, EMAIL_HOST_USER,
-            #           [user.email], fail_silently=False)
+            subject = 'Welcome to techCourse'
+            message = f'''Hi {user.first_name}
+                    You are successfully registered with the user name {user.username}
+                    We are so happy that you have chosen us. Here you can learn with us and improve your skills.
+                    Hope you enjoy studying with us,
+                    The techCourse Team.'''
+            send_mail(subject, message, EMAIL_HOST_USER,
+                      [user.email], fail_silently=False)
             messages.success(request, 'Account was created for' + username)
             return redirect('main')
 
@@ -483,14 +483,14 @@ def payment(request,course_id):
         course.save()
         
         
-        # subject = 'Welcome to techCourse'
-        # message = f'''Hi {customer.user.first_name}
-        #             You are successfully registered with the user name {customer.user.username}
-        #             We are so happy that you have chosen us. Here you can learn with us and improve your skills.
-        #             Hope you enjoy studying with us,
-        #             The techCourse Team.'''
-        # send_mail(subject, message, EMAIL_HOST_USER,
-        #               [customer.user.email], fail_silently=False)
+        subject = 'buy course form  techCourse'
+        message = f'''Thank you for your purchase
+On behalf of techcourse, I would like to thank you for [buying/using/service {course.name} ]. We sincerely hope that you will continue to enjoy {course.name}
+If you have any questions or if we can further assist you in any way, please feel free to contact me.
+I hope to hear from you soon!
+Thank you once again'''
+        send_mail(subject, message, EMAIL_HOST_USER,
+                      [customer.user.email], fail_silently=False)
        # return HttpResponse(f"<h1>thank you for buy course {course.name} your Tracking Code is {transaction.id}<h1>")
         return redirect('course', course_id=course.id)
         
