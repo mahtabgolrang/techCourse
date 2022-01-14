@@ -1,3 +1,5 @@
+from datetime import datetime
+from urllib import response
 from django.contrib.messages.api import info
 from django.core import paginator
 from django.forms.models import construct_instance
@@ -19,6 +21,12 @@ import logging
 from techCourse.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseNotFound
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.http import FileResponse
+from django.template.loader import get_template
+from django.template import Context
+import cgi
 
 # Create your views here.
 
@@ -299,12 +307,14 @@ def courseDetailsView(request,course_id):
     try:
         course=Course.objects.get(id=course_id)
     except Course.DoesNotExist:
-        return HttpResponseNotFound("<h1>course dose not exist</h1>")
+        return render(request , "course_doesnt_exist.html" )
 
     if course.stutus == 'd':
-        return HttpResponseNotFound("<h1>course dose not published</h1>") 
-    customer = request.user.customer
-    if customer :
+        return render(request , "course_doesnt_published.html" )
+    try:
+        
+        customer = request.user.customer
+
         tr = customer.transaction.all()
         cr =tr.filter(course__id__exact=course_id) 
         if len(cr)>0:
@@ -315,17 +325,35 @@ def courseDetailsView(request,course_id):
         "course":course,
         "userBuy":userBuy,
     } 
-    else:          
-        context={
+            
+    except :
+       context={
           "course":course
         }
-
     return render(request,"course.html",context)
 
 
 def showAllCourse(request):
+    
     courses = Course.objects.filter(stutus='p')
+    # if request.method =="All":
+    #     logger.error("\n\n\n\n\n\n /n/n/n all  /n/n/n \n\n\n\n\n")
+    #     courses = Course.objects.filter(stutus='p')
+       
+    # if request.method == "soon" :
+    #     courses = Course.objects.order_by("-date_created").filter(stutus='p')
+    #     logger.error("\n\n\n\n\n\n /n/n/n kosss anant /n/n/n \n\n\n\n\n")
 
+        
+    # if request.method == "Post":
+    #     courses = Course.objects.order_by("name").filter(stutus='p')
+    #     logger.error("\n\n\n\n\n\n /n/n/n  name /n/n/n  \n\n\n\n\n")
+        
+    # if request.method == "post":
+    #     courses = Course.objects.filter(stutus='p',price__exact=0)[:1]        
+    #     logger.error("\n\n\n\n\n\n  fre  \n\n\n\n\n")
+       
+     
     paginator = Paginator(courses ,10)
     page = request.GET.get("page" ,1)
     try:
@@ -347,8 +375,8 @@ def payment(request,course_id):
     try:
         course=Course.objects.get(id=course_id)
     except Course.DoesNotExist:
-        return HttpResponseNotFound("<h1>course dose not exist</h1>")
-
+        return render(request , "course_doesnt_exist.html" , status=404)
+#course_doesnt_exist.html
     if course.stutus == 'd':
         return HttpResponseNotFound("<h1>course dose not published</h1>") 
 
@@ -360,8 +388,92 @@ def payment(request,course_id):
         transaction =Transaction(price = course.price)
         transaction.save()
         transaction.course.add(course)
-        transaction.tacher.add(teacher)
+        transaction.teacher.add(teacher)
         transaction.customer.add(customer)
+            
+        # from django.template.loader import render_to_string
+        # from django.core.files.storage import FileSystemStorage
+        # from weasyprint import HTML
+   
+        # html_string = render_to_string('customerReport.html', {'transaction': transaction})
+        # html = HTML(string=html_string)
+        # html.write_pdf(target="transaction/"+filename);
+        # fs = FileSystemStorage('/transaction')
+        # with fs.open(filename) as pdf:
+        #     response = HttpResponse(pdf, content_type='application/pdf')
+        #     response['Content-Disposition'] = 'attachment; filename="'+ filename +'"'
+        #     transaction.pdf=pdf
+        # response["Content-Disposition"]=filename
+        # template_path="customerReport.html"
+        # template=get_template(template_path)            
+        # html=template.render(
+        #    { "transaction":transaction}
+        # )
+        # pisa.CreatePDF(html,dest=response)
+        
+        # from io import BytesIO , StringIO
+
+        # result =  StringIO()
+        # templatee = open(filename,'w+b')
+
+        # pdf=pisa.CreatePDF(html,dest=response)
+        # logging.error(f"\n\n\n\n {type(pdf)}  \n\n\n\n")
+        # templatee.close()
+        # converted =result.getvalue()
+        
+        #pdf = pisa.pisaDocument(str(html), dest=result) 
+        #logging.error(f"\n\n\n\n {type(pdf)}  \n\n\n\n")
+
+        # transaction.pdf=response.write(converted)
+
+        
+        # template_name="customerReport.html"        
+        from django.conf import settings
+        # from django.views.generic.base import TemplateView
+        # from wkhtmltopdf.views import PDFTemplateResponse
+        # response = PDFTemplateResponse(
+        #     request=request,
+        #     template=template_name,
+        #     filename=filename,
+        #     context={"transaction":transaction},
+        #     cmd_options={'load-error-handling': 'ignore'})
+        
+        import os 
+        # path = os.path.join(settings.MEDIA_ROOT, 'transaction') 
+        # mode = 0o666
+        # os.makedirs(path,mode=mode , exist_ok = True) 
+        # import subprocess
+        # subprocess.call('dir', shell=True)
+        # with open( path+"\\" + filename, "x") as f:
+        #     f.write(response.rendered_content)
+        #     transaction.pdf=f
+        path = os.path.join(settings.MEDIA_ROOT, 'transaction')
+        filename=path+"/transaction"+\
+                customer.user.username+\
+                    str(datetime.now()).replace(":","-")+".pdf"
+        response=HttpResponse(content_type= 'apllication/pdf')
+        response["content-Disposition"]="attachment;"+filename
+        template_path="customerReport.html"
+        template=get_template(template_path)            
+        html=template.render(
+           { "transaction":transaction}
+        )
+        
+
+    #filename = 'acte_de_naissance_' + str(BirthCertificate.lastname)
+
+        file = open(filename, "w+b")
+        pisaStatus = pisa.CreatePDF(html.encode('utf-8'), dest=file, encoding='utf-8')
+        from django.core.files import File
+
+        file.seek(0)
+        pdf = file.read()
+        transaction.pdf.save("transaction"+\
+                customer.user.username+\
+                    str(datetime.now()).replace(":","-"),File(file))
+        file.close()
+
+        #pisa.CreatePDF(html,des=response)
         transaction.save()
 
         course.dlNumber+=1
@@ -371,16 +483,18 @@ def payment(request,course_id):
         course.save()
         
         
-        subject = 'Welcome to techCourse'
-        message = f'''Hi {customer.user.first_name}
-                    You are successfully registered with the user name {customer.user.username}
-                    We are so happy that you have chosen us. Here you can learn with us and improve your skills.
-                    Hope you enjoy studying with us,
-                    The techCourse Team.'''
-        send_mail(subject, message, EMAIL_HOST_USER,
-                      [customer.user.email], fail_silently=False)
-        return HttpResponse(f"<h1>thank you for buy course {course.name} your Tracking Code is {transaction.id}<h1>")
-        #    return redirect('course', course_id=course.id)
+        # subject = 'Welcome to techCourse'
+        # message = f'''Hi {customer.user.first_name}
+        #             You are successfully registered with the user name {customer.user.username}
+        #             We are so happy that you have chosen us. Here you can learn with us and improve your skills.
+        #             Hope you enjoy studying with us,
+        #             The techCourse Team.'''
+        # send_mail(subject, message, EMAIL_HOST_USER,
+        #               [customer.user.email], fail_silently=False)
+       # return HttpResponse(f"<h1>thank you for buy course {course.name} your Tracking Code is {transaction.id}<h1>")
+        return redirect('course', course_id=course.id)
+        
+        #return response
 
     
 
@@ -388,3 +502,12 @@ def payment(request,course_id):
         "course":course,
     }    
     return render(request,"payment.html",context)
+
+
+def courseDoesntExist(request):
+    
+    
+    return render(request , "course_doesnt_exist.html" , status=404)
+    
+    
+    

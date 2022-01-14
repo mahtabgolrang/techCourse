@@ -63,11 +63,10 @@
                                     <a type="button" class="dropdown-item" href="{% url 'teacherdashboard-profile' %}"><i
                                             class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                     <div class="dropdown-divider"></div>
+                                    <a type="button" class="dropdown-item"  href="{% url 'password_change' %}"><i
+                                                class="fa fa-plus-square m-r-5 m-l-5"></i> change my password</a>    
                                     <a type="button" class="dropdown-item"  href="{% url 'logout' %}"><i
-                                            class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
-                                    <a type="button" class="dropdown-item"  href="{% url 'logout' %}"><i
-                                                class="fa fa-power-off m-r-5 m-l-5"></i> change my password</a>    
-                                            
+                                                class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>        
                                 </div>
                                 </div>
                             </div>
@@ -166,7 +165,7 @@
                                 <small class="text-muted p-t-30 db">Phone</small>
                                 <h6>{{teacher.phone}}</h6>
                                 <small class="text-muted p-t-30 db">Address</small>
-                                <h6>{{teacher.adress}}</h6>
+                                <h6>{{teacher.address}}</h6>
                                 <small class="text-muted p-t-30 db">University</small>
                                 <h6>{{teacher.university}}</h6>
                                 <small class="text-muted p-t-30 db">Field Of Study</small>
@@ -273,6 +272,11 @@
                                             {{ formTeacher.profile_pic }}
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <a type="button" href="{% url 'password_change' %}" class="btn btn-success text-white" >Change My Password</a>
+                                        </div>
+                                      </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success text-white">Update Profile</button>

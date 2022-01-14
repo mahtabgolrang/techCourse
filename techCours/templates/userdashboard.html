@@ -50,9 +50,10 @@ user dashboard {{ customer.user.username }}
                                             class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                             <div class="dropdown-divider"></div>
                                     <a type="button" class="dropdown-item"  href="{% url 'logout' %}"><i
-                                            class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                                class="fa fa-plus-square m-r-5 m-l-5"></i> change my password</a>
                                     <a type="button" class="dropdown-item"  href="{% url 'logout' %}"><i
-                                                class="fa fa-power-off m-r-5 m-l-5"></i> change my password</a>        
+                                            class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                            
                                 </div>
                             </div>
                         </div>
@@ -202,6 +203,7 @@ user dashboard {{ customer.user.username }}
                                         <th class="border-top-0">Date</th>
                                         <!--The date that the student have taken the course-->
                                         <th class="border-top-0"></th>
+                                        <th class="border-top-0"></th>
                                         <!--This empty col is for "view courses like a button or anything !"-->
                                     </tr>
                                 </thead>
@@ -246,8 +248,17 @@ user dashboard {{ customer.user.username }}
                                         <td>{{t.price}}</td>
                                         <td>{{t.date_created}} </td>
                                         <td>
+                                            {%if t.pdf%}
+                                            <button class="label label-info"><a href={{t.pdf.url}} style="color: white;text-decoration: none;">Download pdf Transaction</a></button>
+
+                                            {%endif%}
+
+                                        </td>
+                                        <td>
                                             {% for course in t.course.all %}
+                                            {%if course.fileZip%}
                                                  <button class="label label-info"><a href={{course.fileZip.url}} style="color: white;text-decoration: none;">Download Course</a></button>
+                                             {%endif%}    
                                              {% endfor %}
                                                 </td>
                                     </tr>

@@ -50,10 +50,9 @@
                                             class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                     <div class="dropdown-divider"></div>
                                     <a type="button" class="dropdown-item"  href="{% url 'logout' %}"><i
-                                            class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                                class="fa fa-plus-square m-r-5 m-l-5"></i> change my password</a>    
                                     <a type="button" class="dropdown-item"  href="{% url 'logout' %}"><i
-                                                class="fa fa-power-off m-r-5 m-l-5"></i> change my password</a>    
-                                            
+                                                class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>        
                                 </div>
                             </div>
                         </div>
@@ -234,14 +233,21 @@
                             <div class="d-flex flex-row comment-row m-t-0">
                                 <div class="p-2">
 
-                                    {% for course in t.course.all %}
+                                    {% for customer in t.customer.all %}
                                     {% if customer.profile_pic %}
                                     <div class="user-pic"><img src="{{customer.profile_pic.url}}" alt="users"
-                                        class="rounded-circle" width="50" /></div>
+                                        class="rounded-circle" width="50" />
+                                        <span><strong>{{customer.user.get_full_name}}</strong></span>
+                                    </div>
+                                    
                                     {% else %}
                                     <div class="user-pic"><img src="{% static '/image/1.jpg' %}" alt="users"
-                                        class="rounded-circle" width="50" /></div>
+                                        class="rounded-circle" width="50" />
+                                        <span><strong>{{customer.user.get_full_name}}</strong></span>  
+                                    </div>
+                                    
                                     {% endif %}
+
                                     {% endfor %}
 
 

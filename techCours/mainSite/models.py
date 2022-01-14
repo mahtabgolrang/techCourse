@@ -137,5 +137,7 @@ class Transaction(models.Model):
     course = models.ManyToManyField(Course, related_name='transaction')
     teacher = models.ManyToManyField(Teacher, related_name='transaction')
     customer= models.ManyToManyField(Customer, related_name='transaction')
+    pdf =models.FileField( null=True, blank=True)
+
     class Meta:
         ordering = ["-date_created"]

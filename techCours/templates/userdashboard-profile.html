@@ -51,23 +51,24 @@
                             class="rounded-circle" width="40" /></div>
                         {% endif %}
                          
-                          <div class="user-content hide-menu m-l-10">
-                              <a href="#" class="" id="Userdd" role="button"
-                                  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  <h5 class="m-b-0 user-name font-medium">{{customer.user.get_full_name}} <i
-                                          class="fa fa-angle-down"></i></h5>
-                                  <span class="op-5 user-email">{{customer.user.email}}</span>
-                              </a>
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
-                                  <a type="button" class="dropdown-item"  href="{% url 'userdashboard-profile' %}"><i
-                                          class="ti-user m-r-5 m-l-5"></i> My Profile</a>
-                                          <div class="dropdown-divider"></div>
-                                  <a type="button"  class="dropdown-item"  href="{% url 'logout' %}"><i
-                                          class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                        <div class="user-content hide-menu m-l-10">
+                            <a href="#" class="" id="Userdd" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <h5 class="m-b-0 user-name font-medium">{{customer.user.get_full_name}}<i
+                                        class="fa fa-angle-down"></i></h5>
+                                <span class="op-5 user-email">{{customer.user.email}}</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Userdd">
+                                <a type="button" class="dropdown-item"  href="{% url 'userdashboard-profile' %}"><i
+                                        class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                        <div class="dropdown-divider"></div>
+                                <a type="button" class="dropdown-item"  href="{% url 'password_change' %}"><i
+                                            class="fa fa-plus-square m-r-5 m-l-5"></i> change my password</a>
                                 <a type="button" class="dropdown-item"  href="{% url 'logout' %}"><i
-                                            class="fa fa-power-off m-r-5 m-l-5"></i> change my password</a>
-                                </div>
-                          </div>
+                                        class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                        
+                            </div>
+                        </div>
                       </div>
                       <!-- End User Profile-->
                   </li>
@@ -174,8 +175,13 @@
                               <div class="form-group">
                                   <label class="col-md-12">Profile Picture</label>
                                   <div class="col-md-12">
-                                    {% render_field formCustomer.profile_pic class="form-control form-control-line" %}
+                                     {{formCustomer.profile_pic}}
                                   </div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-12">
+                                    <a type="button" href="{% url 'password_change' %}" class="btn btn-success text-white" >Change My Password</a>
+                                </div>
                               </div>
                               <div class="form-group">
                                   <div class="col-sm-12">
