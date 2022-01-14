@@ -203,6 +203,7 @@ user dashboard {{ customer.user.username }}
                                         <th class="border-top-0">Date</th>
                                         <!--The date that the student have taken the course-->
                                         <th class="border-top-0"></th>
+                                        <th class="border-top-0"></th>
                                         <!--This empty col is for "view courses like a button or anything !"-->
                                     </tr>
                                 </thead>
@@ -247,8 +248,17 @@ user dashboard {{ customer.user.username }}
                                         <td>{{t.price}}</td>
                                         <td>{{t.date_created}} </td>
                                         <td>
+                                            {%if t.pdf%}
+                                            <button class="label label-info"><a href={{t.pdf.url}} style="color: white;text-decoration: none;">Download pdf Transaction</a></button>
+
+                                            {%endif%}
+
+                                        </td>
+                                        <td>
                                             {% for course in t.course.all %}
+                                            {%if course.fileZip%}
                                                  <button class="label label-info"><a href={{course.fileZip.url}} style="color: white;text-decoration: none;">Download Course</a></button>
+                                             {%endif%}    
                                              {% endfor %}
                                                 </td>
                                     </tr>

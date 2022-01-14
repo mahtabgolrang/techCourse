@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th> transaction id  </th>
+            <th> course id </th>
+            <th> course name </th>
+            <th> customer id  </th>
+            <th> customer name  </th>
+            <th> price  </th>
+
+        </tr>
+
+        <tr>
+            <td>{{transaction.id}}</td>
+            {% for course in transaction.course.all%}
+            <td>{{course.id}}</td>
+            <td>{{course.name}}</td>
+            {%endfor%}
+
+            {% for customer in transaction.customer.all%}
+            <td>{{customer.id}}</td>
+            <td>{{customer.user.get_full_name}}</td>
+            {%endfor%}
+
+            <td>{{transaction.price}}</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'mathfilters',
     'crispy_forms',
-
+    'xhtml2pdf'
 ]
 
 MIDDLEWARE = [
