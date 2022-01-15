@@ -20,7 +20,7 @@ pass = heyiamteacher
 
 Student 1
 User = mahtabgole
-pass = sagtorohet
+pass = sagtorohet2
 
 Student 2
 user = lordgolrang

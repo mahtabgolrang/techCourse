@@ -34,16 +34,17 @@
                                         {% csrf_token %} 
                                         <div class="row">
                                             <div class="col-12">
-                                                <div class="form__div"> <input type="text" class="form-control" pattern="[0-9]{16}" placeholder=" " required> <label for="" class="form__label">Card Number</label> </div>
+                                                <div class="form__div"><label for="" class="form__label">Card Number</label> <input type="text" class="form-control" pattern="[0-9]{16}" placeholder=" " required> <br/> </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="form__div"> <input type="text" class="form-control" pattern="[0-9]{2}:[0-3]{1}[0-9]{1}"  placeholder="" required> <label for="" class="form__label">MM : yy</label> </div>
+                                                <div class="form__div"><label for="" class="form__label">MM : yy</label>  <input type="text" class="form-control" pattern="[0-9]{2}:[0-3]{1}[0-9]{1}"  placeholder="" required><br/> </div>
                                             </div>
                                             <div class="col-6">
-                                                <div class="form__div"> <input type="password" class="form-control"pattern="[0-9]{4}" placeholder="" required> <label for="" class="form__label">cvv code</label> </div>
+                                                <div class="form__div"><label for="" class="form__label">cvv code</label> <input type="password" class="form-control"pattern="[0-9]{4}" placeholder="" required> <br/> </div>
                                             </div>
+                                            
                                             <div class="col-12">
-                                                <button type="submit" class="btn btn-primary w-100">Pay</button>
+                                                <button type="submit" class="btn btn-primary w-100" >Pay</button>
                                             </div>
                                         </div>
                                     </form>
@@ -54,7 +55,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <div class="btn btn-primary payment"> Back to the Course </div>
+                <a class="btn btn-primary payment" href="{% url 'course' course.id %}"> Back to the Course </a>
             </div>
         </div>
     </div>
